@@ -1,0 +1,15 @@
+__label__equipment __label__cast-iron How do I fix a cast iron pot that was heated empty for hours?
+__label__oven How does grill/broil mode in a convection oven work?
+__label__sauce __label__indian-cuisine __label__breakfast What are the names of the breakfast spreads used in Indian cuisine?
+__label__chili-peppers __label__spicy-hot How to get the most chili flavour out of a chili pepper?
+__label__bread What is the secret to baking bread with a very fine crumb?
+__label__eggs Are egg whites generally available at the store?
+__label__baking __label__bulk-cooking What are the differences between baking in bulk and baking in smaller amounts?
+__label__teflon I left a non-stick pan on the stove for an hour
+__label__roasting __label__peeling __label__chestnuts How to peel chestnuts?
+__label__roasting __label__beets How do I roast beets to easily remove the skins?
+__label__food-science __label__indian-cuisine Why are Parathas smeared with fat/oil within layers?
+__label__eggs __label__sugar __label__custard __label__pudding Custard Pudding tasting like raw eggs
+__label__substitutions __label__salt __label__curing Is Himalayan pink salt the same as the pink salt used for curing?
+__label__cleaning What is a mild detergent?
+__label__food-safety __label__meat __label__liver Soaking liver in milk: in or out of the fridge?

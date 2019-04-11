@@ -1,0 +1,50 @@
+__label__sauce __label__cheese How much does potato starch affect a cheese sauce recipe?
+__label__food-safety __label__acidity Dangerous pathogens capable of growing in acidic environments
+__label__cast-iron __label__stove How do I cover up the white spots on my cast iron stove?
+__label__restaurant Michelin Three Star Restaurant; but if the chef is not there
+__label__knife-skills __label__dicing Without knife skills, how can I quickly and accurately dice vegetables?
+__label__storage-method __label__equipment __label__bread What's the purpose of a bread box?
+__label__baking __label__food-safety __label__substitutions __label__peanuts how to seperate peanut oil from roasted peanuts at home?
+__label__chocolate American equivalent for British chocolate terms
+__label__baking __label__oven __label__convection Fan bake vs bake
+__label__sauce __label__storage-lifetime __label__acidity __label__mayonnaise Regulation and balancing of readymade packed mayonnaise and other sauces
+__label__tea What kind of tea do you boil for 45minutes?
+__label__baking __label__baking-powder __label__baking-soda __label__leavening How long can batter sit before chemical leaveners lose their power?
+__label__food-safety __label__soup Can I RE-freeze chicken soup after it has thawed?
+__label__sous-vide __label__vacuum Ziploc vacuumed bags expand in sous vide
+__label__baking __label__substitutions __label__syrup What can I use instead of corn syrup?
+__label__vegan __label__almonds __label__almond-milk Does soaking almonds have the same effect as blanching and removing the skins when making almond milk?
+__label__baking __label__cake __label__soda Cake sinks in the middle when baking. Only happens when I make a Coca-Cola Cake
+__label__baking Which plastic wrap is okay for oven use?
+__label__tea Can I dissolve sugar first before steeping tea?
+__label__food-safety __label__salmon Is it safe to eat food that was heated in plastic wrap to the point the plastic wrap flamed?
+__label__flavor __label__spices __label__chemistry Flavor and Chemical Composition of Thyme
+__label__equipment What can I use as a manual hard cheese slicer?
+__label__flour __label__milling Are stone or metal grinding wheels better for flour?
+__label__beans Do fava beans need to cook longer than other kinds of beans?
+__label__baking __label__bread __label__kneading Kneading Bread After Rising
+__label__beef __label__roast __label__gravy __label__roast-beef Extraordinary Beef Gravy?
+__label__baking __label__bread __label__crust How to heat up already baked french bread in oven to get a crispy crust
+__label__chocolate Is there a difference in appearance between semi and unsweetened chocolate?
+__label__food-science __label__marinade __label__brining If salt dehydrates the meat, then why would brining make it more juicy as a whole?
+__label__cookies __label__texture __label__american-cuisine How long after baking do American chewy cookies get their normal texture?
+__label__fruit __label__alcohol __label__liqueur Is cooking with fruit liqueur comparable to cooking with fruit juice?
+__label__bread __label__cheese __label__jelly __label__brie Suggestions for Brie + Bread + Preserves
+__label__soup __label__texture __label__standards What is the correct consistency of a cream soup?
+__label__food-science __label__tea Making tea - milk first or tea first
+__label__food-safety __label__salt Sea Salt and Mercury
+__label__cinnamon Cinnamon Thickening
+__label__sauce __label__flavor __label__syrup Basic carrier sauce/syrup for different sweet flavors?
+__label__roasting __label__eggplant What is the 'cleanest' way to roast eggplants indoor?
+__label__rice Cooking and storing rice for a whole week
+__label__dehydrating dehydrating puree food
+__label__soup __label__canning __label__food-processing In industrially produced soup, how does each can contain equal parts of all ingredients?
+__label__flavor __label__microwave __label__popcorn How Is Microwave Popcorn Flavoured?
+__label__culinary-uses __label__vegetables __label__eggplant What can I do with under-ripe eggplant?
+__label__water __label__cocktails __label__whiskey Whiskey and Water
+__label__meat __label__ham Wet Cooked Ham Slices
+__label__onions __label__deep-frying __label__restaurant-mimicry Beer Battered Onion Rings -- what makes them look shiny?
+__label__wok Determining a wok's material
+__label__food-safety __label__oil Is cloudy-looking used peanut oil safe?
+__label__oil __label__cleaning __label__coconut __label__olive-oil __label__maintenance To finely spray a thin layer of warm liquid Coconut Oil?
+__label__candy __label__fudge Why Do We 'Simmer' Fudge Instead of 'Boiling' it?

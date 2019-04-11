@@ -1,0 +1,1 @@
+'testthat' removes empty folders when building the package and this folder is needed in order to save the results of the tests ( otherwise during package-checking I'll receive an error ). The data are saved in the 'fastText.Rcheck' folder which is created in any case in the user's workspace.
