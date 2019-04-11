@@ -1,13 +1,13 @@
+[![Travis-CI Build Status](https://travis-ci.org/mlampros/fastText.svg?branch=master)](https://travis-ci.org/mlampros/fastText)
+[![codecov.io](https://codecov.io/github/mlampros/fastText/coverage.svg?branch=master)](https://codecov.io/github/mlampros/fastText?branch=master)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mlampros/fastText?branch=master&svg=true)](https://ci.appveyor.com/project/mlampros/fastText/branch/master)
+<a href="https://www.buymeacoffee.com/VY0x8snyh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
 
 
 ## fastText
 <br>
 
-The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the package documentation and Vignette.
-<br><br>
-
-
-A detailed example can be found in my [blog-post]().
+The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in my [blog-post](http://mlampros.github.io/2019/04/11/fastText_updated_version/) and in the package documentation.
 
 <br>
 
