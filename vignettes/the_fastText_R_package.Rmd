@@ -137,7 +137,7 @@ setwd('fastText_data')                  # make the extracted data the default di
 # cbow
 #------
 
-library(fastTextR)
+library(fastText)
 
 list_params = list(command = 'cbow', 
                    lr = 0.1, 
@@ -426,7 +426,7 @@ To compute vector representations of sentences or paragraphs use the following c
 # print-sentence-vectors function
 #--------------------------------
 
-library(fastTextR)
+library(fastText)
 
 list_params = list(command = 'print-sentence-vectors',
                    model = file.path(tempdir(), 'model_cooking.bin'))

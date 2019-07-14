@@ -15,7 +15,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #' This function allows the user to run the various methods included in the fasttext library from within R
 #' @references
 #' https://github.com/facebookresearch/fastText
-#' 
+#'
 #' https://github.com/facebookresearch/fastText/blob/master/docs/supervised-tutorial.md
 #' @export
 #' @examples
@@ -23,8 +23,8 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #' \donttest{
 #'
 #' library(fastText)
-#' 
-#' 
+#'
+#'
 #' ####################################################################################
 #' # If the user intends to run the following examples then he / she must replace     #
 #' # the 'input', 'output', 'path_input', 'path_output', 'model' and 'test_data' file #
@@ -169,7 +169,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #'                    output = tempdir(), verbose = 2, thread = 1,
 #'                    minn = 2, maxn = 2)
 #'
-#' res = fasttext_interface(list_params, 
+#' res = fasttext_interface(list_params,
 #'                          path_output = file.path(tempdir(), "ngram_out.txt"),
 #'                          MilliSecs = 5)
 #'
@@ -178,7 +178,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #'                    word = 'word')                           # print n-grams for specific word
 #'
 #' res = fasttext_interface(list_params, path_output = "")             # print output to console
-#' res = fasttext_interface(list_params, 
+#' res = fasttext_interface(list_params,
 #'                          path_output = file.path(tempdir(), "NGRAMS.txt"))   # output to file
 #'
 #'
@@ -191,7 +191,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #'                    k = 20,
 #'                    query_word = 'word')          # a 'query_word' is required
 #'
-#' res = fasttext_interface(list_params, 
+#' res = fasttext_interface(list_params,
 #'                          path_output = file.path(tempdir(), "nn_output.txt"))
 #'
 #'
@@ -220,13 +220,13 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #'
 #' }
 
-fasttext_interface = function(list_params, 
-                              path_output = "", 
-                              MilliSecs = 100, 
-                              path_input = "", 
+fasttext_interface = function(list_params,
+                              path_output = "",
+                              MilliSecs = 100,
+                              path_input = "",
                               remove_previous_file = TRUE,
                               print_process_time = FALSE) {
-  
+
   if (print_process_time) { start = Sys.time() }
 
   if (!'command' %in% names(list_params)) stop("The input 'list_params' argument should include the 'command' parameter!", call. = F)
@@ -331,7 +331,7 @@ fasttext_interface = function(list_params,
     }
     give_args_fasttext(input_args, path_output, MilliSecs, "", "", remove_previous_file)
   }
-  
+
   if (print_process_time) {
     end = Sys.time()
     t = end - start
@@ -349,18 +349,18 @@ fasttext_interface = function(list_params,
 #' @param command a character string specifying the command for which the parameters should be printed in the R session
 #' @references
 #' https://github.com/facebookresearch/fastText#full-documentation
-#' 
+#'
 #' https://github.com/facebookresearch/fastText/issues/341#issuecomment-339783130
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' print_parameters(command = 'supervised')
-#' 
+#'
 
 print_parameters = function(command = 'supervised') {
-  
+
   try_c = tryCatch(give_args_fasttext(args = c('fasttext', command)), error = function(e) e)
   invisible()
 }
@@ -439,9 +439,9 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 #' @examples
 #'
 #' \donttest{
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' #-----------------------------------------------------------------
 #' # the 'progress_data.txt' file corresponds to the 'path_output'
 #' # parameter of the 'fasttext_interface()'. Therefore the user has
@@ -457,7 +457,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 plot_progress_logs = function(path_logs = "progress_data.txt",
                               plot = FALSE) {
 
-  data = utils::read.table(path_logs, quote="\"", comment.char="", header = F, stringsAsFactors = F)
+  data = utils::read.table(path_logs, quote="\"", comment.char="", header = F, stringsAsFactors = F, fill = T)
 
   progress_ = as.vector(data$V2)
   progress_ = as.vector(sapply(progress_, function(x) as.numeric(strsplit(x, '%'))))
