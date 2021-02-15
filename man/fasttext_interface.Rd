@@ -4,9 +4,14 @@
 \alias{fasttext_interface}
 \title{Interface for the fasttext library}
 \usage{
-fasttext_interface(list_params, path_output = "", MilliSecs = 100,
-  path_input = "", remove_previous_file = TRUE,
-  print_process_time = FALSE)
+fasttext_interface(
+  list_params,
+  path_output = "",
+  MilliSecs = 100,
+  path_input = "",
+  remove_previous_file = TRUE,
+  print_process_time = FALSE
+)
 }
 \arguments{
 \item{list_params}{a list of valid parameters}
@@ -29,7 +34,7 @@ This function allows the user to run the various methods included in the fasttex
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 library(fastText)
 
@@ -178,7 +183,7 @@ list_params = list(command = 'skipgram', lr = 0.1, dim = 200,
                    output = tempdir(), verbose = 2, thread = 1,
                    minn = 2, maxn = 2)
 
-res = fasttext_interface(list_params, 
+res = fasttext_interface(list_params,
                          path_output = file.path(tempdir(), "ngram_out.txt"),
                          MilliSecs = 5)
 
@@ -187,7 +192,7 @@ list_params = list(command = 'print-ngrams',
                    word = 'word')                           # print n-grams for specific word
 
 res = fasttext_interface(list_params, path_output = "")             # print output to console
-res = fasttext_interface(list_params, 
+res = fasttext_interface(list_params,
                          path_output = file.path(tempdir(), "NGRAMS.txt"))   # output to file
 
 
@@ -200,7 +205,7 @@ list_params = list(command = 'nn',
                    k = 20,
                    query_word = 'word')          # a 'query_word' is required
 
-res = fasttext_interface(list_params, 
+res = fasttext_interface(list_params,
                          path_output = file.path(tempdir(), "nn_output.txt"))
 
 

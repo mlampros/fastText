@@ -14,10 +14,12 @@ Print the parameters for a specific command
 }
 \examples{
 
+\dontrun{
+
 library(fastText)
 
 print_parameters(command = 'supervised')
-
+}
 }
 \references{
 https://github.com/facebookresearch/fastText#full-documentation

@@ -16,7 +16,7 @@ Plot the progress of loss, learning-rate and word-counts
 }
 \examples{
 
-\donttest{
+\dontrun{
 
 library(fastText)
 

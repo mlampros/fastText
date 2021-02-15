@@ -4,8 +4,14 @@
 \alias{give_args_fasttext}
 \title{The Rcpp function which is used in the 'fasttext_interface' R function}
 \usage{
-give_args_fasttext(args, pth = "", MilliSecs = 100L, pth_in = "",
-  queryWord = "", remove_previous_file = TRUE)
+give_args_fasttext(
+  args,
+  pth = "",
+  MilliSecs = 100L,
+  pth_in = "",
+  queryWord = "",
+  remove_previous_file = TRUE
+)
 }
 \description{
 The Rcpp function which is used in the 'fasttext_interface' R function

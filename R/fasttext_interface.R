@@ -20,7 +20,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #' @export
 #' @examples
 #'
-#' \donttest{
+#' \dontrun{
 #'
 #' library(fastText)
 #'
@@ -354,10 +354,12 @@ fasttext_interface = function(list_params,
 #' @export
 #' @examples
 #'
+#' \dontrun{
+#'
 #' library(fastText)
 #'
 #' print_parameters(command = 'supervised')
-#'
+#' }
 
 print_parameters = function(command = 'supervised') {
 
@@ -438,7 +440,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 #' @export
 #' @examples
 #'
-#' \donttest{
+#' \dontrun{
 #'
 #' library(fastText)
 #'
