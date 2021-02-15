@@ -1,6 +1,6 @@
-[![Travis-CI Build Status](https://travis-ci.org/mlampros/fastText.svg?branch=master)](https://travis-ci.org/mlampros/fastText)
+
+[![tic](https://github.com/mlampros/fastText/workflows/tic/badge.svg?branch=master)](https://github.com/mlampros/fastText/actions)
 [![codecov.io](https://codecov.io/github/mlampros/fastText/coverage.svg?branch=master)](https://codecov.io/github/mlampros/fastText?branch=master)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/mlampros/fastText?branch=master&svg=true)](https://ci.appveyor.com/project/mlampros/fastText/branch/master)
 <a href="https://www.buymeacoffee.com/VY0x8snyh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
 
 
