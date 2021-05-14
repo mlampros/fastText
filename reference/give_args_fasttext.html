@@ -95,6 +95,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/language_identification.html">Language Identification using the 'fastText' package (a Benchmark)</a>
+    </li>
+    <li>
       <a href="../articles/the_fastText_R_package.html">Functionality of the fastText R package</a>
     </li>
   </ul>
@@ -136,7 +139,38 @@
   remove_previous_file <span class='op'>=</span> <span class='cn'>TRUE</span>
 <span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>args</th>
+      <td><p>the arguments that will be passed to the function in form of a character vector</p></td>
+    </tr>
+    <tr>
+      <th>pth</th>
+      <td><p>a character string specifying the path where the process-logs (or output in generally) should be saved</p></td>
+    </tr>
+    <tr>
+      <th>MilliSecs</th>
+      <td><p>an integer specifying the delay in milliseconds when printing the results to the specified path_output</p></td>
+    </tr>
+    <tr>
+      <th>pth_in</th>
+      <td><p>a character string specifying the path to the input data file</p></td>
+    </tr>
+    <tr>
+      <th>queryWord</th>
+      <td><p>either an empty string or the queryword that should be passed to the function</p></td>
+    </tr>
+    <tr>
+      <th>remove_previous_file</th>
+      <td><p>a boolean. If TRUE, in case that the path_output is not an empty string (""), then an existing file with the same output name will be removed</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>It does not return a value but only saves the results to a file</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

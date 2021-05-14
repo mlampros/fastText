@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Print Usage Information when the command equals to 'predict' or 'predict-prob' — printPredictUsage • fastText</title>
+<title>Language Identification using fastText — language_identification • fastText</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Print Usage Information when the command equals to 'predict' or 'predict-prob' — printPredictUsage" />
-<meta property="og:description" content="Print Usage Information when the command equals to 'predict' or 'predict-prob'" />
+<meta property="og:title" content="Language Identification using fastText — language_identification" />
+<meta property="og:description" content="Language Identification using fastText" />
 
 
 
@@ -121,35 +121,87 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Print Usage Information when the command equals to 'predict' or 'predict-prob'</h1>
+    <h1>Language Identification using fastText</h1>
     
-    <div class="hidden name"><code>printPredictUsage.Rd</code></div>
+    <div class="hidden name"><code>language_identification.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Print Usage Information when the command equals to 'predict' or 'predict-prob'</p>
+    <p>Language Identification using fastText</p>
     </div>
 
-    <pre class="usage"><span class='fu'>printPredictUsage</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>language_identification</span><span class='op'>(</span>
+  <span class='va'>input_obj</span>,
+  <span class='va'>pre_trained_language_model_path</span>,
+  k <span class='op'>=</span> <span class='fl'>1</span>,
+  th <span class='op'>=</span> <span class='fl'>0</span>,
+  threads <span class='op'>=</span> <span class='fl'>1</span>,
+  verbose <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>input_obj</th>
+      <td><p>either a valid character string to a valid path where each line represents a different text extract or a vector of text extracts</p></td>
+    </tr>
+    <tr>
+      <th>pre_trained_language_model_path</th>
+      <td><p>a valid character string to the pre-trained language identification model path, for more info see https://fasttext.cc/docs/en/language-identification.html</p></td>
+    </tr>
+    <tr>
+      <th>k</th>
+      <td><p>predict top k labels (1 by default)</p></td>
+    </tr>
+    <tr>
+      <th>th</th>
+      <td><p>probability threshold (0.0 by default)</p></td>
+    </tr>
+    <tr>
+      <th>threads</th>
+      <td><p>an integer specifying the number of threads to run in parallel. This parameter applies only if k &gt; 1</p></td>
+    </tr>
+    <tr>
+      <th>verbose</th>
+      <td><p>if TRUE then information will be printed out in the console</p></td>
+    </tr>
+    </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>It does not return a value but only prints the available parameters of the 'printPredictUsage' function in the R session</p>
+    <p>an object of class data.table which includes two or more columns with the names 'iso_lang_N' and 'prob_N' where 'N' corresponds to 1 to 'k' input parameter</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
+
+    <p>https://fasttext.cc/docs/en/language-identification.html
+https://becominghuman.ai/a-handy-pre-trained-model-for-language-identification-cadd89db9db8</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>fastText</span><span class='op'>)</span>
 
-<span class='fu'>printPredictUsage</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; usage: fasttext predict[-prob] &lt;model&gt; &lt;test-data&gt; [&lt;k&gt;] [&lt;th&gt;]
-#&gt; 
-#&gt;   &lt;model&gt;      model filename
-#&gt;   &lt;test-data&gt;  test data filename (if -, read from stdin)
-#&gt;   &lt;k&gt;          (optional; 1 by default) predict top k labels
-#&gt;   &lt;th&gt;         (optional; 0.0 by default) probability threshold
-#&gt; </div><div class='input'>
-</div></pre>
+<span class='va'>vec_txt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Incapaz de distinguir la luna y la cara de esta chica,
+             Las estrellas se ponen nerviosas en el cielo"</span>,
+             <span class='st'>"Unable to tell apart the moon and this girl's face,
+             Stars are flustered up in the sky."</span><span class='op'>)</span>
+
+<span class='va'>file_pretrained</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"language_identification/lid.176.ftz"</span>, package <span class='op'>=</span> <span class='st'>"fastText"</span><span class='op'>)</span>
+
+<span class='va'>dtbl_out</span> <span class='op'>=</span> <span class='fu'>language_identification</span><span class='op'>(</span>input_obj <span class='op'>=</span> <span class='va'>vec_txt</span>,
+                                   pre_trained_language_model_path <span class='op'>=</span> <span class='va'>file_pretrained</span>,
+                                   k <span class='op'>=</span> <span class='fl'>3</span>,
+                                   th <span class='op'>=</span> <span class='fl'>0.0</span>,
+                                   verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; The 'fasttext' algorithm starts ...
+#&gt; Conversion of the predicted labels and probabilities for k = 3 and threads = 1 ... 
+#&gt; The predicted labels will be loaded from the temporary file ...
+#&gt; The temporary files will be removed ...
+#&gt; Elapsed time: 0 hours and 0 minutes and 0 seconds. </div><div class='input'><span class='va'>dtbl_out</span>
+</div><div class='output co'>#&gt;    iso_lang_1   prob_1 iso_lang_2     prob_2 iso_lang_3     prob_3
+#&gt; 1:         es 0.910368         fr  0.0177581         pt  0.0164652
+#&gt; 2:         es 0.849259         ca  0.0497277         fr  0.0141624
+#&gt; 3:         en 0.927154         pt 0.00641008         ru 0.00501036
+#&gt; 4:         en   0.9014         de  0.0311772         ru 0.00573721</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

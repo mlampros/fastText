@@ -94,6 +94,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/language_identification.html">Language Identification using the 'fastText' package (a Benchmark)</a>
+    </li>
+    <li>
       <a href="../articles/the_fastText_R_package.html">Functionality of the fastText R package</a>
     </li>
   </ul>
@@ -125,6 +128,10 @@
 <h2 class="hasAnchor">
 <a href="#fasttext-100" class="anchor"></a>fastText 1.0.0</h2>
 <ul>
+<li>I’ve added the <em>CITATION</em> file in the ‘inst’ directory</li>
+<li>I’ve added the <strong>language_identification()</strong> function</li>
+<li>
+<strong>20-04-2021</strong> : I’ve added the pre-trained language identification model <strong>lid.176.ftz</strong> which can be downloaded from <a href="https://fasttext.cc/docs/en/language-identification.html" class="uri">https://fasttext.cc/docs/en/language-identification.html</a> In the same website exists also the <strong>lid.176.bin</strong> model which is bigger in size, faster and slightly more accurate.</li>
 <li>
 <strong>14-07-2019</strong> : I fixed typos in vignette and modified the <em>plot_progress_logs()</em> function because it threw an error of the form : <em>line 1 did not have 11 elements</em> ( I added the <em>fill = TRUE</em> parameter to the <em>utils::read.table()</em> function to account for NA’s as described in a <a href="https://stackoverflow.com/a/18161099/8302386">stackoverflow issue</a> )</li>
 </ul>

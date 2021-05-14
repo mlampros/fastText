@@ -40,9 +40,7 @@
 
 
 <meta property="og:title" content="Multiple plot function — multiplot" />
-<meta property="og:description" content="ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-- cols:   Number of columns in layout
-- layout: A matrix specifying the layout. If present, 'cols' is ignored." />
+<meta property="og:description" content="Multiple plot function" />
 
 
 
@@ -97,6 +95,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="../articles/language_identification.html">Language Identification using the 'fastText' package (a Benchmark)</a>
+    </li>
+    <li>
       <a href="../articles/the_fastText_R_package.html">Functionality of the fastText R package</a>
     </li>
   </ul>
@@ -126,19 +127,39 @@
     </div>
 
     <div class="ref-description">
-    <p>ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-- cols:   Number of columns in layout
-- layout: A matrix specifying the layout. If present, 'cols' is ignored.</p>
+    <p>Multiple plot function</p>
     </div>
 
-    <pre class="usage"><span class='fu'>multiplot</span><span class='op'>(</span><span class='va'>...</span>, plotlist <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>file</span>, cols <span class='op'>=</span> <span class='fl'>1</span>, layout <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>multiplot</span><span class='op'>(</span><span class='va'>...</span>, plotlist <span class='op'>=</span> <span class='cn'>NULL</span>, cols <span class='op'>=</span> <span class='fl'>1</span>, layout <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>...</th>
+      <td><p>ellipsis to pass ggplot objects</p></td>
+    </tr>
+    <tr>
+      <th>plotlist</th>
+      <td><p>either NULL or a list of ggplot objects</p></td>
+    </tr>
+    <tr>
+      <th>cols</th>
+      <td><p>Number of columns in layout</p></td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td><p>A matrix specifying the layout. If present, 'cols' is ignored</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>It does not return a value but only shows the ggplots in the R session</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-then plot 1 will go in the upper left, 2 will go in the upper right, and
-3 will go all the way across the bottom.</p>
+    <p>If the layout is something like matrix(c(1,2,3,3), nrow = 2, byrow = TRUE), then plot 1 will
+go in the upper left, 2 will go in the upper right, and 3 will go all the way across the bottom.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/</p>
