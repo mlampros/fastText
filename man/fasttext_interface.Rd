@@ -26,6 +26,9 @@ fasttext_interface(
 
 \item{print_process_time}{a boolean. If TRUE then the processing time of the function will be printed out in the R session}
 }
+\value{
+a vector of class character that includes the parameters and file paths used as input to the function
+}
 \description{
 Interface for the fasttext library
 }

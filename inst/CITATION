@@ -1,0 +1,50 @@
+citHeader("Please cite both the package and the original articles / software in your publications:")
+
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s", meta$Version)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{fastText}: Efficient Learning of Word Representations and Sentence Classification",
+  author  = person("Lampros", "Mouselimis"),
+  year    = year,
+  note    = note,
+  url     = "https://CRAN.R-project.org/package=fastText"
+)
+
+bibentry(
+  bibtype = "Manual",
+  title   = "{fastText}: Library for fast text representation and classification",
+  author  = person("Inc", "Facebook"),
+  year    = 2016,
+  url     = "https://github.com/facebookresearch/fastText"
+)
+
+bibentry(
+  bibtype  = "Article",
+  title    = "Enriching Word Vectors with Subword Information",
+  author   = c(as.person("Piotr Bojanowski"), as.person("Edouard Grave"), as.person("Armand Joulin"), as.person("Tomas Mikolov")),
+  journal  = "Transactions of the Association for Computational Linguistics",
+  year     = "2017",
+  volume   = "5",
+  pages    = "135--146",
+  doi      = "10.1162/tacl_a_00051"
+)
+
+bibentry(
+  bibtype   = "InProceedings",
+  title     = "Bag of Tricks for Efficient Text Classification",
+  author    = c(as.person("Piotr Bojanowski"), as.person("Edouard Grave"), as.person("Armand Joulin"), as.person("Tomas Mikolov")),
+  booktitle = "Proceedings of the 15th Conference of the European Chapter of the Association for Computational Linguistics: Volume 2, Short Papers",
+  year      = "2017",
+  publisher = "Association for Computational Linguistics",
+  pages     = "427--431"
+)
+
+bibentry(
+  bibtype  = "Article",
+  title    = "FastText.zip: Compressing text classification models",
+  author   = c(as.person("Piotr Bojanowski"), as.person("Edouard Grave"), as.person("Armand Joulin"), as.person("Tomas Mikolov"), as.person("Matthijs Douze"), as.person("Herve Jegou")),
+  journal  = "arXiv preprint arXiv:1612.03651",
+  year     = "2016"
+)

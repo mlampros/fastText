@@ -13,6 +13,22 @@ give_args_fasttext(
   remove_previous_file = TRUE
 )
 }
+\arguments{
+\item{args}{the arguments that will be passed to the function in form of a character vector}
+
+\item{pth}{a character string specifying the path where the process-logs (or output in generally) should be saved}
+
+\item{MilliSecs}{an integer specifying the delay in milliseconds when printing the results to the specified path_output}
+
+\item{pth_in}{a character string specifying the path to the input data file}
+
+\item{queryWord}{either an empty string or the queryword that should be passed to the function}
+
+\item{remove_previous_file}{a boolean. If TRUE, in case that the path_output is not an empty string (""), then an existing file with the same output name will be removed}
+}
+\value{
+It does not return a value but only saves the results to a file
+}
 \description{
 The Rcpp function which is used in the 'fasttext_interface' R function
 }

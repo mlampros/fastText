@@ -11,6 +11,9 @@ plot_progress_logs(path_logs = "progress_data.txt", plot = FALSE)
 
 \item{plot}{a boolean specifying if the loss, learning-rate and word-counts should be plotted}
 }
+\value{
+an object of class data.frame that includes the progress logs with columns 'progress', 'words_sec_thread', 'learning_rate' and 'loss'
+}
 \description{
 Plot the progress of loss, learning-rate and word-counts
 }

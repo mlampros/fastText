@@ -6,6 +6,9 @@
 \usage{
 printTestLabelUsage()
 }
+\value{
+It does not return a value but only prints the available parameters of the 'printTestLabelUsage' function in the R session
+}
 \description{
 Print Usage Information when the command equals to 'test-label'
 }

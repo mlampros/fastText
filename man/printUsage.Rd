@@ -6,6 +6,9 @@
 \usage{
 printUsage()
 }
+\value{
+It does not return a value but only prints the available parameters of the 'printUsage' function in the R session
+}
 \description{
 Print Usage Information for all parameters
 }

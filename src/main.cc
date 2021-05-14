@@ -39,15 +39,15 @@ using namespace fasttext;
 
 
 //' Print Usage Information for all parameters
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printUsage() {
   Rcpp::Rcout
@@ -72,15 +72,15 @@ void printUsage() {
 
 
 //' Print Usage Information when the command equals to 'quantize'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printQuantizeUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printQuantizeUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printQuantizeUsage() {
   Rcpp::Rcout << "usage: fasttext quantize <args>" << std::endl;
@@ -88,15 +88,15 @@ void printQuantizeUsage() {
 
 
 //' Print Usage Information when the command equals to 'test'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printTestUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printTestUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printTestUsage() {
   Rcpp::Rcout
@@ -110,15 +110,15 @@ void printTestUsage() {
 
 
 //' Print Usage Information when the command equals to 'predict' or 'predict-prob'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printPredictUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printPredictUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printPredictUsage() {
   Rcpp::Rcout
@@ -132,15 +132,15 @@ void printPredictUsage() {
 
 
 //' Print Usage Information when the command equals to 'test-label'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printTestLabelUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printTestLabelUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printTestLabelUsage() {
   Rcpp::Rcout
@@ -154,15 +154,15 @@ void printTestLabelUsage() {
 
 
 //' Print Usage Information when the command equals to 'print-word-vectors'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printPrintWordVectorsUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printPrintWordVectorsUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printPrintWordVectorsUsage() {
   Rcpp::Rcout << "usage: fasttext print-word-vectors <model>\n\n"
@@ -172,15 +172,15 @@ void printPrintWordVectorsUsage() {
 
 
 //' Print Usage Information when the command equals to 'print-sentence-vectors'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printPrintSentenceVectorsUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printPrintSentenceVectorsUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printPrintSentenceVectorsUsage() {
   Rcpp::Rcout << "usage: fasttext print-sentence-vectors <model>\n\n"
@@ -190,15 +190,15 @@ void printPrintSentenceVectorsUsage() {
 
 
 //' Print Usage Information when the command equals to 'print-ngrams'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printPrintNgramsUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printPrintNgramsUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printPrintNgramsUsage() {
   Rcpp::Rcout << "usage: fasttext print-ngrams <model> <word>\n\n"
@@ -209,15 +209,15 @@ void printPrintNgramsUsage() {
 
 
 //' Print Usage Information when the command equals to 'nn'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printNNUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printNNUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printNNUsage() {
   Rcpp::Rcout << "usage: fasttext nn <model> <k>\n\n"
@@ -228,15 +228,15 @@ void printNNUsage() {
 
 
 //' Print Usage Information when the command equals to 'analogies'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printAnalogiesUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printAnalogiesUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printAnalogiesUsage() {
   Rcpp::Rcout << "usage: fasttext analogies <model> <k>\n\n"
@@ -247,15 +247,15 @@ void printAnalogiesUsage() {
 
 
 //' Print Usage Information when the command equals to 'dump'
-//' 
-//' 
+//'
+//' @return It does not return a value but only prints the available parameters of the 'printDumpUsage' function in the R session
 //' @export
 //' @examples
-//' 
+//'
 //' library(fastText)
-//' 
+//'
 //' printDumpUsage()
-//' 
+//'
 // [[Rcpp::export]]
 void printDumpUsage() {
   Rcpp::Rcout << "usage: fasttext dump <model> <option>\n\n"
@@ -800,8 +800,16 @@ void dump(const std::vector<std::string>& args, std::string pth, bool remove_pre
 
 //' The Rcpp function which is used in the 'fasttext_interface' R function
 //'
+//' @param args the arguments that will be passed to the function in form of a character vector
+//' @param pth a character string specifying the path where the process-logs (or output in generally) should be saved
+//' @param MilliSecs an integer specifying the delay in milliseconds when printing the results to the specified path_output
+//' @param pth_in a character string specifying the path to the input data file
+//' @param queryWord either an empty string or the queryword that should be passed to the function
+//' @param remove_previous_file a boolean. If TRUE, in case that the path_output is not an empty string (""), then an existing file with the same output name will be removed
+//' @return It does not return a value but only saves the results to a file
+//'
 //' @keywords internal
-//' 
+//'
 // [[Rcpp::export]]
 void give_args_fasttext(std::vector<std::string> args,
                         std::string pth = "",

@@ -9,6 +9,9 @@ print_parameters(command = "supervised")
 \arguments{
 \item{command}{a character string specifying the command for which the parameters should be printed in the R session}
 }
+\value{
+It does not return a value but only prints the available parameters in the R session
+}
 \description{
 Print the parameters for a specific command
 }

@@ -2,19 +2,25 @@ Package: fastText
 Type: Package
 Title: Efficient Learning of Word Representations and Sentence Classification
 Version: 1.0.0
-Date: 2019-07-14
-Authors@R: c( person("Lampros", "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre")), person("Facebook", "Inc", role = "cph") )
-Maintainer: Lampros Mouselimis <mouselimislampros@gmail.com>
-Description: An interface to the 'fastText' <https://github.com/facebookresearch/fastText> library for efficient learning of word representations and sentence classification. For more information, see (i) "Enriching Word Vectors with Subword Information" by Bojanowski, Piotr and Grave, Edouard and Joulin, Armand and Mikolov, Tomas (2017), <doi:10.1162/tacl_a_00051>; (ii) "Bag of Tricks for Efficient Text Classification" by Joulin, Armand and Grave, Edouard and Bojanowski, Piotr and Mikolov, Tomas (2017), <doi:10.18653/v1/e17-2068>; (iii) "FastText.zip: Compressing text classification models" by Joulin, Armand and Grave, Edouard and Bojanowski, Piotr and Douze, Matthijs and Jégou, Hérve and Mikolov, Tomas (2016), <arXiv:1612.03651>.
+Date: 2021-05-13
+Authors@R: c( person("Lampros", "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")), person("Facebook", "Inc", role = "cph") )
+Description: An interface to the 'fastText' <https://github.com/facebookresearch/fastText> library for efficient learning of word representations and sentence classification. The 'fastText' algorithm is explained in detail in (i) "Enriching Word Vectors with subword Information", Piotr Bojanowski, Edouard Grave, Armand Joulin, Tomas Mikolov, 2017, <doi:10.1162/tacl_a_00051>; (ii) "Bag of Tricks for Efficient Text Classification", Armand Joulin, Edouard Grave, Piotr Bojanowski, Tomas Mikolov, 2017, <doi:10.18653/v1/e17-2068>; (iii) "FastText.zip: Compressing text classification models", Armand Joulin, Edouard Grave, Piotr Bojanowski, Matthijs Douze, Herve Jegou, Tomas Mikolov, 2016, <arXiv:1612.03651>.
 License: MIT + file LICENSE
 SystemRequirements: Generally, fastText builds on modern Mac OS and Linux distributions. Since it uses some C++11 features, it requires a compiler with good C++11 support. These include a (g++-4.7.2 or newer) or a (clang-3.3 or newer).
 Encoding: UTF-8
-LazyData: true
-Imports: Rcpp (>= 1.0.0), ggplot2, grid, utils
+Imports: 
+    Rcpp (>= 1.0.0), 
+    ggplot2, 
+    grid, 
+    utils,
+    glue,
+    data.table
 Depends: R(>= 3.2.3)
 LinkingTo: Rcpp
-Suggests: testthat, covr,
+Suggests: 
+    testthat, 
+    covr,
     knitr,
     rmarkdown
-RoxygenNote: 7.1.1
 VignetteBuilder: knitr
+RoxygenNote: 7.1.1

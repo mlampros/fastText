@@ -2,6 +2,41 @@
 utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"))           # to avoid the NOTE : no visible binding for global variables ....
 
 
+
+#' inner function of 'compute_elapsed_time'
+#'
+#' @param secs a numeric value specifying the seconds
+#' @param estimated a boolean. If TRUE then the output label becomes the 'Estimated time'
+#' @return a character string showing the estimated or elapsed time
+#'
+#' @keywords internal
+
+inner_elapsed_time = function(secs, estimated = FALSE) {
+  tmp_hours = as.integer((secs / 60) / 60)
+  tmp_hours_minutes = (secs / 60) %% 60
+  tmp_seconds = secs %% 60
+  est_verb = ifelse(estimated, "Estimated time: ", "Elapsed time: ")
+  res_out = paste(c(est_verb, tmp_hours, " hours and ", as.integer(tmp_hours_minutes), " minutes and ", as.integer(tmp_seconds), " seconds."), collapse = "")
+  return(res_out)
+}
+
+
+#' elapsed time in hours & minutes & seconds
+#'
+#' @param time_start a numeric value specifying the start time
+#' @return It does not return a value but only prints the time in form of a character string in the R session
+#'
+#' @keywords internal
+
+compute_elapsed_time = function(time_start) {
+  t_end = proc.time()
+  time_total = as.numeric((t_end - time_start)['elapsed'])
+  time_ = inner_elapsed_time(time_total)
+  cat(time_, "\n")
+}
+
+
+
 #' Interface for the fasttext library
 #'
 #'
@@ -11,6 +46,7 @@ utils::globalVariables(c("progress", "loss", "learning_rate", "words_sec_thread"
 #' @param MilliSecs an integer specifying the delay in milliseconds when printing the results to the specified \emph{path_output}
 #' @param remove_previous_file a boolean. If TRUE, in case that the \emph{path_output} is not an empty string (""), then an existing file with the same output name will be removed
 #' @param print_process_time a boolean. If TRUE then the processing time of the function will be printed out in the R session
+#' @return a vector of class character that includes the parameters and file paths used as input to the function
 #' @details
 #' This function allows the user to run the various methods included in the fasttext library from within R
 #' @references
@@ -227,7 +263,7 @@ fasttext_interface = function(list_params,
                               remove_previous_file = TRUE,
                               print_process_time = FALSE) {
 
-  if (print_process_time) { start = Sys.time() }
+  if (print_process_time) t_start = proc.time()
 
   if (!'command' %in% names(list_params)) stop("The input 'list_params' argument should include the 'command' parameter!", call. = F)
 
@@ -332,11 +368,7 @@ fasttext_interface = function(list_params,
     give_args_fasttext(input_args, path_output, MilliSecs, "", "", remove_previous_file)
   }
 
-  if (print_process_time) {
-    end = Sys.time()
-    t = end - start
-    cat('\n'); cat('time to complete :', t, attributes(t)$units, '\n'); cat('\n');
-  }
+  if (print_process_time) compute_elapsed_time(time_start = t_start)
 
   return(input_args)
 }
@@ -347,6 +379,7 @@ fasttext_interface = function(list_params,
 #'
 #'
 #' @param command a character string specifying the command for which the parameters should be printed in the R session
+#' @return It does not return a value but only prints the available parameters in the R session
 #' @references
 #' https://github.com/facebookresearch/fastText#full-documentation
 #'
@@ -371,13 +404,16 @@ print_parameters = function(command = 'supervised') {
 
 #' Multiple plot function
 #'
-#' ggplot objects can be passed in ..., or to plotlist (as a list of ggplot objects)
-#' - cols:   Number of columns in layout
-#' - layout: A matrix specifying the layout. If present, 'cols' is ignored.
+#' @param ... ellipsis to pass ggplot objects
+#' @param plotlist either NULL or a list of ggplot objects
+#' @param cols Number of columns in layout
+#' @param layout A matrix specifying the layout. If present, 'cols' is ignored
+#' @return It does not return a value but only shows the ggplots in the R session
 #'
-#' If the layout is something like matrix(c(1,2,3,3), nrow=2, byrow=TRUE),
-#' then plot 1 will go in the upper left, 2 will go in the upper right, and
-#' 3 will go all the way across the bottom.
+#' @details
+#'
+#' If the layout is something like matrix(c(1,2,3,3), nrow = 2, byrow = TRUE), then plot 1 will
+#' go in the upper left, 2 will go in the upper right, and 3 will go all the way across the bottom.
 #'
 #' @keywords internal
 #' @importFrom grid grid.newpage
@@ -387,7 +423,7 @@ print_parameters = function(command = 'supervised') {
 #' @references http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 #'
 
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+multiplot <- function(..., plotlist = NULL, cols = 1, layout = NULL) {
 
   # Make a list from the ... arguments and plotlist
   plots <- c(list(...), plotlist)
@@ -428,6 +464,7 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
 #'
 #' @param path_logs a character string specifying a valid path to a file where the progress-logs are saved
 #' @param plot a boolean specifying if the loss, learning-rate and word-counts should be plotted
+#' @return an object of class data.frame that includes the progress logs with columns 'progress', 'words_sec_thread', 'learning_rate' and 'loss'
 #'
 #' @references http://www.cookbook-r.com/Graphs/Multiple_graphs_on_one_page_(ggplot2)/
 #' @importFrom utils read.table
@@ -498,3 +535,120 @@ plot_progress_logs = function(path_logs = "progress_data.txt",
 
   return(df)
 }
+
+
+
+#' Language Identification using fastText
+#'
+#'
+#' @param input_obj either a valid character string to a valid path where each line represents a different text extract or a vector of text extracts
+#' @param pre_trained_language_model_path a valid character string to the pre-trained language identification model path, for more info see https://fasttext.cc/docs/en/language-identification.html
+#' @param k predict top k labels (1 by default)
+#' @param th probability threshold (0.0 by default)
+#' @param threads an integer specifying the number of threads to run in parallel. This parameter applies only if k > 1
+#' @param verbose if TRUE then information will be printed out in the console
+#' @return an object of class data.table which includes two or more columns with the names 'iso_lang_N' and 'prob_N' where 'N' corresponds to 1 to 'k' input parameter
+#'
+#' @references
+#'
+#' https://fasttext.cc/docs/en/language-identification.html
+#' https://becominghuman.ai/a-handy-pre-trained-model-for-language-identification-cadd89db9db8
+#'
+#' @importFrom glue glue
+#' @importFrom data.table data.table fread
+#'
+#' @export
+#' @examples
+#'
+#' library(fastText)
+#'
+#' vec_txt = c("Incapaz de distinguir la luna y la cara de esta chica,
+#'              Las estrellas se ponen nerviosas en el cielo",
+#'              "Unable to tell apart the moon and this girl's face,
+#'              Stars are flustered up in the sky.")
+#'
+#' file_pretrained = system.file("language_identification/lid.176.ftz", package = "fastText")
+#'
+#' dtbl_out = language_identification(input_obj = vec_txt,
+#'                                    pre_trained_language_model_path = file_pretrained,
+#'                                    k = 3,
+#'                                    th = 0.0,
+#'                                    verbose = TRUE)
+#' dtbl_out
+
+
+language_identification = function(input_obj,
+                                   pre_trained_language_model_path,
+                                   k = 1,
+                                   th = 0.0,
+                                   threads = 1,
+                                   verbose = FALSE) {
+
+  if (verbose) t_start = proc.time()
+  if (!file.exists(pre_trained_language_model_path)) stop(glue::glue("The  '{pre_trained_language_model_path}'  pre-trained weights file does not exist!"), call. = F)
+
+  flag_remove = FALSE
+  if (is.vector(input_obj) && inherits(input_obj, 'character')) {
+    if (all(!(file.exists(input_obj)))) {
+      tmp_x_data = tempfile(fileext = '.txt')
+      writeLines(text = input_obj, con = tmp_x_data, sep = '\n')
+      input_obj = tmp_x_data
+      flag_remove = TRUE
+    }
+  }
+  else {
+    stop("The input 'input_obj' parameter must be either a character vector consisting of character string(s) or a valid path to a file!", call. = F)
+  }
+
+  list_params = list(command = 'predict-prob',
+                     model = pre_trained_language_model_path,
+                     test_data = input_obj,
+                     k = k,
+                     th = th)
+
+  pth_res_out = tempfile(fileext = '.txt')
+
+  if (verbose) cat("The 'fasttext' algorithm starts ...\n")
+  res = fasttext_interface(list_params = list_params,
+                           path_output = pth_res_out,
+                           print_process_time = FALSE)
+  if (k > 1) {
+
+    if (verbose) cat(glue::glue("Conversion of the predicted labels and probabilities for k = {k} and threads = {threads} ..."), '\n')
+    vec_dat = readLines(con = pth_res_out, warn = F)
+    vec_dat = strsplit(vec_dat, ' ')
+    vec_dat = parallel::mclapply(vec_dat, function(x) {
+      tmp = trimws(gsub('__label__', '', x), which = 'both')
+      if (length(tmp) != k * 2) {
+        fill_tmp = rep(NA_character_, k * 2)
+        for (idx in 1:length(tmp)) {
+          fill_tmp[idx] = tmp[idx]
+        }
+        tmp = fill_tmp
+      }
+      tmp
+    }, mc.cores = threads)
+
+    dtbl_res_in = do.call(rbind, vec_dat)
+    if (verbose) cat("The predicted labels will be loaded from the temporary file ...\n")
+    dtbl_res_in = data.table::data.table(dtbl_res_in, stringsAsFactors = F)
+  }
+  else {
+    if (verbose) cat("The predicted labels will be loaded from the temporary file ...\n")
+    dtbl_res_in = data.table::fread(pth_res_out, header = F, stringsAsFactors = F, nThread = parallel::detectCores())
+    dtbl_res_in$V1 = trimws(gsub('__label__', '', dtbl_res_in$V1), which = 'both')
+  }
+
+  colnames(dtbl_res_in) = as.vector(sapply(1:k, function(x) c(glue::glue("iso_lang_{x}"), glue::glue("prob_{x}"))))
+
+  if (verbose) cat("The temporary files will be removed ...\n")
+  if (file.exists(pth_res_out)) file.remove(pth_res_out)
+  if (flag_remove) {
+    if (file.exists(tmp_x_data)) file.remove(tmp_x_data)
+  }
+
+  if (verbose) compute_elapsed_time(time_start = t_start)
+
+  return(dtbl_res_in)
+}
+

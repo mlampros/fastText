@@ -2,163 +2,171 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' Print Usage Information for all parameters
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printUsage()
-#' 
+#'
 printUsage <- function() {
     invisible(.Call(`_fastText_printUsage`))
 }
 
 #' Print Usage Information when the command equals to 'quantize'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printQuantizeUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printQuantizeUsage()
-#' 
+#'
 printQuantizeUsage <- function() {
     invisible(.Call(`_fastText_printQuantizeUsage`))
 }
 
 #' Print Usage Information when the command equals to 'test'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printTestUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printTestUsage()
-#' 
+#'
 printTestUsage <- function() {
     invisible(.Call(`_fastText_printTestUsage`))
 }
 
 #' Print Usage Information when the command equals to 'predict' or 'predict-prob'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printPredictUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printPredictUsage()
-#' 
+#'
 printPredictUsage <- function() {
     invisible(.Call(`_fastText_printPredictUsage`))
 }
 
 #' Print Usage Information when the command equals to 'test-label'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printTestLabelUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printTestLabelUsage()
-#' 
+#'
 printTestLabelUsage <- function() {
     invisible(.Call(`_fastText_printTestLabelUsage`))
 }
 
 #' Print Usage Information when the command equals to 'print-word-vectors'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printPrintWordVectorsUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printPrintWordVectorsUsage()
-#' 
+#'
 printPrintWordVectorsUsage <- function() {
     invisible(.Call(`_fastText_printPrintWordVectorsUsage`))
 }
 
 #' Print Usage Information when the command equals to 'print-sentence-vectors'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printPrintSentenceVectorsUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printPrintSentenceVectorsUsage()
-#' 
+#'
 printPrintSentenceVectorsUsage <- function() {
     invisible(.Call(`_fastText_printPrintSentenceVectorsUsage`))
 }
 
 #' Print Usage Information when the command equals to 'print-ngrams'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printPrintNgramsUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printPrintNgramsUsage()
-#' 
+#'
 printPrintNgramsUsage <- function() {
     invisible(.Call(`_fastText_printPrintNgramsUsage`))
 }
 
 #' Print Usage Information when the command equals to 'nn'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printNNUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printNNUsage()
-#' 
+#'
 printNNUsage <- function() {
     invisible(.Call(`_fastText_printNNUsage`))
 }
 
 #' Print Usage Information when the command equals to 'analogies'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printAnalogiesUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printAnalogiesUsage()
-#' 
+#'
 printAnalogiesUsage <- function() {
     invisible(.Call(`_fastText_printAnalogiesUsage`))
 }
 
 #' Print Usage Information when the command equals to 'dump'
-#' 
-#' 
+#'
+#' @return It does not return a value but only prints the available parameters of the 'printDumpUsage' function in the R session
 #' @export
 #' @examples
-#' 
+#'
 #' library(fastText)
-#' 
+#'
 #' printDumpUsage()
-#' 
+#'
 printDumpUsage <- function() {
     invisible(.Call(`_fastText_printDumpUsage`))
 }
 
 #' The Rcpp function which is used in the 'fasttext_interface' R function
 #'
+#' @param args the arguments that will be passed to the function in form of a character vector
+#' @param pth a character string specifying the path where the process-logs (or output in generally) should be saved
+#' @param MilliSecs an integer specifying the delay in milliseconds when printing the results to the specified path_output
+#' @param pth_in a character string specifying the path to the input data file
+#' @param queryWord either an empty string or the queryword that should be passed to the function
+#' @param remove_previous_file a boolean. If TRUE, in case that the path_output is not an empty string (""), then an existing file with the same output name will be removed
+#' @return It does not return a value but only saves the results to a file
+#'
 #' @keywords internal
-#' 
+#'
 give_args_fasttext <- function(args, pth = "", MilliSecs = 100L, pth_in = "", queryWord = "", remove_previous_file = TRUE) {
     invisible(.Call(`_fastText_give_args_fasttext`, args, pth, MilliSecs, pth_in, queryWord, remove_previous_file))
 }
