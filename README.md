@@ -10,7 +10,7 @@
 ## fastText
 <br>
 
-The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in my [blog-post](http://mlampros.github.io/2019/04/11/fastText_updated_version/) and in the package documentation.
+The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the [first](http://mlampros.github.io/2019/04/11/fastText_updated_version/) and [second](http://mlampros.github.io/2021/05/14/fasttext_language_identification/) blog posts and in the package documentation.
 
 <br>
 
