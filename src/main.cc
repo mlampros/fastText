@@ -295,10 +295,13 @@ void quantize(const std::vector<std::string>& args) {
   }
   a.parseArgs(args);
   FastText fasttext;
+  //........................................ I modified it from the initial code in    https://github.com/facebookresearch/fastText/blob/master/src/main.cc#L108  to take the input and return an .ftz file
   // parseArgs checks if a->output is given.
-  fasttext.loadModel(a.output + ".bin");
+  // fasttext.loadModel(a.output + ".bin");
+  //........................................
+  fasttext.loadModel(a.input);
   fasttext.quantize(a);
-  fasttext.saveModel(a.output + ".ftz");
+  fasttext.saveModel(a.output);
   // exit(0);
 }
 

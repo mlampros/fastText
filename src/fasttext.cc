@@ -330,10 +330,10 @@ void FastText::quantize(const Args& qargs) {     // reduce the MilliSecs to incr
     }
   }
 
-  qinput_ = std::make_shared<QMatrix>(*input_, qargs.dsub, qargs.qnorm);
+  qinput_ = std::make_shared<QMatrix>(*input_, qargs.dsub, qargs.qnorm_param);
 
   if (args_->qout) {
-    qoutput_ = std::make_shared<QMatrix>(*output_, 2, qargs.qnorm);
+    qoutput_ = std::make_shared<QMatrix>(*output_, 2, qargs.qnorm_param);
   }
 
   quant_ = true;

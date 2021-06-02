@@ -73,14 +73,14 @@ Use the following link to report bugs/issues (for the R package port),
 
 ### **Citation:**
 
-If you use the **fastText** R package in your paper or research please cite both **fastText** and the **original articles / software** [https://cran.r-project.org/web/packages/fastText/citation.html](https://cran.r-project.org/web/packages/fastText/citation.html):
+If you use the **fastText** R package in your paper or research please cite both **fastText** and the **original articles / software** `https://CRAN.R-project.org/package=fastText`:
 
 <br>
 
 ```R
 @Manual{,
   title = {{fastText}: Efficient Learning of Word Representations and
-    Sentence Classification},
+    Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2021},
   note = {R package version 1.0.0},

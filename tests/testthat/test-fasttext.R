@@ -216,14 +216,19 @@ testthat::test_that("the 'fasttext_interface' function prints information to the
 
 testthat::test_that("the 'fasttext_interface' function will create an .ftz file when using the 'quantize' command", {
 
+  pth_in_bin = file.path(default_write_path, 'word_vectors.bin')
+  pth_out_ftz = file.path(default_write_path, 'word_vectors.ftz')
+
   list_params = list(command = 'quantize',
-                     input = file.path(default_write_path, 'word_vectors.bin'),
-                     output = path_write_vecs)
+                     input = pth_in_bin,
+                     output = pth_out_ftz)
 
   res = fasttext_interface(list_params)
-  out_ftz = list.files(default_write_path, pattern = '.ftz')
 
-  testthat::expect_true( length(out_ftz) == 1 )
+  ftz_exists = file.exists(pth_out_ftz)
+  ftz_smaller_size_than_bin = (file.size(pth_in_bin) > file.size(pth_out_ftz))
+
+  testthat::expect_true( ftz_exists & ftz_smaller_size_than_bin )
 })
 
 

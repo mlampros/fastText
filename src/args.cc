@@ -43,7 +43,7 @@ Args::Args() {
 
   qout = false;
   retrain = false;
-  qnorm = false;
+  qnorm_param = false;
   cutoff = 0;
   dsub = 2;
 }
@@ -163,7 +163,7 @@ void Args::parseArgs(const std::vector<std::string>& args) {
         saveOutput = true;
         ai--;
       } else if (args[ai] == "-qnorm") {
-        qnorm = true;
+        qnorm_param = true;
         ai--;
       } else if (args[ai] == "-retrain") {
         retrain = true;
@@ -256,7 +256,7 @@ void Args::printQuantizationHelp() {
       << "  -retrain            whether embeddings are finetuned if a cutoff is applied ["
       << boolToString(retrain) << "]\n"
       << "  -qnorm              whether the norm is quantized separately ["
-      << boolToString(qnorm) << "]\n"
+      << boolToString(qnorm_param) << "]\n"
       << "  -qout               whether the classifier is quantized ["
       << boolToString(qout) << "]\n"
       << "  -dsub               size of each sub-vector [" << dsub << "]\n";

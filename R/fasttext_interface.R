@@ -47,6 +47,9 @@ compute_elapsed_time = function(time_start) {
 #' @param remove_previous_file a boolean. If TRUE, in case that the \emph{path_output} is not an empty string (""), then an existing file with the same output name will be removed
 #' @param print_process_time a boolean. If TRUE then the processing time of the function will be printed out in the R session
 #' @return a vector of class character that includes the parameters and file paths used as input to the function
+#'
+#' @importFrom stats na.omit
+#'
 #' @details
 #' This function allows the user to run the various methods included in the fasttext library from within R
 #' @references
@@ -159,7 +162,7 @@ compute_elapsed_time = function(time_start) {
 #'                          path_output = file.path(tempdir(), "test_valid.txt"))
 #'
 #' # -----------------
-#' # quantize function  [ it will create an .ftz file ]
+#' # quantize function  [ it will take a .bin file and return an .ftz file ]
 #' # -----------------
 #'
 #' # the quantize function is currenlty (01/02/2019) single-threaded
@@ -167,7 +170,20 @@ compute_elapsed_time = function(time_start) {
 #'
 #' list_params = list(command = 'quantize',
 #'                    input = file.path(tempdir(), 'model_cooking.bin'),
-#'                    output = tempdir())
+#'                    output = file.path(tempdir(), gsub('.bin', '.ftz', 'model_cooking.bin')))
+#'
+#' res = fasttext_interface(list_params)
+#'
+#'
+#' # -----------------
+#' # quantize function  [ by using the optional parameters 'qnorm' and 'qout' ]
+#' # -----------------
+#'
+#' list_params = list(command = 'quantize',
+#'                    input = file.path(tempdir(), 'model_cooking.bin'),
+#'                    output = file.path(tempdir(), gsub('.bin', '.ftz', 'model_cooking.bin')),
+#'                    qnorm = TRUE,
+#'                    qout = TRUE)
 #'
 #' res = fasttext_interface(list_params)
 #'
@@ -356,15 +372,20 @@ fasttext_interface = function(list_params,
     input_args[1] = default_arg
     input_args[2] = default_cmd
 
+    no_value = c('retrain', 'qnorm', 'qout')        # these parameters do not take a value therefore use NA as value and before passing the 'input_args' to the 'give_args_fasttext' function remove these NA's
+
     count = 3                                       # begin from 3 because I've already added the 'default_arg' and 'default_cmd'
     for (i in 1:length(names_)) {
 
       input_args[count] = paste0('-', names_[i])
       count = count + 1
 
-      input_args[count] = values_[i]
+      input_args[count] = ifelse(names_[i] %in% no_value, NA_character_, values_[i])              # use NA for those parameters that do not take a value
       count = count + 1
     }
+
+    input_args = as.vector(stats::na.omit(input_args))                                                   # remove potential NA's
+
     give_args_fasttext(input_args, path_output, MilliSecs, "", "", remove_previous_file)
   }
 

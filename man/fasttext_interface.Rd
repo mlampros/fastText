@@ -140,7 +140,7 @@ res = fasttext_interface(list_params,              # prints also 'Precision', 'R
                          path_output = file.path(tempdir(), "test_valid.txt"))
 
 # -----------------
-# quantize function  [ it will create an .ftz file ]
+# quantize function  [ it will take a .bin file and return an .ftz file ]
 # -----------------
 
 # the quantize function is currenlty (01/02/2019) single-threaded
@@ -148,7 +148,20 @@ res = fasttext_interface(list_params,              # prints also 'Precision', 'R
 
 list_params = list(command = 'quantize',
                    input = file.path(tempdir(), 'model_cooking.bin'),
-                   output = tempdir())
+                   output = file.path(tempdir(), gsub('.bin', '.ftz', 'model_cooking.bin')))
+
+res = fasttext_interface(list_params)
+
+
+# -----------------
+# quantize function  [ by using the optional parameters 'qnorm' and 'qout' ]
+# -----------------
+
+list_params = list(command = 'quantize',
+                   input = file.path(tempdir(), 'model_cooking.bin'),
+                   output = file.path(tempdir(), gsub('.bin', '.ftz', 'model_cooking.bin')),
+                   qnorm = TRUE,
+                   qout = TRUE)
 
 res = fasttext_interface(list_params)
 

@@ -1,4 +1,17 @@
 
+## fastText 1.0.2
+
+* I added the *URL* and *BugReports* fields in the *DESCRIPTION* file
+
+
+## fastText 1.0.1
+
+* I fixed the **LTO** (Link Optimization Error) - Additional Issues - by replacing the **qnorm** variable with **qnorm_param** in the Rcpp files
+* I modified the **quantize** function in the Rcpp file to return the **.ftz** file by specifying the exact file path
+* I adjusted the **Examples** section of the **fasttext_interface** function and the **testthat tests** to account for the changes in the **quantize** function
+* I fixed a bug of the **fasttext_interface** function related to parameters that do not take a value
+
+
 ## fastText 1.0.0
 
 * I've added the *CITATION* file in the 'inst' directory

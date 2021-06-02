@@ -51,7 +51,7 @@ class Args {
 
   bool qout;
   bool retrain;
-  bool qnorm;
+  bool qnorm_param;
   size_t cutoff;
   size_t dsub;
 
