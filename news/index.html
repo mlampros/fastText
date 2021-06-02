@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fastText</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
       </span>
     </div>
 
@@ -106,7 +106,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mlampros/fastText/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -121,9 +126,26 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      
+      <small>Source: <a href='https://github.com/mlampros/fastText/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="fasttext-102" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fasttext-102" class="anchor"></a>fastText 1.0.2</h2>
+<ul>
+<li>I added the <em>URL</em> and <em>BugReports</em> fields in the <em>DESCRIPTION</em> file</li>
+</ul>
+</div>
+    <div id="fasttext-101" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fasttext-101" class="anchor"></a>fastText 1.0.1</h2>
+<ul>
+<li>I fixed the <strong>LTO</strong> (Link Optimization Error) - Additional Issues - by replacing the <strong>qnorm</strong> variable with <strong>qnorm_param</strong> in the Rcpp files</li>
+<li>I modified the <strong>quantize</strong> function in the Rcpp file to return the <strong>.ftz</strong> file by specifying the exact file path</li>
+<li>I adjusted the <strong>Examples</strong> section of the <strong>fasttext_interface</strong> function and the <strong>testthat tests</strong> to account for the changes in the <strong>quantize</strong> function</li>
+<li>I fixed a bug of the <strong>fasttext_interface</strong> function related to parameters that do not take a value</li>
+</ul>
+</div>
     <div id="fasttext-100" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fasttext-100" class="anchor"></a>fastText 1.0.0</h2>
