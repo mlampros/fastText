@@ -88,7 +88,7 @@
       <h1 data-toc-skip>Language Identification using the ‘fastText’ package (a Benchmark)</h1>
                         <h4 class="author">Lampros Mouselimis</h4>
             
-            <h4 class="date">2021-10-29</h4>
+            <h4 class="date">2021-10-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/master/vignettes/language_identification.Rmd"><code>vignettes/language_identification.Rmd</code></a></small>
       <div class="hidden name"><code>language_identification.Rmd</code></div>
@@ -146,7 +146,7 @@
 <span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="va">isocodes</span><span class="op">[</span><span class="va">comp_cases</span>, <span class="op">]</span>
 <span class="co"># dim(isocodes_fasttext)</span>
 
-<span class="va">idx_keep_fasttext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span> <span class="op">%in%</span> <span class="va">fasttext_supported_languages</span><span class="op">)</span>
+<span class="va">idx_keep_fasttext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fasttext_supported_languages</span><span class="op">)</span>
 
 <span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span><span class="va">idx_keep_fasttext</span>, <span class="op">]</span>
 <span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">)</span>
@@ -264,10 +264,10 @@
 <span class="co"># head(df)</span>
 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">dplyr</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">%&gt;%</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
   <span class="fu">mutate</span><span class="op">(</span>country_vert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">country_vert</span><span class="op">)</span>,                 <span class="co"># alphabetical order by default</span>
          country_horiz <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">country_horiz</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">country_horiz</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
@@ -285,7 +285,7 @@
 <p><br></p>
 <p>The <strong>Google’s Compact Language Detector 2</strong> (CLD2) " … probabilistically detects over 80 languages in Unicode UTF-8 text, either plain text or HTML/XML. For mixed-language input, CLD2 returns the top three languages found and their approximate percentages of the total text bytes (e.g. 80% English and 20% French out of 1000 bytes) …“. Based on the R package documentation,”The function ‘detect_language()’ is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">cld2</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld2/">cld2</a></span><span class="op">)</span>
 
 <span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">cld2_vec</span> <span class="op">=</span> <span class="fu">cld2</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span>, plain_text <span class="op">=</span> <span class="cn">TRUE</span>, lang_code <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
@@ -311,7 +311,7 @@
 <p><br></p>
 <p>The " … Google’s Compact Language Detector 3 is a neural network model for language identification and the successor of CLD2 (available from) CRAN. This version is still experimental and uses a novell algorithm with different properties and outcomes. For more information see: <a href="https://github.com/google/cld3#readme" class="uri">https://github.com/google/cld3#readme</a> …“. Based on the R package documentation,”The function detect_language() is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">cld3</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld3/">cld3</a></span><span class="op">)</span>
 
 <span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">cld3_vec</span> <span class="op">=</span> <span class="fu">cld3</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>
@@ -440,7 +440,7 @@
 <p><br></p>
 <p>The <strong>franc()</strong> function expects a text extract, therefore we will wrap the function with <strong>parallel::mclapply()</strong> as we’ve done with the <em>textcat</em> package to reduce the computation time. Moreover, we’ll set the <strong>min_speakers</strong> parameter to <strong>0</strong> to include <strong>all</strong> languages known by franc (increasing the <em>max_length</em> parameter to <em>4096</em> does not improve the accuracy for this specific data / text extracts),</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">franc</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/franc#readme">franc</a></span><span class="op">)</span>
 
 <span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">franc_res</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>

@@ -182,31 +182,33 @@
 https://becominghuman.ai/a-handy-pre-trained-model-for-language-identification-cadd89db9db8</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mlampros/fastText'>fastText</a></span><span class='op'>)</span>
-
-<span class='va'>vec_txt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Incapaz de distinguir la luna y la cara de esta chica,
-             Las estrellas se ponen nerviosas en el cielo"</span>,
-             <span class='st'>"Unable to tell apart the moon and this girl's face,
-             Stars are flustered up in the sky."</span><span class='op'>)</span>
-
-<span class='va'>file_pretrained</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"language_identification/lid.176.ftz"</span>, package <span class='op'>=</span> <span class='st'>"fastText"</span><span class='op'>)</span>
-
-<span class='va'>dtbl_out</span> <span class='op'>=</span> <span class='fu'>language_identification</span><span class='op'>(</span>input_obj <span class='op'>=</span> <span class='va'>vec_txt</span>,
-                                   pre_trained_language_model_path <span class='op'>=</span> <span class='va'>file_pretrained</span>,
-                                   k <span class='op'>=</span> <span class='fl'>3</span>,
-                                   th <span class='op'>=</span> <span class='fl'>0.0</span>,
-                                   verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; The 'fasttext' algorithm starts ...
-#&gt; Conversion of the predicted labels and probabilities for k = 3 and threads = 1 ... 
-#&gt; The predicted labels will be loaded from the temporary file ...
-#&gt; The temporary files will be removed ...
-#&gt; Elapsed time: 0 hours and 0 minutes and 0 seconds. </div><div class='input'><span class='va'>dtbl_out</span>
-</div><div class='output co'>#&gt;    iso_lang_1   prob_1 iso_lang_2     prob_2 iso_lang_3     prob_3
-#&gt; 1:         es 0.910368         fr  0.0177581         pt  0.0164652
-#&gt; 2:         es 0.849259         ca  0.0497277         fr  0.0141624
-#&gt; 3:         en 0.927154         pt 0.00641008         ru 0.00501036
-#&gt; 4:         en   0.9014         de  0.0311772         ru 0.00573721</div></pre>
+    <pre class="examples"><span class='r-in'></span>
+<span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/mlampros/fastText'>fastText</a></span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>vec_txt</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Incapaz de distinguir la luna y la cara de esta chica,</span>
+<span class='r-in'>             Las estrellas se ponen nerviosas en el cielo"</span>,</span>
+<span class='r-in'>             <span class='st'>"Unable to tell apart the moon and this girl's face,</span>
+<span class='r-in'>             Stars are flustered up in the sky."</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>file_pretrained</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"language_identification/lid.176.ftz"</span>, package <span class='op'>=</span> <span class='st'>"fastText"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>dtbl_out</span> <span class='op'>=</span> <span class='fu'>language_identification</span><span class='op'>(</span>input_obj <span class='op'>=</span> <span class='va'>vec_txt</span>,</span>
+<span class='r-in'>                                   pre_trained_language_model_path <span class='op'>=</span> <span class='va'>file_pretrained</span>,</span>
+<span class='r-in'>                                   k <span class='op'>=</span> <span class='fl'>3</span>,</span>
+<span class='r-in'>                                   th <span class='op'>=</span> <span class='fl'>0.0</span>,</span>
+<span class='r-in'>                                   verbose <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> The 'fasttext' algorithm starts ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Conversion of the predicted labels and probabilities for k = 3 and threads = 1 ... </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> The predicted labels will be loaded from the temporary file ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> The temporary files will be removed ...</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Elapsed time: 0 hours and 0 minutes and 0 seconds. </span>
+<span class='r-in'><span class='va'>dtbl_out</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    iso_lang_1   prob_1 iso_lang_2     prob_2 iso_lang_3     prob_3</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 1:         es 0.910368         fr  0.0177581         pt  0.0164652</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2:         es 0.849259         ca  0.0497277         fr  0.0141624</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 3:         en 0.927154         pt 0.00641008         ru 0.00501036</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 4:         en   0.9014         de  0.0311772         ru 0.00573721</span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
