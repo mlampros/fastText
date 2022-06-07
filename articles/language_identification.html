@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fastText</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -67,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mlampros/fastText/">
+  <a href="https://github.com/mlampros/fastText/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -86,37 +82,37 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Language Identification using the ‘fastText’ package (a Benchmark)</h1>
-                        <h4 class="author">Lampros Mouselimis</h4>
+                        <h4 data-toc-skip class="author">Lampros Mouselimis</h4>
             
-            <h4 class="date">2021-10-30</h4>
+            <h4 data-toc-skip class="date">2022-06-07</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/master/vignettes/language_identification.Rmd"><code>vignettes/language_identification.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/HEAD/vignettes/language_identification.Rmd" class="external-link"><code>vignettes/language_identification.Rmd</code></a></small>
       <div class="hidden name"><code>language_identification.Rmd</code></div>
 
     </div>
 
     
     
-<p>In this blog post, I’ll explain how to perform <strong>Language Identification</strong> with the <a href="https://github.com/mlampros/fastText">fastText</a> R package and I’ll create a benchmark by including other <em>language identification</em> R packages, i.e. </p>
+<p>In this blog post, I’ll explain how to perform <strong>Language Identification</strong> with the <a href="https://github.com/mlampros/fastText" class="external-link">fastText</a> R package and I’ll create a benchmark by including other <em>language identification</em> R packages, i.e. </p>
 <ul>
 <li>
-<a href="https://github.com/ropensci/cld2">cld2</a>, R Wrapper for Google’s Compact Language Detector 2</li>
+<a href="https://github.com/ropensci/cld2" class="external-link">cld2</a>, R Wrapper for Google’s Compact Language Detector 2</li>
 <li>
-<a href="https://github.com/ropensci/cld3">cld3</a>, Bindings to Google’s Compact Language Detector 3</li>
+<a href="https://github.com/ropensci/cld3" class="external-link">cld3</a>, Bindings to Google’s Compact Language Detector 3</li>
 <li>
-<a href="https://CRAN.R-project.org/package=textcat">textcat</a>, N-Gram Based Text Categorization</li>
+<a href="https://CRAN.R-project.org/package=textcat" class="external-link">textcat</a>, N-Gram Based Text Categorization</li>
 <li>
-<a href="https://github.com/gaborcsardi/franc">franc</a>, Port of the JavaScript ‘franc’, Detect the Language of Text</li>
+<a href="https://github.com/gaborcsardi/franc" class="external-link">franc</a>, Port of the JavaScript ‘franc’, Detect the Language of Text</li>
 </ul>
 <p>I didn’t use any packages that make calls to API’s because the dataset I’ll utilize consists of more than 50.000 thousand observations.</p>
-<p>Based on my search on the web, currently, the <a href="https://arxiv.org/abs/1801.07779">WiLI benchmark dataset</a> is among the ones that contain multilingual texts (Wikipedia extracts of 235 languages) and the corresponding labels as well. It can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets">Datasets</a> Github repository.</p>
-<p>We currently live in the <em>Covid-19 Era</em> and there are many human rights violation incidents (more often than before), therefore I decided to include in this benchmark also the human rights declarations of the 3 most spoken languages (Chinese, Enlish, Spanish) because they are more relevant than ever. The human rights declarations of the mentioned languages can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">official website</a> or from my <a href="https://github.com/mlampros/DataSets">Datasets</a> Github repository, and I think it deserves a read from time to time so that we don’t forget our rights as human beings. <br></p>
-<div id="benchmark-based-on-the-wili-dataset" class="section level3">
-<h3 class="hasAnchor">
-<a href="#benchmark-based-on-the-wili-dataset" class="anchor"></a>Benchmark based on the WiLI dataset</h3>
+<p>Based on my search on the web, currently, the <a href="https://arxiv.org/abs/1801.07779" class="external-link">WiLI benchmark dataset</a> is among the ones that contain multilingual texts (Wikipedia extracts of 235 languages) and the corresponding labels as well. It can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository.</p>
+<p>We currently live in the <em>Covid-19 Era</em> and there are many human rights violation incidents (more often than before), therefore I decided to include in this benchmark also the human rights declarations of the 3 most spoken languages (Chinese, Enlish, Spanish) because they are more relevant than ever. The human rights declarations of the mentioned languages can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository, and I think it deserves a read from time to time so that we don’t forget our rights as human beings. <br></p>
+<div class="section level3">
+<h3 id="benchmark-based-on-the-wili-dataset">Benchmark based on the WiLI dataset<a class="anchor" aria-label="anchor" href="#benchmark-based-on-the-wili-dataset"></a>
+</h3>
 <p>The <em>fastText</em> language identification pre-trained models support currently 176 languages. The following character vector shows the available <em>language isocodes</em>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">fasttext_supported_languages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'af'</span>, <span class="st">'als'</span>, <span class="st">'am'</span>, <span class="st">'an'</span>, <span class="st">'ar'</span>, <span class="st">'arz'</span>, <span class="st">'as'</span>, <span class="st">'ast'</span>, <span class="st">'av'</span>, 
+<code class="sourceCode R"><span class="va">fasttext_supported_languages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'af'</span>, <span class="st">'als'</span>, <span class="st">'am'</span>, <span class="st">'an'</span>, <span class="st">'ar'</span>, <span class="st">'arz'</span>, <span class="st">'as'</span>, <span class="st">'ast'</span>, <span class="st">'av'</span>, 
                                  <span class="st">'az'</span>, <span class="st">'azb'</span>, <span class="st">'ba'</span>, <span class="st">'bar'</span>, <span class="st">'bcl'</span>, <span class="st">'be'</span>, <span class="st">'bg'</span>, <span class="st">'bh'</span>, <span class="st">'bn'</span>,
                                  <span class="st">'bo'</span>, <span class="st">'bpy'</span>, <span class="st">'br'</span>, <span class="st">'bs'</span>, <span class="st">'bxr'</span>, <span class="st">'ca'</span>, <span class="st">'cbk'</span>, <span class="st">'ce'</span>, <span class="st">'ceb'</span>,
                                  <span class="st">'ckb'</span>, <span class="st">'co'</span>, <span class="st">'cs'</span>, <span class="st">'cv'</span>, <span class="st">'cy'</span>, <span class="st">'da'</span>, <span class="st">'de'</span>, <span class="st">'diq'</span>, <span class="st">'dsb'</span>,
@@ -137,23 +133,23 @@
                                  <span class="st">'vep'</span>, <span class="st">'vi'</span>, <span class="st">'vls'</span>, <span class="st">'vo'</span>, <span class="st">'wa'</span>, <span class="st">'war'</span>, <span class="st">'wuu'</span>, <span class="st">'xal'</span>, <span class="st">'xmf'</span>,
                                  <span class="st">'yi'</span>, <span class="st">'yo'</span>, <span class="st">'yue'</span>, <span class="st">'zh'</span><span class="op">)</span></code></pre></div>
 <p><br></p>
-<p>For illustration purposes we’ll subset the <em>WiLI dataset</em> to the 2-letter isocodes of the supported fastText languages. For this purpose we’ll use the <a href="https://CRAN.R-project.org/package=ISOcodes">ISOcodes</a> R package and especially the <strong>ISO_639_2</strong> function which includes the required 2- and 3-letter isocodes and also the available full names of the languages,</p>
+<p>For illustration purposes we’ll subset the <em>WiLI dataset</em> to the 2-letter isocodes of the supported fastText languages. For this purpose we’ll use the <a href="https://CRAN.R-project.org/package=ISOcodes" class="external-link">ISOcodes</a> R package and especially the <strong>ISO_639_2</strong> function which includes the required 2- and 3-letter isocodes and also the available full names of the languages,</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">isocodes</span> <span class="op">=</span> <span class="fu">ISOcodes</span><span class="fu">::</span><span class="va">ISO_639_2</span>
 <span class="co"># head(isocodes)</span>
 
-<span class="va">comp_cases</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html">complete.cases</a></span><span class="op">(</span><span class="va">isocodes</span><span class="op">$</span><span class="va">Alpha_2</span><span class="op">)</span>
+<span class="va">comp_cases</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/complete.cases.html" class="external-link">complete.cases</a></span><span class="op">(</span><span class="va">isocodes</span><span class="op">$</span><span class="va">Alpha_2</span><span class="op">)</span>
 <span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="va">isocodes</span><span class="op">[</span><span class="va">comp_cases</span>, <span class="op">]</span>
 <span class="co"># dim(isocodes_fasttext)</span>
 
-<span class="va">idx_keep_fasttext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fasttext_supported_languages</span><span class="op">)</span>
+<span class="va">idx_keep_fasttext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">fasttext_supported_languages</span><span class="op">)</span>
 
 <span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span><span class="va">idx_keep_fasttext</span>, <span class="op">]</span>
-<span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html">data.table</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">)</span>
+<span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">)</span>
 <span class="co"># isocodes_fasttext</span>
 
-<span class="va">lower_nams</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html">tolower</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name</span><span class="op">)</span>
-<span class="va">lower_nams</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">lower_nams</span>, <span class="st">"[;, ]"</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>   <span class="co"># remove second or third naming of the country name</span>
+<span class="va">lower_nams</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name</span><span class="op">)</span>
+<span class="va">lower_nams</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">lower_nams</span>, <span class="st">"[;, ]"</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>   <span class="co"># remove second or third naming of the country name</span>
 
 <span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name_tolower</span> <span class="op">=</span> <span class="va">lower_nams</span>
 <span class="va">isocodes_fasttext</span></code></pre></div>
@@ -166,32 +162,32 @@
                           <span class="va">preds_data</span>,
                           <span class="va">method</span><span class="op">)</span> <span class="op">{</span>
 
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Total Rows: {size_input_data}"</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
-  <span class="va">rnd_2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">preds_data</span><span class="op">)</span><span class="op">/</span><span class="va">size_input_data</span>, <span class="fl">4</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"Total Rows: {size_input_data}"</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
+  <span class="va">rnd_2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">preds_data</span><span class="op">)</span><span class="op">/</span><span class="va">size_input_data</span>, <span class="fl">4</span><span class="op">)</span>
   <span class="va">msg_2</span> <span class="op">=</span><span class="st">"Predicted Rows: {length(preds_data)}  ({rnd_2 * 100}% predicted)"</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="va">msg_2</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Missing Values:  {size_input_data - length(preds_data)}"</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
-  <span class="va">rnd_4</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">true_data</span> <span class="op">==</span> <span class="va">preds_data</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">preds_data</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="va">msg_2</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="st">"Missing Values:  {size_input_data - length(preds_data)}"</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
+  <span class="va">rnd_4</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">true_data</span> <span class="op">==</span> <span class="va">preds_data</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">preds_data</span><span class="op">)</span>, <span class="fl">4</span><span class="op">)</span>
   <span class="va">msg_4</span> <span class="op">=</span> <span class="st">"Accuracy on 'Predicted Rows' using '{method}':  {rnd_4 * 100}%"</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="va">msg_4</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">glue</span><span class="fu">::</span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue</a></span><span class="op">(</span><span class="va">msg_4</span><span class="op">)</span>, <span class="st">'\n'</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="co"># fasttext language identification supported languages as described in https://fasttext.cc/docs/en/language-identification.html</span></code></pre></div>
 <p><br></p>
-<p>As mentioned earlier the <em>WiLI benchmark dataset</em> can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets">Datasets</a> Github repository. Once downloaded and unzipped the folder includes the following files (for the remaining of this blog post I’ll assume that the <strong>dir_wili_2018</strong> variable points to the <em>WiLI</em> data directory ),</p>
+<p>As mentioned earlier the <em>WiLI benchmark dataset</em> can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository. Once downloaded and unzipped the folder includes the following files (for the remaining of this blog post I’ll assume that the <strong>dir_wili_2018</strong> variable points to the <em>WiLI</em> data directory ),</p>
 <p><img src="language_identification/list_files_willi_2018.png"></p>
 <p><br></p>
 <p>For this benchmark we’ll use only the <strong>test</strong> data (‘x_test.txt’ and ‘y_test.txt’ files) and we’ll keep only the <em>WiLI-isocodes</em> that intersect with the <em>fastText isocodes</em>,</p>
 <p><img src="language_identification/cat_head_willi_2018.png"></p>
 <p><br></p>
 </div>
-<div id="fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb" class="anchor"></a>fastText based on the smaller pre-trained model ‘lid.176.ftz’ (approx. 917 kB)</h3>
+<div class="section level3">
+<h3 id="fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb">fastText based on the smaller pre-trained model ‘lid.176.ftz’ (approx. 917 kB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb"></a>
+</h3>
 <p><br></p>
-<p>First, we’ll use the <a href="https://fasttext.cc/docs/en/language-identification.html">smaller pre-trained dataset</a>,</p>
+<p>First, we’ll use the <a href="https://fasttext.cc/docs/en/language-identification.html" class="external-link">smaller pre-trained dataset</a>,</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">file_ftz</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"language_identification/lid.176.ftz"</span>, package <span class="op">=</span> <span class="st">"fastText"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">file_ftz</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"language_identification/lid.176.ftz"</span>, package <span class="op">=</span> <span class="st">"fastText"</span><span class="op">)</span>
 
 <span class="va">dtbl_res_in</span> <span class="op">=</span> <span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="../reference/language_identification.html">language_identification</a></span><span class="op">(</span>input_obj <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span>,
                                                 pre_trained_language_model_path <span class="op">=</span> <span class="va">file_ftz</span>,
@@ -204,12 +200,12 @@
 <code class="sourceCode R"><span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 <span class="co"># dtbl_res_in</span>
 
-<span class="va">isocodes_fasttext_subs</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">]</span>   <span class="co"># merge the predicted labels with the 3-letter isocodes</span>
+<span class="va">isocodes_fasttext_subs</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">]</span>   <span class="co"># merge the predicted labels with the 3-letter isocodes</span>
 
-<span class="va">merg_labels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">dtbl_res_in</span>, <span class="va">isocodes_fasttext_subs</span>, by.x <span class="op">=</span> <span class="st">'iso_lang_1'</span>, by.y <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
+<span class="va">merg_labels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">dtbl_res_in</span>, <span class="va">isocodes_fasttext_subs</span>, by.x <span class="op">=</span> <span class="st">'iso_lang_1'</span>, by.y <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">merg_labels</span><span class="op">$</span><span class="va">true_label</span>, 
                preds_data <span class="op">=</span> <span class="va">merg_labels</span><span class="op">$</span><span class="va">Alpha_3_B</span>, 
                method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></code></pre></div>
@@ -218,13 +214,13 @@
 <p>The <strong>accuracy</strong> of the model was <strong>83.05%</strong> (on <strong>50211</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb" class="anchor"></a>fastText based on the bigger pre-trained model ‘lid.176.bin’ (approx. 126 MB)</h3>
+<div class="section level3">
+<h3 id="fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb">fastText based on the bigger pre-trained model ‘lid.176.bin’ (approx. 126 MB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb"></a>
+</h3>
 <p><br></p>
-<p>Let’s move to the bigger pre-trained model which is mentioned to be more accurate. This model can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">official website</a> or from my <a href="https://github.com/mlampros/DataSets">Datasets</a> Github repository. The parameter setting of the <strong>fastText::language_identification()</strong> function is the same as before, and the only thing that changes is the <strong>pre_trained_language_model_path</strong> parameter which is set to <strong>lid.176.bin</strong>. Assuming this file is downloaded and extracted in the <strong>dir_wili_2018</strong> directory then,</p>
+<p>Let’s move to the bigger pre-trained model which is mentioned to be more accurate. This model can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository. The parameter setting of the <strong>fastText::language_identification()</strong> function is the same as before, and the only thing that changes is the <strong>pre_trained_language_model_path</strong> parameter which is set to <strong>lid.176.bin</strong>. Assuming this file is downloaded and extracted in the <strong>dir_wili_2018</strong> directory then,</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">file_bin</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'lid.176.bin'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">file_bin</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'lid.176.bin'</span><span class="op">)</span>
 
 <span class="va">dtbl_res_in</span> <span class="op">=</span> <span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="../reference/language_identification.html">language_identification</a></span><span class="op">(</span>input_obj <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span>,
                                                 pre_trained_language_model_path <span class="op">=</span> <span class="va">file_bin</span>,
@@ -237,12 +233,12 @@
 <code class="sourceCode R"><span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 <span class="co"># dtbl_res_in</span>
 
-<span class="va">isocodes_fasttext_subs</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">]</span>   <span class="co"># merge the predicted labels with the 3-letter isocodes</span>
+<span class="va">isocodes_fasttext_subs</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">]</span>   <span class="co"># merge the predicted labels with the 3-letter isocodes</span>
 
-<span class="va">merg_labels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">dtbl_res_in</span>, <span class="va">isocodes_fasttext_subs</span>, by.x <span class="op">=</span> <span class="st">'iso_lang_1'</span>, by.y <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
+<span class="va">merg_labels</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">dtbl_res_in</span>, <span class="va">isocodes_fasttext_subs</span>, by.x <span class="op">=</span> <span class="st">'iso_lang_1'</span>, by.y <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">merg_labels</span><span class="op">$</span><span class="va">true_label</span>, 
                preds_data <span class="op">=</span> <span class="va">merg_labels</span><span class="op">$</span><span class="va">Alpha_3_B</span>, 
                method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></code></pre></div>
@@ -251,52 +247,52 @@
 <p>The <strong>accuracy</strong> based on the bigger model was increased to <strong>86.55%</strong> (on <strong>50168</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="ggplot-visualization-of-the-bigger--bin-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ggplot-visualization-of-the-bigger--bin-model" class="anchor"></a>ggplot visualization of the bigger .bin model</h3>
+<div class="section level3">
+<h3 id="ggplot-visualization-of-the-bigger--bin-model">ggplot visualization of the bigger .bin model<a class="anchor" aria-label="anchor" href="#ggplot-visualization-of-the-bigger--bin-model"></a>
+</h3>
 <p><br></p>
 <p>The following plot shows the confusion matrix of the bigger .bin model. The main diagonal is dominated by the dark green color indicating higher accuracy rates,</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tbl</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">merg_labels</span><span class="op">$</span><span class="va">true_label</span>, <span class="va">merg_labels</span><span class="op">$</span><span class="va">Alpha_3_B</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">tbl</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">merg_labels</span><span class="op">$</span><span class="va">true_label</span>, <span class="va">merg_labels</span><span class="op">$</span><span class="va">Alpha_3_B</span><span class="op">)</span>
 
-<span class="va">df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html">as.data.frame.table</a></span><span class="op">(</span><span class="va">tbl</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'country_vert'</span>, <span class="st">'country_horiz'</span>, <span class="st">'Freq'</span><span class="op">)</span>
+<span class="va">df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">as.data.frame.table</a></span><span class="op">(</span><span class="va">tbl</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'country_vert'</span>, <span class="st">'country_horiz'</span>, <span class="st">'Freq'</span><span class="op">)</span>
 <span class="co"># head(df)</span>
 
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org">magrittr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
 
-<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
-  <span class="fu">mutate</span><span class="op">(</span>country_vert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">country_vert</span><span class="op">)</span>,                 <span class="co"># alphabetical order by default</span>
-         country_horiz <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">country_horiz</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">country_horiz</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">mutate</span><span class="op">(</span>country_vert <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">country_vert</span><span class="op">)</span>,                 <span class="co"># alphabetical order by default</span>
+         country_horiz <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">country_horiz</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rev.html" class="external-link">rev</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">country_horiz</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">plt_tbl</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">country_vert</span>, y<span class="op">=</span><span class="va">country_horiz</span>, fill<span class="op">=</span><span class="va">Freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html">geom_tile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_equal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Greens"</span>, direction<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">45</span>, vjust <span class="op">=</span> <span class="fl">1.0</span>, hjust <span class="op">=</span> <span class="fl">1.0</span><span class="op">)</span><span class="op">)</span>    
+<span class="va">plt_tbl</span> <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">country_vert</span>, y<span class="op">=</span><span class="va">country_horiz</span>, fill<span class="op">=</span><span class="va">Freq</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html" class="external-link">coord_equal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html" class="external-link">scale_fill_distiller</a></span><span class="op">(</span>palette<span class="op">=</span><span class="st">"Greens"</span>, direction<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">45</span>, vjust <span class="op">=</span> <span class="fl">1.0</span>, hjust <span class="op">=</span> <span class="fl">1.0</span><span class="op">)</span><span class="op">)</span>    
 
 <span class="va">plt_tbl</span></code></pre></div>
 <p><img src="language_identification/fasttext_benchmark_confussion_matr.png"><br></p>
 </div>
-<div id="cld2-language-recognition-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#cld2-language-recognition-package" class="anchor"></a>‘cld2’ language recognition package</h3>
+<div class="section level3">
+<h3 id="cld2-language-recognition-package">‘cld2’ language recognition package<a class="anchor" aria-label="anchor" href="#cld2-language-recognition-package"></a>
+</h3>
 <p><br></p>
 <p>The <strong>Google’s Compact Language Detector 2</strong> (CLD2) " … probabilistically detects over 80 languages in Unicode UTF-8 text, either plain text or HTML/XML. For mixed-language input, CLD2 returns the top three languages found and their approximate percentages of the total text bytes (e.g. 80% English and 20% French out of 1000 bytes) …“. Based on the R package documentation,”The function ‘detect_language()’ is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld2/">cld2</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld2/" class="external-link">cld2</a></span><span class="op">)</span>
 
-<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">cld2_vec</span> <span class="op">=</span> <span class="fu">cld2</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span>, plain_text <span class="op">=</span> <span class="cn">TRUE</span>, lang_code <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="va">cld2_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld2_vec</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cld2_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld2_vec</span><span class="op">)</span><span class="op">)</span>
 <span class="va">cld2_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 
-<span class="va">merg_labels_cld2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">cld2_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
+<span class="va">merg_labels_cld2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">cld2_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels_cld2)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>,
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>,
                true_data <span class="op">=</span> <span class="va">merg_labels_cld2</span><span class="op">$</span><span class="va">true_label</span>,
                preds_data <span class="op">=</span> <span class="va">merg_labels_cld2</span><span class="op">$</span><span class="va">Alpha_3_B</span>,
                method <span class="op">=</span> <span class="st">'cld2'</span><span class="op">)</span></code></pre></div>
@@ -305,24 +301,24 @@
 <p>The <strong>accuracy</strong> of the <strong>cld2</strong> package is <strong>83.13%</strong> (on <strong>34254</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="cld3-language-recognition-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#cld3-language-recognition-package" class="anchor"></a>‘cld3’ language recognition package</h3>
+<div class="section level3">
+<h3 id="cld3-language-recognition-package">‘cld3’ language recognition package<a class="anchor" aria-label="anchor" href="#cld3-language-recognition-package"></a>
+</h3>
 <p><br></p>
-<p>The " … Google’s Compact Language Detector 3 is a neural network model for language identification and the successor of CLD2 (available from) CRAN. This version is still experimental and uses a novell algorithm with different properties and outcomes. For more information see: <a href="https://github.com/google/cld3#readme" class="uri">https://github.com/google/cld3#readme</a> …“. Based on the R package documentation,”The function detect_language() is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
+<p>The " … Google’s Compact Language Detector 3 is a neural network model for language identification and the successor of CLD2 (available from) CRAN. This version is still experimental and uses a novell algorithm with different properties and outcomes. For more information see: <a href="https://github.com/google/cld3#readme" class="external-link uri">https://github.com/google/cld3#readme</a> …“. Based on the R package documentation,”The function detect_language() is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld3/">cld3</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld3/" class="external-link">cld3</a></span><span class="op">)</span>
 
-<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">cld3_vec</span> <span class="op">=</span> <span class="fu">cld3</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>
 
-<span class="va">cld3_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld3_vec</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cld3_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld3_vec</span><span class="op">)</span><span class="op">)</span>
 <span class="va">cld3_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 
-<span class="va">merg_labels_cld3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">cld3_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
+<span class="va">merg_labels_cld3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">cld3_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels_cld3)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>,
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>,
                true_data <span class="op">=</span> <span class="va">merg_labels_cld3</span><span class="op">$</span><span class="va">true_label</span>,
                preds_data <span class="op">=</span> <span class="va">merg_labels_cld3</span><span class="op">$</span><span class="va">Alpha_3_B</span>, 
                method <span class="op">=</span> <span class="st">'cld3'</span><span class="op">)</span></code></pre></div>
@@ -331,56 +327,56 @@
 <p>The <strong>accuracy</strong> of the <strong>cld3</strong> package is <strong>74.74%</strong> (on <strong>43560</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="language-recognition-using-the-textcat-r-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#language-recognition-using-the-textcat-r-package" class="anchor"></a>Language recognition using the ‘textcat’ R package</h3>
+<div class="section level3">
+<h3 id="language-recognition-using-the-textcat-r-package">Language recognition using the ‘textcat’ R package<a class="anchor" aria-label="anchor" href="#language-recognition-using-the-textcat-r-package"></a>
+</h3>
 <p><br></p>
-<p>The ‘textcat’ R package performs ‘text categorization based on n-grams’. The documentation of the package mentions: "… TextCat (<a href="https://www.let.rug.nl/vannoord/TextCat/" class="uri">https://www.let.rug.nl/vannoord/TextCat/</a>) is a Perl implementation of the Cavnarand Trenkle ‘N-Gram-Based Text Categorization’ technique by Gertjan van Noord which was subsequently integrated into SpamAssassin. It provides byte n-gram profiles for 74 ‘languages’ (more precisely, language/encoding combinations). The C library reimplementation libtextcat (<a href="https://software.wise-guys.nl/libtextcat/" class="uri">https://software.wise-guys.nl/libtextcat/</a>) adds one more non-empty profile.</p>
+<p>The ‘textcat’ R package performs ‘text categorization based on n-grams’. The documentation of the package mentions: "… TextCat (<a href="https://www.let.rug.nl/vannoord/TextCat/" class="external-link uri">https://www.let.rug.nl/vannoord/TextCat/</a>) is a Perl implementation of the Cavnarand Trenkle ‘N-Gram-Based Text Categorization’ technique by Gertjan van Noord which was subsequently integrated into SpamAssassin. It provides byte n-gram profiles for 74 ‘languages’ (more precisely, language/encoding combinations). The C library reimplementation libtextcat (<a href="https://software.wise-guys.nl/libtextcat/" class="external-link uri">https://software.wise-guys.nl/libtextcat/</a>) adds one more non-empty profile.</p>
 <ul>
 <li>‘TC_byte_profiles’ provides these byte profiles.</li>
 <li>‘TC_char_profiles’ provides a subset of 56 character profiles obtained by converting the byte sequences to UTF-8 strings where possible.</li>
 </ul>
-<p>The category ids are unchanged from the original, and give the full (English) name of the language, optionally combined the name of the encoding script. Note that ‘scots’ indicates Scots, the Germanic language variety historically spoken in Lowland Scotland and parts of Ulster, to be distinguished from Scottish Gaelic (named ‘scots_gaelic’ in the profiles), the Celtic language variety spoken in most of the western Highlands and in the Hebrides (see <a href="https://en.wikipedia.org/wiki/Scots_language" class="uri">https://en.wikipedia.org/wiki/Scots_language</a>) …"</p>
+<p>The category ids are unchanged from the original, and give the full (English) name of the language, optionally combined the name of the encoding script. Note that ‘scots’ indicates Scots, the Germanic language variety historically spoken in Lowland Scotland and parts of Ulster, to be distinguished from Scottish Gaelic (named ‘scots_gaelic’ in the profiles), the Celtic language variety spoken in most of the western Highlands and in the Hebrides (see <a href="https://en.wikipedia.org/wiki/Scots_language" class="external-link uri">https://en.wikipedia.org/wiki/Scots_language</a>) …"</p>
 <p><br></p>
 <p>Apart from the previous 2 mentioned TC-profiles the <strong>ECIMCI_profiles</strong> (26 profiles) also exists. In my benchmark I’ll use only the <em>‘TC_byte_profile’</em> (75 profiles) and <em>‘TC_char_profiles’</em> (56 profiles) as input to the <strong>textcat()</strong> function to compute the country names, which by default the <em>textcat()</em> function returns. I’ll wrap the function to <strong>parallel::mclapply()</strong> because I observed it returns the results faster using multiple threads (in my benchmark I used 8 threads).</p>
 <p><br></p>
-<div id="using-the-tc_byte_profiles" class="section level4">
-<h4 class="hasAnchor">
-<a href="#using-the-tc_byte_profiles" class="anchor"></a>using the ‘TC_byte_profiles’</h4>
+<div class="section level4">
+<h4 id="using-the-tc_byte_profiles">using the ‘TC_byte_profiles’<a class="anchor" aria-label="anchor" href="#using-the-tc_byte_profiles"></a>
+</h4>
 <p><br></p>
 <p>Before proceeding lets have a look to the available profiles,</p>
 <p><br></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">threads</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html">detectCores</a></span><span class="op">(</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">textcat</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">threads</span> <span class="op">=</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va">textcat</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_byte_profiles</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_byte_profiles</span><span class="op">)</span></code></pre></div>
 <p><img src="language_identification/names_tc_byte_profiles.png"></p>
 <p><br></p>
 <p>What we want is that the initial <em>lowercase isocodes</em> intersect with the processed <em>TC_byte_profiles</em> so that the computation of the accuracy is correct,</p>
 <p><img src="language_identification/nams_profiles.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<code class="sourceCode R"><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html" class="external-link">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">textcat</span><span class="op">(</span>x <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">x</span><span class="op">]</span>, p <span class="op">=</span> <span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_byte_profiles</span>, method <span class="op">=</span> <span class="st">"CT"</span><span class="op">)</span>
 <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">threads</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">textc</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">textc</span><span class="op">)</span></code></pre></div>
 <p><img src="language_identification/unique_textc.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span>
 <span class="va">textc_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 
-<span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
-<span class="va">merg_labels_textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">textc_dtbl</span>, <span class="va">fasttext_isoc_name</span>, by <span class="op">=</span> <span class="st">'Name_tolower'</span><span class="op">)</span>
+<span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
+<span class="va">merg_labels_textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">textc_dtbl</span>, <span class="va">fasttext_isoc_name</span>, by <span class="op">=</span> <span class="st">'Name_tolower'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels_cld2)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">merg_labels_textc</span><span class="op">$</span><span class="va">true_label</span>,
                preds_data <span class="op">=</span> <span class="va">merg_labels_textc</span><span class="op">$</span><span class="va">Alpha_3_B</span>,
                method <span class="op">=</span> <span class="st">'textcat ( TC_byte_profiles )'</span><span class="op">)</span></code></pre></div>
@@ -389,40 +385,40 @@
 <p>The <strong>accuracy</strong> of the <strong>textcat</strong> package using the <strong>TC_byte_profiles</strong> is <strong>29.91%</strong> (on <strong>47324</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="using-the-tc_char_profiles" class="section level4">
-<h4 class="hasAnchor">
-<a href="#using-the-tc_char_profiles" class="anchor"></a>using the ‘TC_char_profiles’</h4>
+<div class="section level4">
+<h4 id="using-the-tc_char_profiles">using the ‘TC_char_profiles’<a class="anchor" aria-label="anchor" href="#using-the-tc_char_profiles"></a>
+</h4>
 <p><br></p>
 <p>Again, as previously we can have a look to the available profiles,</p>
 <p><br></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_char_profiles</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_char_profiles</span><span class="op">)</span></code></pre></div>
 <p><img src="language_identification/names_tc_char_profiles.png"></p>
 <p><br></p>
 <p>What we want is that the initial <em>lowercase isocodes</em> intersect with the processed <em>TC_char_profiles</em> so that the computation of the accuracy is correct,</p>
 <p><img src="language_identification/nams_profiles_char.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<code class="sourceCode R"><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html" class="external-link">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">textcat</span><span class="op">(</span>x <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">x</span><span class="op">]</span>, p <span class="op">=</span> <span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_char_profiles</span>, method <span class="op">=</span> <span class="st">"CT"</span><span class="op">)</span>
 <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">threads</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">textc</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">textc</span><span class="op">)</span></code></pre></div>
 <p><img src="language_identification/unique_textc_char.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span>
 <span class="va">textc_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span>
 
-<span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
-<span class="va">merg_labels_textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">textc_dtbl</span>, <span class="va">fasttext_isoc_name</span>, by <span class="op">=</span> <span class="st">'Name_tolower'</span><span class="op">)</span>
+<span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span>
+<span class="va">merg_labels_textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">textc_dtbl</span>, <span class="va">fasttext_isoc_name</span>, by <span class="op">=</span> <span class="st">'Name_tolower'</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(merg_labels_cld2)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">merg_labels_textc</span><span class="op">$</span><span class="va">true_label</span>,
                preds_data <span class="op">=</span> <span class="va">merg_labels_textc</span><span class="op">$</span><span class="va">Alpha_3_B</span>,
                method <span class="op">=</span> <span class="st">'textcat ( TC_char_profiles )'</span><span class="op">)</span></code></pre></div>
@@ -432,25 +428,25 @@
 <p><br></p>
 </div>
 </div>
-<div id="language-recognition-using-the-franc-r-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#language-recognition-using-the-franc-r-package" class="anchor"></a>Language recognition using the ‘franc’ R package</h3>
+<div class="section level3">
+<h3 id="language-recognition-using-the-franc-r-package">Language recognition using the ‘franc’ R package<a class="anchor" aria-label="anchor" href="#language-recognition-using-the-franc-r-package"></a>
+</h3>
 <p><br></p>
-<p>The <a href="https://github.com/gaborcsardi/franc">R package port of Franc</a> has no external dependencies and supports <em>310 languages</em>. All languages spoken by more than one million speakers. Franc is a port of the <a href="https://github.com/wooorm/franc">JavaScript project</a> of the same name. Based on the documentation of the <a href="https://github.com/wooorm/franc">JavaScript project</a>, <em>" … franc supports many languages, which means it’s easily confused on small samples. Make sure to pass it big documents to get reliable results …"</em></p>
+<p>The <a href="https://github.com/gaborcsardi/franc" class="external-link">R package port of Franc</a> has no external dependencies and supports <em>310 languages</em>. All languages spoken by more than one million speakers. Franc is a port of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a> of the same name. Based on the documentation of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a>, <em>" … franc supports many languages, which means it’s easily confused on small samples. Make sure to pass it big documents to get reliable results …"</em></p>
 <p><br></p>
 <p>The <strong>franc()</strong> function expects a text extract, therefore we will wrap the function with <strong>parallel::mclapply()</strong> as we’ve done with the <em>textcat</em> package to reduce the computation time. Moreover, we’ll set the <strong>min_speakers</strong> parameter to <strong>0</strong> to include <strong>all</strong> languages known by franc (increasing the <em>max_length</em> parameter to <em>4096</em> does not improve the accuracy for this specific data / text extracts),</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/franc#readme">franc</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/franc#readme" class="external-link">franc</a></span><span class="op">)</span>
 
-<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html">proc.time</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">franc_res</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">franc_res</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/mclapply.html" class="external-link">mclapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">franc</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">x</span><span class="op">]</span>, min_speakers <span class="op">=</span> <span class="fl">0</span>, min_length <span class="op">=</span> <span class="fl">10</span>, max_length <span class="op">=</span> <span class="fl">2048</span><span class="op">)</span>
 <span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">threads</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">franc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>franc <span class="op">=</span> <span class="va">franc_res</span>, true_label <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span><span class="op">)</span>
+<span class="va">franc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>franc <span class="op">=</span> <span class="va">franc_res</span>, true_label <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># as.vector(colSums(is.na(franc_dtbl)))</span>
 
-<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
+<span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">franc_dtbl</span><span class="op">$</span><span class="va">true_label</span>, 
                preds_data <span class="op">=</span> <span class="va">franc_dtbl</span><span class="op">$</span><span class="va">franc</span>, 
                method <span class="op">=</span> <span class="st">'franc'</span><span class="op">)</span></code></pre></div>
@@ -459,9 +455,9 @@
 <p>The <strong>accuracy</strong> of the <strong>franc</strong> package is <strong>62.04%</strong> (on <strong>50500</strong> out of <strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
-<div id="overview-datatable-of-all-methods" class="section level3">
-<h3 class="hasAnchor">
-<a href="#overview-datatable-of-all-methods" class="anchor"></a>Overview datatable of all methods</h3>
+<div class="section level3">
+<h3 id="overview-datatable-of-all-methods">Overview datatable of all methods<a class="anchor" aria-label="anchor" href="#overview-datatable-of-all-methods"></a>
+</h3>
 <p><br></p>
 <p>Sorted by <strong>Accuracy</strong> (highest better),</p>
 <p><img src="language_identification/accuracy.png"></p>
@@ -476,38 +472,38 @@
 <p><img src="language_identification/time.png"></p>
 <p><br></p>
 </div>
-<div id="benchmark-based-on-the-human-rights-declaration-files" class="section level3">
-<h3 class="hasAnchor">
-<a href="#benchmark-based-on-the-human-rights-declaration-files" class="anchor"></a>Benchmark based on the Human Rights Declaration files</h3>
+<div class="section level3">
+<h3 id="benchmark-based-on-the-human-rights-declaration-files">Benchmark based on the Human Rights Declaration files<a class="anchor" aria-label="anchor" href="#benchmark-based-on-the-human-rights-declaration-files"></a>
+</h3>
 <p><br></p>
-<p>We can test the mentioned functions also using the <strong>Declaration of Human Rights</strong> text files, which are smaller in size and can give hints on potential misclassifications. As I mentioned at the beginning of this blog post the data can be downloaded from two different internet sources. I’ll use only 3 files from the <em>official website</em> based on the <strong>total number of speakers worldwide</strong> (the first 3 are: <strong>Chinese</strong>, <strong>English</strong>, <strong>Spanish</strong>) and you can see the full list of the most spoken languages worldwide in the correponding <a href="https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers">wikipedia article</a>.</p>
+<p>We can test the mentioned functions also using the <strong>Declaration of Human Rights</strong> text files, which are smaller in size and can give hints on potential misclassifications. As I mentioned at the beginning of this blog post the data can be downloaded from two different internet sources. I’ll use only 3 files from the <em>official website</em> based on the <strong>total number of speakers worldwide</strong> (the first 3 are: <strong>Chinese</strong>, <strong>English</strong>, <strong>Spanish</strong>) and you can see the full list of the most spoken languages worldwide in the correponding <a href="https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers" class="external-link">wikipedia article</a>.</p>
 <p>Assuming the <strong>.zip</strong> file is downloaded and extracted in the <strong>dir_wili_2018</strong> directory and the folder name that includes the files is named as <strong>declaration_human_rights</strong> then,</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dir_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'declaration_human_rights'</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">dir_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'declaration_human_rights'</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lst_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="va">dir_files</span>, full.names <span class="op">=</span> <span class="cn">T</span>, pattern <span class="op">=</span> <span class="st">'.pdf'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">lst_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">dir_files</span>, full.names <span class="op">=</span> <span class="cn">T</span>, pattern <span class="op">=</span> <span class="st">'.pdf'</span><span class="op">)</span>
 
-<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   
   <span class="va">iter_dat</span> <span class="op">=</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu">pdf_text</span><span class="op">(</span>pdf <span class="op">=</span> <span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span>
-  <span class="va">lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">'.pdf'</span>, <span class="st">''</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, <span class="st">'_'</span><span class="op">)</span><span class="op">)</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
-  <span class="va">lang</span> <span class="op">=</span> <span class="va">lang</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">lang</span><span class="op">)</span><span class="op">]</span>
-  <span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">iter_dat</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">vec_txt</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">'\n'</span>, <span class="st">''</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'.pdf'</span>, <span class="st">''</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, <span class="st">'_'</span><span class="op">)</span><span class="op">)</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
+  <span class="va">lang</span> <span class="op">=</span> <span class="va">lang</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">lang</span><span class="op">)</span><span class="op">]</span>
+  <span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">iter_dat</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">vec_txt</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'\n'</span>, <span class="st">''</span>, <span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
   
-  <span class="va">idx_lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name_tolower</span> <span class="op">==</span> <span class="va">lang</span><span class="op">)</span>
-  <span class="va">isocode_3_language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_3_B</span><span class="op">[</span><span class="va">idx_lang</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">isocode_2_language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span><span class="op">[</span><span class="va">idx_lang</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">lang</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">idx_lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name_tolower</span> <span class="op">==</span> <span class="va">lang</span><span class="op">)</span>
+  <span class="va">isocode_3_language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_3_B</span><span class="op">[</span><span class="va">idx_lang</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">isocode_2_language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span><span class="op">[</span><span class="va">idx_lang</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">lang</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
   
-  <span class="va">dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>isocode_3_language <span class="op">=</span> <span class="va">isocode_3_language</span>,
+  <span class="va">dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>isocode_3_language <span class="op">=</span> <span class="va">isocode_3_language</span>,
                                 isocode_2_language <span class="op">=</span> <span class="va">isocode_2_language</span>,
                                 language <span class="op">=</span> <span class="va">language</span>,
                                 text <span class="op">=</span> <span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span>
   <span class="va">dtbl</span>
 <span class="op">}</span><span class="op">)</span>
 
-<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html">rbindlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span></code></pre></div>
+<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span></code></pre></div>
 <p><img src="language_identification/decl_dat.png"></p>
 <p><br></p>
 <p>The output <em>data.table</em> includes besides the <em>language</em> also the language <em>isocodes</em> (consisting of 2 and 3 letters) and the <em>text extracts</em>. We can start to identify the language of these extracts using the <strong>fastText</strong> R package and utilizing the <em>small</em> pre-trained <em>‘lid.176.ftz’</em> model,</p>
@@ -522,7 +518,7 @@
 <p><br></p>
 <p>To validate the results we will use the <strong>isocode_2_language</strong> column of the previous computed <strong>decl_dat</strong> data.table,</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span><span class="op">)</span>,
                true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">isocode_2_language</span>,
                preds_data <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,
                method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></code></pre></div>
@@ -536,7 +532,7 @@
 <p><img src="language_identification/cld2_vec.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, 
+<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">isocode_2_language</span>, 
                preds_data <span class="op">=</span> <span class="va">cld2_vec</span>, 
                method <span class="op">=</span> <span class="st">'cld2'</span><span class="op">)</span></code></pre></div>
@@ -549,7 +545,7 @@
 <p><img src="language_identification/cld3_vec.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>,
                true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">isocode_2_language</span>,
                preds_data <span class="op">=</span> <span class="va">cld3_vec</span>,
                method <span class="op">=</span> <span class="st">'cld3'</span><span class="op">)</span></code></pre></div>
@@ -562,13 +558,13 @@
 <p><img src="language_identification/textc_decl_iso.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/strsplit.html" class="external-link">strsplit</a></span><span class="op">(</span><span class="va">textc</span>, <span class="st">'-'</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">textc</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">textc</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
 <span class="va">textc</span></code></pre></div>
 <p><img src="language_identification/textc_decl_iso_trim.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, 
+<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, 
                true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">language</span>, 
                preds_data <span class="op">=</span> <span class="va">textc</span>, 
                method <span class="op">=</span> <span class="st">'textcat'</span><span class="op">)</span></code></pre></div>
@@ -576,7 +572,7 @@
 <p>The <strong>textcat</strong> package misclassifies the <em>chinese text extracts</em> as <em>‘japanese-shift_jis’</em>, therefore the accuracy <em>drops to approx. 70%</em>. Finally, we’ll test the <strong>franc</strong> package,</p>
 <p><br></p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">franc_vec</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<code class="sourceCode R"><span class="va">franc_vec</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   <span class="fu">franc</span><span class="op">(</span>text <span class="op">=</span> <span class="va">x</span>, min_length <span class="op">=</span> <span class="fl">10</span>, max_length <span class="op">=</span> <span class="fl">2048</span><span class="op">)</span>
 <span class="op">}</span><span class="op">)</span><span class="op">)</span>
 
@@ -584,7 +580,7 @@
 <p><img src="language_identification/franc_vec_decl.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>,
+<code class="sourceCode R"><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>,
                true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">isocode_3_language</span>,
                preds_data <span class="op">=</span> <span class="va">franc_vec</span>,
                method <span class="op">=</span> <span class="st">'franc'</span><span class="op">)</span></code></pre></div>
@@ -593,24 +589,24 @@
 <p><br></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dtbl_out</span> <span class="op">=</span> <span class="va">decl_dat</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span>
-<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">dtbl_out</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'true_y_iso_3'</span>, <span class="st">'true_y_iso_2'</span>, <span class="st">'true_y_language'</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">dtbl_out</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'true_y_iso_3'</span>, <span class="st">'true_y_iso_2'</span>, <span class="st">'true_y_language'</span><span class="op">)</span>
 <span class="co"># dtbl_out</span>
 
-<span class="va">dtbl_preds</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fastText <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,
+<span class="va">dtbl_preds</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fastText <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,
                                     cld2 <span class="op">=</span> <span class="va">cld2_vec</span>,
                                     cld3 <span class="op">=</span> <span class="va">cld3_vec</span>,
                                     textcat <span class="op">=</span> <span class="va">textc</span>,
                                     franc <span class="op">=</span> <span class="va">franc_vec</span><span class="op">)</span><span class="op">)</span>
 <span class="co"># dtbl_preds</span>
 
-<span class="va">dtbl_out</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">dtbl_out</span>, <span class="va">dtbl_preds</span><span class="op">)</span>
+<span class="va">dtbl_out</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">dtbl_out</span>, <span class="va">dtbl_preds</span><span class="op">)</span>
 <span class="va">dtbl_out</span></code></pre></div>
 <p><img src="language_identification/dtbl_out_decl.png"></p>
 <p><br></p>
 </div>
-<div id="comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output" class="section level3">
-<h3 class="hasAnchor">
-<a href="#comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output" class="anchor"></a>Comparison between ‘fastText’, ‘cl2’, ‘cl3’ and ‘franc’ for Multilingual output</h3>
+<div class="section level3">
+<h3 id="comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output">Comparison between ‘fastText’, ‘cl2’, ‘cl3’ and ‘franc’ for Multilingual output<a class="anchor" aria-label="anchor" href="#comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output"></a>
+</h3>
 <p><br></p>
 <p>Finally, we can observe the output of <strong>fastText</strong>, <strong>cl2</strong>, <strong>cl3</strong> and <strong>franc</strong> for Multilingual output (I’ll exclude the <strong>textcat::textcat()</strong> function, because it expects a single language per character string in the input vector).</p>
 <ul>
@@ -621,56 +617,56 @@
 <p>In order to verify the results and see how each algorithm performs we will pick <strong>100 words</strong> of each declaration file. Due to the fact that the <strong>chinese</strong> language has <strong>ambiguous word boundaries</strong> we will use the <strong>stringi::stri_split_boundaries()</strong> function of the <strong>stringi</strong> R package to extract the words of the chinese text file. The following function shows the pre-processing steps to come to the multilingual sentence,</p>
 <p><br></p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lst_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span><span class="va">dir_files</span>, full.names <span class="op">=</span> <span class="cn">F</span>, pattern <span class="op">=</span> <span class="st">'.pdf'</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">lst_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">dir_files</span>, full.names <span class="op">=</span> <span class="cn">F</span>, pattern <span class="op">=</span> <span class="st">'.pdf'</span><span class="op">)</span>
 
 <span class="va">min_letters_en_es</span> <span class="op">=</span> <span class="fl">3</span>         <span class="co"># min. number of characters for the 'en' and 'es' languages</span>
 <span class="va">sample_words</span> <span class="op">=</span> <span class="fl">100</span>            <span class="co"># sample that many words from each tokenized file</span>
 
-<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">lst_files</span><span class="op">)</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
   
-  <span class="va">iter_dat</span> <span class="op">=</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu">pdf_text</span><span class="op">(</span>pdf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">dir_files</span>, <span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">iter_dat</span> <span class="op">=</span> <span class="fu">pdftools</span><span class="fu">::</span><span class="fu">pdf_text</span><span class="op">(</span>pdf <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_files</span>, <span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
   
-  <span class="va">dat_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">iter_dat</span>, <span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">dat_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">iter_dat</span>, <span class="kw">function</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">{</span>
     
     <span class="kw">if</span> <span class="op">(</span><span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span> <span class="op">==</span> <span class="st">'declaration_human_rights_chinese.pdf'</span><span class="op">)</span> <span class="op">{</span>
-      <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu">stringi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stringi/man/stri_split_boundaries.html">stri_split_boundaries</a></span><span class="op">(</span>str <span class="op">=</span> <span class="va">y</span>, 
+      <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu">stringi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stringi/man/stri_split_boundaries.html" class="external-link">stri_split_boundaries</a></span><span class="op">(</span>str <span class="op">=</span> <span class="va">y</span>, 
                                                     type <span class="op">=</span> <span class="st">'word'</span>, 
                                                     skip_word_none <span class="op">=</span> <span class="cn">TRUE</span>, 
                                                     skip_word_letter <span class="op">=</span> <span class="cn">TRUE</span>,
                                                     skip_word_number <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     <span class="op">}</span>
     <span class="kw">else</span> <span class="op">{</span>
-      <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu">stringi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stringi/man/stri_split.html">stri_split</a></span><span class="op">(</span>str <span class="op">=</span> <span class="va">y</span>, 
+      <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu">stringi</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/stringi/man/stri_split.html" class="external-link">stri_split</a></span><span class="op">(</span>str <span class="op">=</span> <span class="va">y</span>, 
                                          regex <span class="op">=</span> <span class="st">'[ \n,]'</span>,
                                          omit_empty <span class="op">=</span> <span class="cn">TRUE</span>,
                                          tokens_only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
     <span class="op">}</span>
     
-    <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html">trimws</a></span><span class="op">(</span><span class="va">res_spl_lang</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
-    <span class="va">idx_empty</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">res_spl_lang</span> <span class="op">==</span> <span class="st">""</span><span class="op">)</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">idx_empty</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/trimws.html" class="external-link">trimws</a></span><span class="op">(</span><span class="va">res_spl_lang</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, which <span class="op">=</span> <span class="st">'both'</span><span class="op">)</span>
+    <span class="va">idx_empty</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">res_spl_lang</span> <span class="op">==</span> <span class="st">""</span><span class="op">)</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">idx_empty</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
       <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="va">res_spl_lang</span><span class="op">[</span><span class="op">-</span><span class="va">idx_empty</span><span class="op">]</span>
     <span class="op">}</span>
-    <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">min_letters_en_es</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span> <span class="op">!=</span> <span class="st">'declaration_human_rights_chinese.pdf'</span><span class="op">)</span> <span class="op">{</span>
-      <span class="va">nchars</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">res_spl_lang</span><span class="op">)</span>
-      <span class="va">idx_chars</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">nchars</span> <span class="op">&gt;=</span> <span class="va">min_letters_en_es</span><span class="op">)</span>
-      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">idx_chars</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
+    <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html" class="external-link">is.null</a></span><span class="op">(</span><span class="va">min_letters_en_es</span><span class="op">)</span> <span class="op">&amp;</span> <span class="va">lst_files</span><span class="op">[</span><span class="va">x</span><span class="op">]</span> <span class="op">!=</span> <span class="st">'declaration_human_rights_chinese.pdf'</span><span class="op">)</span> <span class="op">{</span>
+      <span class="va">nchars</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">res_spl_lang</span><span class="op">)</span>
+      <span class="va">idx_chars</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">nchars</span> <span class="op">&gt;=</span> <span class="va">min_letters_en_es</span><span class="op">)</span>
+      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">idx_chars</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span>
         <span class="va">res_spl_lang</span> <span class="op">=</span> <span class="va">res_spl_lang</span><span class="op">[</span><span class="va">idx_chars</span><span class="op">]</span>
       <span class="op">}</span>
     <span class="op">}</span>
     <span class="va">res_spl_lang</span>
   <span class="op">}</span><span class="op">)</span>
   
-  <span class="va">dat_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">dat_txt</span><span class="op">)</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
-  <span class="va">sample_words</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">dat_txt</span>, <span class="va">sample_words</span><span class="op">)</span>
+  <span class="va">dat_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">dat_txt</span><span class="op">)</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
+  <span class="va">sample_words</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">dat_txt</span>, <span class="va">sample_words</span><span class="op">)</span>
   <span class="va">sample_words</span>
 <span class="op">}</span><span class="op">)</span>
 
 
-<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span><span class="op">)</span>
-<span class="va">decl_dat</span> <span class="op">=</span> <span class="va">decl_dat</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>
-<span class="va">multilingual_sentence</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">decl_dat</span>, collapse <span class="op">=</span> <span class="st">' '</span><span class="op">)</span>
+<span class="va">decl_dat</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span><span class="op">)</span>
+<span class="va">decl_dat</span> <span class="op">=</span> <span class="va">decl_dat</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span><span class="op">)</span><span class="op">]</span>
+<span class="va">multilingual_sentence</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">decl_dat</span>, collapse <span class="op">=</span> <span class="st">' '</span><span class="op">)</span>
 <span class="va">multilingual_sentence</span></code></pre></div>
 <p><img src="language_identification/multilingual_sentence.png"></p>
 <p><br></p>
@@ -680,9 +676,9 @@
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">num_languages</span> <span class="op">=</span> <span class="fl">3</span></code></pre></div>
 <p><br></p>
-<div id="fasttext-multilingual" class="section level4">
-<h4 class="hasAnchor">
-<a href="#fasttext-multilingual" class="anchor"></a><strong>fastText Multilingual</strong>
+<div class="section level4">
+<h4 id="fasttext-multilingual">
+<strong>fastText Multilingual</strong><a class="anchor" aria-label="anchor" href="#fasttext-multilingual"></a>
 </h4>
 <p><br></p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
@@ -696,9 +692,9 @@
 <p><img src="language_identification/dtbl_multiling.png"></p>
 <p><br></p>
 </div>
-<div id="cld2-multilingual" class="section level4">
-<h4 class="hasAnchor">
-<a href="#cld2-multilingual" class="anchor"></a><strong>cld2 Multilingual</strong>
+<div class="section level4">
+<h4 id="cld2-multilingual">
+<strong>cld2 Multilingual</strong><a class="anchor" aria-label="anchor" href="#cld2-multilingual"></a>
 </h4>
 <p><br></p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
@@ -706,9 +702,9 @@
 <p><img src="language_identification/dtbl_multiling_cld2.png"></p>
 <p><br></p>
 </div>
-<div id="cld3-multilingual" class="section level4">
-<h4 class="hasAnchor">
-<a href="#cld3-multilingual" class="anchor"></a><strong>cld3 Multilingual</strong>
+<div class="section level4">
+<h4 id="cld3-multilingual">
+<strong>cld3 Multilingual</strong><a class="anchor" aria-label="anchor" href="#cld3-multilingual"></a>
 </h4>
 <p><br></p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
@@ -716,15 +712,15 @@
 <p><img src="language_identification/dtbl_multiling_cld3.png"></p>
 <p><br></p>
 </div>
-<div id="franc-multilingual" class="section level4">
-<h4 class="hasAnchor">
-<a href="#franc-multilingual" class="anchor"></a><strong>franc Multilingual</strong>
+<div class="section level4">
+<h4 id="franc-multilingual">
+<strong>franc Multilingual</strong><a class="anchor" aria-label="anchor" href="#franc-multilingual"></a>
 </h4>
 <p><br></p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># we could use the 'whitelist' parameter but the purpose is to identify languages from unknown text</span>
 
-<span class="fu">franc</span><span class="fu">::</span><span class="fu">franc_all</span><span class="op">(</span>text <span class="op">=</span> <span class="va">multilingual_sentence</span>, max_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html">nchar</a></span><span class="op">(</span><span class="va">multilingual_sentence</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">num_languages</span>, <span class="op">]</span></code></pre></div>
+<span class="fu">franc</span><span class="fu">::</span><span class="fu">franc_all</span><span class="op">(</span>text <span class="op">=</span> <span class="va">multilingual_sentence</span>, max_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">multilingual_sentence</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">num_languages</span>, <span class="op">]</span></code></pre></div>
 <p><img src="language_identification/dtbl_multiling_franc.png"></p>
 <p><br></p>
 <p>From the results one can come to the following <strong>conclusions</strong>:</p>
@@ -748,11 +744,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Lampros Mouselimis.</p>
+  <p></p>
+<p>Developed by Lampros Mouselimis.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -760,6 +758,8 @@
 
   
 
+
+  
 
   </body>
 </html>

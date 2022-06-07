@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,23 +33,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fastText</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -67,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mlampros/fastText/">
+  <a href="https://github.com/mlampros/fastText/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -86,18 +82,18 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Functionality of the fastText R package</h1>
-                        <h4 class="author">Lampros Mouselimis</h4>
+                        <h4 data-toc-skip class="author">Lampros Mouselimis</h4>
             
-            <h4 class="date">2021-10-30</h4>
+            <h4 data-toc-skip class="date">2022-06-07</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/master/vignettes/the_fastText_R_package.Rmd"><code>vignettes/the_fastText_R_package.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/HEAD/vignettes/the_fastText_R_package.Rmd" class="external-link"><code>vignettes/the_fastText_R_package.Rmd</code></a></small>
       <div class="hidden name"><code>the_fastText_R_package.Rmd</code></div>
 
     </div>
 
     
     
-<p>This vignette explains the functionality of the fastText R package. This R package is an interface to the <a href="https://github.com/facebookresearch/fastText">fasttext library</a> for efficient learning of word representations and sentence classification. The following functions are included, <br><br></p>
+<p>This vignette explains the functionality of the fastText R package. This R package is an interface to the <a href="https://github.com/facebookresearch/fastText" class="external-link">fasttext library</a> for efficient learning of word representations and sentence classification. The following functions are included, <br><br></p>
 <table class="table">
 <colgroup>
 <col width="31%">
@@ -169,9 +165,9 @@
 <p><br></p>
 <p>I’ll explain each function separately based on example data. More information can be found in the package documentation.</p>
 <p><br><br></p>
-<div id="print_parameters" class="section level4">
-<h4 class="hasAnchor">
-<a href="#print_parameters" class="anchor"></a>print_parameters</h4>
+<div class="section level4">
+<h4 id="print_parameters">print_parameters<a class="anchor" aria-label="anchor" href="#print_parameters"></a>
+</h4>
 <p><br></p>
 <p>This function prints information about the default parameters for a specific ‘command’. The ‘command’ can be for instance <em>supervised</em>, <em>skipgram</em>, <em>cbow</em> etc.,</p>
 <p><br></p>
@@ -222,9 +218,9 @@
 <span id="cb1-45"><a href="#cb1-45"></a><span class="st">  </span>EXIT_FAILURE <span class="op">--</span><span class="st"> </span>args.cc file <span class="op">--</span><span class="st"> </span>Args<span class="op">::</span>parseArgs <span class="cf">function</span></span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="print-usage-functions" class="section level4">
-<h4 class="hasAnchor">
-<a href="#print-usage-functions" class="anchor"></a>Print Usage Functions</h4>
+<div class="section level4">
+<h4 id="print-usage-functions">Print Usage Functions<a class="anchor" aria-label="anchor" href="#print-usage-functions"></a>
+</h4>
 <p><br></p>
 <p>Each one of the functions which includes the words <em>print</em> and <em>Usage</em> allows a user to print information for this specific function. For instance,</p>
 <p><br></p>
@@ -241,11 +237,11 @@
 <span id="cb2-11"><a href="#cb2-11"></a>    </span></code></pre></div>
 <p><br><br></p>
 </div>
-<div id="fasttext_interface" class="section level4">
-<h4 class="hasAnchor">
-<a href="#fasttext_interface" class="anchor"></a>fasttext_interface</h4>
+<div class="section level4">
+<h4 id="fasttext_interface">fasttext_interface<a class="anchor" aria-label="anchor" href="#fasttext_interface"></a>
+</h4>
 <p><br></p>
-<p>This function allows the user to run the various methods included in the <a href="https://github.com/facebookresearch/fastText">fasttext library</a> from within R. The data that I’ll use in the following code snippets can be downloaded as a .zip file (named as <strong>fastText_data</strong>) from my <a href="https://github.com/mlampros/DataSets">Github repository</a>. The user should then unzip the file and make the extracted folder his / hers default directory (using the base R function <em>setwd()</em>) before running the following code chunks.</p>
+<p>This function allows the user to run the various methods included in the <a href="https://github.com/facebookresearch/fastText" class="external-link">fasttext library</a> from within R. The data that I’ll use in the following code snippets can be downloaded as a .zip file (named as <strong>fastText_data</strong>) from my <a href="https://github.com/mlampros/DataSets" class="external-link">Github repository</a>. The user should then unzip the file and make the extracted folder his / hers default directory (using the base R function <em>setwd()</em>) before running the following code chunks.</p>
 <p><br></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">setwd</span>(<span class="st">'fastText_data'</span>)                  <span class="co"># make the extracted data the default directory</span></span>
@@ -309,10 +305,10 @@
 <p>The user has here also the option to plot the progress of <em>loss</em>, <em>learning-rate</em> and <em>word-counts</em>,</p>
 <p><br></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/plot_progress_logs.html">plot_progress_logs</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'sup_logs.txt'</span><span class="op">)</span>, 
+<code class="sourceCode R"><span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/plot_progress_logs.html">plot_progress_logs</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'sup_logs.txt'</span><span class="op">)</span>, 
                          plot <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/dim.html">dim</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span>
 </code></pre></div>
 <p><br></p>
 <p><img src="progress_fasttext.png"></p>
@@ -332,14 +328,14 @@
 <span class="co"># 'predict' function</span>
 <span class="co">#-------------------</span>
 
-<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict'</span>,
-                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
-                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>, 
+<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict'</span>,
+                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
+                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>, 
                    k <span class="op">=</span> <span class="fl">1</span>,
                    th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span>
 
 <span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/fasttext_interface.html">fasttext_interface</a></span><span class="op">(</span><span class="va">list_params</span>, 
-                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p>These output predictions will be of the following form ’__label__food-safety’ , where each line will represent a new label (number of lines of the input data must match the number of lines of the output data). With the <em>‘predict-prob’</em> command someone can obtain the probabilities of the labels as well,</p>
 <p><br></p>
@@ -349,14 +345,14 @@
 <span class="co"># 'predict-prob' function</span>
 <span class="co">#------------------------</span>
 
-<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict-prob'</span>,
-                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
-                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>, 
+<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict-prob'</span>,
+                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
+                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>, 
                    k <span class="op">=</span> <span class="fl">1</span>,
                    th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span>
 
 <span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/fasttext_interface.html">fasttext_interface</a></span><span class="op">(</span><span class="va">list_params</span>, 
-                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid_prob.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid_prob.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p>Using <em>‘predict-prob’</em> the output predictions will be of the following form ’__label__baking 0.0282927’</p>
 <p><br></p>
@@ -388,14 +384,14 @@
 <span class="co"># 'test-label' function</span>
 <span class="co">#----------------------</span>
 
-<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test-label'</span>,
-                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
-                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,
+<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test-label'</span>,
+                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,
+                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="st">'cooking.stackexchange'</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,
                    k <span class="op">=</span> <span class="fl">1</span>,
                    th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span>
 
 <span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/fasttext_interface.html">fasttext_interface</a></span><span class="op">(</span><span class="va">list_params</span>, 
-                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'test_label_valid.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'test_label_valid.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p>the output to the <em>‘test_label_valid.txt’</em> file, which includes the ‘Precision’ and ‘Recall’ for each unique label on the data set (<em>‘cooking.stackexchange.txt’</em>). That means the number of rows of the <em>‘test_label_valid.txt’</em> must be equal to the unique labels in the <em>‘cooking.stackexchange.txt’</em> data set. This can be verified using the following code snippet,</p>
 <p><br></p>
@@ -446,7 +442,7 @@
 <span id="cb11-14"><a href="#cb11-14"></a><span class="kw">print</span>(<span class="kw">list.files</span>(<span class="kw">tempdir</span>(), <span class="dt">pattern =</span> <span class="st">'.ftz'</span>))</span>
 <span id="cb11-15"><a href="#cb11-15"></a>[<span class="dv">1</span>] <span class="st">"model_cooking.ftz"</span></span></code></pre></div>
 <p><br></p>
-<p>The quantize function is currenlty (as of 01/02/2019) <a href="https://github.com/facebookresearch/fastText/issues/353#issuecomment-342501742">single-threaded</a>.</p>
+<p>The quantize function is currenlty (as of 01/02/2019) <a href="https://github.com/facebookresearch/fastText/issues/353#issuecomment-342501742" class="external-link">single-threaded</a>.</p>
 <p><br></p>
 <p>Based on the <em>‘queries.txt’</em> text file the user can save the word vectors to a file using the following command ( one vector per line ),</p>
 <p><br></p>
@@ -456,12 +452,12 @@
 <span class="co"># print-word-vectors function</span>
 <span class="co">#----------------------------</span>
 
-<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-word-vectors'</span>,
-                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>
+<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-word-vectors'</span>,
+                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/fasttext_interface.html">fasttext_interface</a></span><span class="op">(</span><span class="va">list_params</span>,
                          path_input <span class="op">=</span> <span class="st">'queries.txt'</span>,
-                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'word_vecs_queries.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'word_vecs_queries.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p>To compute vector representations of sentences or paragraphs use the following command,</p>
 <p><br></p>
@@ -471,14 +467,14 @@
 <span class="co"># print-sentence-vectors function</span>
 <span class="co">#--------------------------------</span>
 
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText">fastText</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText" class="external-link">fastText</a></span><span class="op">)</span>
 
-<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-sentence-vectors'</span>,
-                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>
+<span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-sentence-vectors'</span>,
+                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">res</span> <span class="op">=</span> <span class="fu"><a href="../reference/fasttext_interface.html">fasttext_interface</a></span><span class="op">(</span><span class="va">list_params</span>,
                          path_input <span class="op">=</span> <span class="st">'text_sentence.txt'</span>,
-                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'word_sentence_queries.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'word_sentence_queries.txt'</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><br></p>
 <p>Be aware that for the <em>‘print-sentence-vectors’</em> the <em>‘word_sentence_queries.txt’</em> file should consist of sentences of the following form,</p>
 <p><br></p>
@@ -641,11 +637,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Lampros Mouselimis.</p>
+  <p></p>
+<p>Developed by Lampros Mouselimis.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
 </div>
 
       </footer>
@@ -653,6 +651,8 @@
 
   
 
+
+  
 
   </body>
 </html>
