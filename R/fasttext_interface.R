@@ -41,7 +41,7 @@ compute_elapsed_time = function(time_start) {
 #'
 #'
 #' @param list_params a list of valid parameters
-#' @param path_output a character string specifying the path where the process-logs (or output in generally) should be saved
+#' @param path_output a character string specifying the file path where the process-logs (or output in generally) should be saved
 #' @param path_input a character string specifying the path to the input data file
 #' @param MilliSecs an integer specifying the delay in milliseconds when printing the results to the specified \emph{path_output}
 #' @param remove_previous_file a boolean. If TRUE, in case that the \emph{path_output} is not an empty string (""), then an existing file with the same output name will be removed
@@ -52,6 +52,8 @@ compute_elapsed_time = function(time_start) {
 #'
 #' @details
 #' This function allows the user to run the various methods included in the fasttext library from within R
+#'
+#' The "output" parameter which exists in the named list (see examples section) and is passed to the "list_params" parameter of the "fasttext_interface()" function, is a file path and not a directory name and will actually return two files (a *.vec* and a *.bin*) to the output directory.
 #' @references
 #' https://github.com/facebookresearch/fastText
 #'
@@ -87,6 +89,7 @@ compute_elapsed_time = function(time_start) {
 #' fastText::printNNUsage()
 #' fastText::printDumpUsage()
 #' fastText::printAnalogiesUsage()
+#' fastText::print_parameters(command = "supervised")
 #'
 #' # -----------------------------------------------------------------------
 #' # In case that the 'command' is one of 'cbow', 'skipgram' or 'supervised'
@@ -399,7 +402,7 @@ fasttext_interface = function(list_params,
 #' Print the parameters for a specific command
 #'
 #'
-#' @param command a character string specifying the command for which the parameters should be printed in the R session
+#' @param command a character string specifying the command for which the parameters should be printed in the R session. It should be one of "skipgram", "cbow", "supervised", "test", "test-label" or "quantize"
 #' @return It does not return a value but only prints the available parameters in the R session
 #' @references
 #' https://github.com/facebookresearch/fastText#full-documentation

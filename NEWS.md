@@ -2,6 +2,8 @@
 ## fastText 1.0.2
 
 * I added the *URL* and *BugReports* fields in the *DESCRIPTION* file
+* I updated the documentation of the *print_parameters()* function 
+* I updated the details section of the *fasttext_interface()* function regarding the *output* parameter which exists in the named list that is passed to the *list_params* parameter of the *fasttext_interface()* function. Although this *output* parameter is a file path (and not a directory name) it will be saved in both *.vec* and *.bin* file name extensions.
 
 
 ## fastText 1.0.1

@@ -10,7 +10,7 @@
 ## fastText
 <br>
 
-The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the [first](http://mlampros.github.io/2019/04/11/fastText_updated_version/) and [second](http://mlampros.github.io/2021/05/14/fasttext_language_identification/) blog posts and in the package documentation.
+The **fastText** R package is an interface to the [fastText](https://github.com/facebookresearch/fastText) library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the [first](http://mlampros.github.io/2019/04/11/fastText_updated_version/) and [second](http://mlampros.github.io/2021/05/14/fasttext_language_identification/) blog posts and in the package [documentation](https://mlampros.github.io/fastText/reference/index.html).
 
 <br>
 
@@ -83,7 +83,7 @@ If you use the **fastText** R package in your paper or research please cite both
     Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2021},
-  note = {R package version 1.0.0},
+  note = {R package version 1.0.2},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```

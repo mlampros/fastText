@@ -7,7 +7,7 @@
 print_parameters(command = "supervised")
 }
 \arguments{
-\item{command}{a character string specifying the command for which the parameters should be printed in the R session}
+\item{command}{a character string specifying the command for which the parameters should be printed in the R session. It should be one of "skipgram", "cbow", "supervised", "test", "test-label" or "quantize"}
 }
 \value{
 It does not return a value but only prints the available parameters in the R session

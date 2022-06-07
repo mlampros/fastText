@@ -16,7 +16,7 @@ fasttext_interface(
 \arguments{
 \item{list_params}{a list of valid parameters}
 
-\item{path_output}{a character string specifying the path where the process-logs (or output in generally) should be saved}
+\item{path_output}{a character string specifying the file path where the process-logs (or output in generally) should be saved}
 
 \item{MilliSecs}{an integer specifying the delay in milliseconds when printing the results to the specified \emph{path_output}}
 
@@ -34,6 +34,8 @@ Interface for the fasttext library
 }
 \details{
 This function allows the user to run the various methods included in the fasttext library from within R
+
+The "output" parameter which exists in the named list (see examples section) and is passed to the "list_params" parameter of the "fasttext_interface()" function, is a file path and not a directory name and will actually return two files (a *.vec* and a *.bin*) to the output directory.
 }
 \examples{
 
@@ -65,6 +67,7 @@ fastText::printPredictUsage()
 fastText::printNNUsage()
 fastText::printDumpUsage()
 fastText::printAnalogiesUsage()
+fastText::print_parameters(command = "supervised")
 
 # -----------------------------------------------------------------------
 # In case that the 'command' is one of 'cbow', 'skipgram' or 'supervised'
