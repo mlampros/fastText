@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 2.0.3
+pkgdown: 2.0.4
 pkgdown_sha: ~
 articles:
   language_identification: language_identification.html
   the_fastText_R_package: the_fastText_R_package.html
-last_built: 2022-06-10T04:38Z
+last_built: 2022-06-11T04:31Z
 

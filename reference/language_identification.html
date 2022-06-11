@@ -80,20 +80,33 @@
     <h2>Arguments</h2>
     <dl><dt>input_obj</dt>
 <dd><p>either a valid character string to a valid path where each line represents a different text extract or a vector of text extracts</p></dd>
+
+
 <dt>pre_trained_language_model_path</dt>
 <dd><p>a valid character string to the pre-trained language identification model path, for more info see https://fasttext.cc/docs/en/language-identification.html</p></dd>
+
+
 <dt>k</dt>
 <dd><p>predict top k labels (1 by default)</p></dd>
+
+
 <dt>th</dt>
 <dd><p>probability threshold (0.0 by default)</p></dd>
+
+
 <dt>threads</dt>
 <dd><p>an integer specifying the number of threads to run in parallel. This parameter applies only if k &gt; 1</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>if TRUE then information will be printed out in the console</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>an object of class data.table which includes two or more columns with the names 'iso_lang_N' and 'prob_N' where 'N' corresponds to 1 to 'k' input parameter</p>
+    
+
+<p>an object of class data.table which includes two or more columns with the names 'iso_lang_N' and 'prob_N' where 'N' corresponds to 1 to 'k' input parameter</p>
     </div>
     <div id="references">
     <h2>References</h2>
@@ -143,7 +156,7 @@ https://becominghuman.ai/a-handy-pre-trained-model-for-language-identification-c
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
       </footer></div>
