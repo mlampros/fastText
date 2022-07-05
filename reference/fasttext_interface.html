@@ -66,14 +66,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">fasttext_interface</span><span class="op">(</span>
-  <span class="va">list_params</span>,
-  path_output <span class="op">=</span> <span class="st">""</span>,
-  MilliSecs <span class="op">=</span> <span class="fl">100</span>,
-  path_input <span class="op">=</span> <span class="st">""</span>,
-  remove_previous_file <span class="op">=</span> <span class="cn">TRUE</span>,
-  print_process_time <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fasttext_interface</span><span class="op">(</span></span>
+<span>  <span class="va">list_params</span>,</span>
+<span>  path_output <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  MilliSecs <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  path_input <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  remove_previous_file <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  print_process_time <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -121,220 +121,220 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText" class="external-link">fastText</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">####################################################################################</span></span>
-<span class="r-in"><span class="co"># If the user intends to run the following examples then he / she must replace     #</span></span>
-<span class="r-in"><span class="co"># the 'input', 'output', 'path_input', 'path_output', 'model' and 'test_data' file #</span></span>
-<span class="r-in"><span class="co"># paths depending on where the data are located or should be saved!                #</span></span>
-<span class="r-in"><span class="co"># ( 'tempdir()' is used here as an example folder )                                #</span></span>
-<span class="r-in"><span class="co">####################################################################################</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ------------------------------------------------</span></span>
-<span class="r-in"><span class="co"># print information for the Usage of each function [ parameters ]</span></span>
-<span class="r-in"><span class="co"># ------------------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printUsage.html">printUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printTestUsage.html">printTestUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printTestLabelUsage.html">printTestLabelUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printQuantizeUsage.html">printQuantizeUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintWordVectorsUsage.html">printPrintWordVectorsUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintSentenceVectorsUsage.html">printPrintSentenceVectorsUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintNgramsUsage.html">printPrintNgramsUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPredictUsage.html">printPredictUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printNNUsage.html">printNNUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printDumpUsage.html">printDumpUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printAnalogiesUsage.html">printAnalogiesUsage</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="print_parameters.html">print_parameters</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">"supervised"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># -----------------------------------------------------------------------</span></span>
-<span class="r-in"><span class="co"># In case that the 'command' is one of 'cbow', 'skipgram' or 'supervised'</span></span>
-<span class="r-in"><span class="co"># -----------------------------------------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'cbow'</span>,</span>
-<span class="r-in">                   lr <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span class="r-in">                   dim <span class="op">=</span> <span class="fl">200</span>,</span>
-<span class="r-in">                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"doc.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span class="r-in">                   verbose <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">                   thread <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"model_logs.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">                         MilliSecs <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ---------------------</span></span>
-<span class="r-in"><span class="co"># 'supervised' training</span></span>
-<span class="r-in"><span class="co"># ---------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'supervised'</span>,</span>
-<span class="r-in">                    lr <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span class="r-in">                    dim <span class="op">=</span> <span class="fl">200</span>,</span>
-<span class="r-in">                    input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"cooking.train"</span><span class="op">)</span>,</span>
-<span class="r-in">                    output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"model_cooking"</span><span class="op">)</span>,</span>
-<span class="r-in">                    verbose <span class="op">=</span> <span class="fl">2</span>,</span>
-<span class="r-in">                    thread <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'logs_supervise.txt'</span><span class="op">)</span>,</span>
-<span class="r-in">                         MilliSecs <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ---------------------------------------</span></span>
-<span class="r-in"><span class="co"># In case that the 'command' is 'predict'</span></span>
-<span class="r-in"><span class="co"># ---------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span>
-<span class="r-in">                   k <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid.txt'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ------------------------------------</span></span>
-<span class="r-in"><span class="co"># In case that the 'command' is 'test'  [ k = 5 , means that precision and recall are at 5 ]</span></span>
-<span class="r-in"><span class="co"># ------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span>
-<span class="r-in">                   k <span class="op">=</span> <span class="fl">5</span>,</span>
-<span class="r-in">                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span>   <span class="co"># It only prints 'Precision', 'Recall' to the R session</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ------------------------------------------</span></span>
-<span class="r-in"><span class="co"># In case that the 'command' is 'test-label'   [ k = 5 , means that precision and recall are at 5 ]</span></span>
-<span class="r-in"><span class="co"># ------------------------------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test-label'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span>
-<span class="r-in">                   k <span class="op">=</span> <span class="fl">5</span>,</span>
-<span class="r-in">                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,              <span class="co"># prints also 'Precision', 'Recall' to R session</span></span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"test_valid.txt"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># -----------------</span></span>
-<span class="r-in"><span class="co"># quantize function  [ it will take a .bin file and return an .ftz file ]</span></span>
-<span class="r-in"><span class="co"># -----------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># the quantize function is currenlty (01/02/2019) single-threaded</span></span>
-<span class="r-in"><span class="co"># https://github.com/facebookresearch/fastText/issues/353#issuecomment-342501742</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'quantize'</span>,</span>
-<span class="r-in">                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'.bin'</span>, <span class="st">'.ftz'</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># -----------------</span></span>
-<span class="r-in"><span class="co"># quantize function  [ by using the optional parameters 'qnorm' and 'qout' ]</span></span>
-<span class="r-in"><span class="co"># -----------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'quantize'</span>,</span>
-<span class="r-in">                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'.bin'</span>, <span class="st">'.ftz'</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>,</span>
-<span class="r-in">                   qnorm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span class="r-in">                   qout <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ------------------</span></span>
-<span class="r-in"><span class="co"># print-word-vectors   [ each line of the 'queries.txt' must be a single word ]</span></span>
-<span class="r-in"><span class="co"># ------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-word-vectors'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'queries.txt'</span><span class="op">)</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'print_vecs_file.txt'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ----------------------</span></span>
-<span class="r-in"><span class="co"># print-sentence-vectors   [ See also the comments in the main.cc file about the input-file ]</span></span>
-<span class="r-in"><span class="co"># ----------------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-sentence-vectors'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'text.txt'</span><span class="op">)</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'SENTENCE_VECs.txt'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ------------</span></span>
-<span class="r-in"><span class="co"># print-ngrams       [ print to console or to output-file ]</span></span>
-<span class="r-in"><span class="co"># ------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'skipgram'</span>, lr <span class="op">=</span> <span class="fl">0.1</span>, dim <span class="op">=</span> <span class="fl">200</span>,</span>
-<span class="r-in">                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"doc.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="fl">2</span>, thread <span class="op">=</span> <span class="fl">1</span>,</span>
-<span class="r-in">                   minn <span class="op">=</span> <span class="fl">2</span>, maxn <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"ngram_out.txt"</span><span class="op">)</span>,</span>
-<span class="r-in">                         MilliSecs <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-ngrams'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'ngram_out.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   word <span class="op">=</span> <span class="st">'word'</span><span class="op">)</span>                           <span class="co"># print n-grams for specific word</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>, path_output <span class="op">=</span> <span class="st">""</span><span class="op">)</span>             <span class="co"># print output to console</span></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"NGRAMS.txt"</span><span class="op">)</span><span class="op">)</span>   <span class="co"># output to file</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># -------------</span></span>
-<span class="r-in"><span class="co"># 'nn' function</span></span>
-<span class="r-in"><span class="co"># -------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'nn'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   k <span class="op">=</span> <span class="fl">20</span>,</span>
-<span class="r-in">                   query_word <span class="op">=</span> <span class="st">'word'</span><span class="op">)</span>          <span class="co"># a 'query_word' is required</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"nn_output.txt"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># ---------</span></span>
-<span class="r-in"><span class="co"># analogies   [ in the output file each analogy-triplet-result is separated with a newline ]</span></span>
-<span class="r-in"><span class="co"># ---------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'analogies'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'analogy_queries.txt'</span><span class="op">)</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'analogies_output.txt'</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># -------------</span></span>
-<span class="r-in"><span class="co"># dump function  [ the 'option' param should be one of 'args', 'dict', 'input' or 'output' ]</span></span>
-<span class="r-in"><span class="co"># -------------</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'dump'</span>,</span>
-<span class="r-in">                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span>
-<span class="r-in">                   option <span class="op">=</span> <span class="st">'args'</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span>
-<span class="r-in">                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"DUMP.txt"</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText" class="external-link">fastText</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">####################################################################################</span></span></span>
+<span class="r-in"><span><span class="co"># If the user intends to run the following examples then he / she must replace     #</span></span></span>
+<span class="r-in"><span><span class="co"># the 'input', 'output', 'path_input', 'path_output', 'model' and 'test_data' file #</span></span></span>
+<span class="r-in"><span><span class="co"># paths depending on where the data are located or should be saved!                #</span></span></span>
+<span class="r-in"><span><span class="co"># ( 'tempdir()' is used here as an example folder )                                #</span></span></span>
+<span class="r-in"><span><span class="co">####################################################################################</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co"># print information for the Usage of each function [ parameters ]</span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printUsage.html">printUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printTestUsage.html">printTestUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printTestLabelUsage.html">printTestLabelUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printQuantizeUsage.html">printQuantizeUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintWordVectorsUsage.html">printPrintWordVectorsUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintSentenceVectorsUsage.html">printPrintSentenceVectorsUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPrintNgramsUsage.html">printPrintNgramsUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printPredictUsage.html">printPredictUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printNNUsage.html">printNNUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printDumpUsage.html">printDumpUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="printAnalogiesUsage.html">printAnalogiesUsage</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="print_parameters.html">print_parameters</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">"supervised"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># -----------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co"># In case that the 'command' is one of 'cbow', 'skipgram' or 'supervised'</span></span></span>
+<span class="r-in"><span><span class="co"># -----------------------------------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'cbow'</span>,</span></span>
+<span class="r-in"><span>                   lr <span class="op">=</span> <span class="fl">0.1</span>,</span></span>
+<span class="r-in"><span>                   dim <span class="op">=</span> <span class="fl">200</span>,</span></span>
+<span class="r-in"><span>                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"doc.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   verbose <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>                   thread <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"model_logs.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         MilliSecs <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ---------------------</span></span></span>
+<span class="r-in"><span><span class="co"># 'supervised' training</span></span></span>
+<span class="r-in"><span><span class="co"># ---------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'supervised'</span>,</span></span>
+<span class="r-in"><span>                    lr <span class="op">=</span> <span class="fl">0.1</span>,</span></span>
+<span class="r-in"><span>                    dim <span class="op">=</span> <span class="fl">200</span>,</span></span>
+<span class="r-in"><span>                    input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"cooking.train"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                    output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"model_cooking"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                    verbose <span class="op">=</span> <span class="fl">2</span>,</span></span>
+<span class="r-in"><span>                    thread <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'logs_supervise.txt'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         MilliSecs <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ---------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co"># In case that the 'command' is 'predict'</span></span></span>
+<span class="r-in"><span><span class="co"># ---------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'predict'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   k <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'predict_valid.txt'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co"># In case that the 'command' is 'test'  [ k = 5 , means that precision and recall are at 5 ]</span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   k <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span>                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span>   <span class="co"># It only prints 'Precision', 'Recall' to the R session</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------------</span></span></span>
+<span class="r-in"><span><span class="co"># In case that the 'command' is 'test-label'   [ k = 5 , means that precision and recall are at 5 ]</span></span></span>
+<span class="r-in"><span><span class="co"># ------------------------------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'test-label'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   test_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'cooking.valid'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   k <span class="op">=</span> <span class="fl">5</span>,</span></span>
+<span class="r-in"><span>                   th <span class="op">=</span> <span class="fl">0.0</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,              <span class="co"># prints also 'Precision', 'Recall' to R session</span></span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"test_valid.txt"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># -----------------</span></span></span>
+<span class="r-in"><span><span class="co"># quantize function  [ it will take a .bin file and return an .ftz file ]</span></span></span>
+<span class="r-in"><span><span class="co"># -----------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># the quantize function is currenlty (01/02/2019) single-threaded</span></span></span>
+<span class="r-in"><span><span class="co"># https://github.com/facebookresearch/fastText/issues/353#issuecomment-342501742</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'quantize'</span>,</span></span>
+<span class="r-in"><span>                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'.bin'</span>, <span class="st">'.ftz'</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># -----------------</span></span></span>
+<span class="r-in"><span><span class="co"># quantize function  [ by using the optional parameters 'qnorm' and 'qout' ]</span></span></span>
+<span class="r-in"><span><span class="co"># -----------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'quantize'</span>,</span></span>
+<span class="r-in"><span>                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">'.bin'</span>, <span class="st">'.ftz'</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   qnorm <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>                   qout <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ------------------</span></span></span>
+<span class="r-in"><span><span class="co"># print-word-vectors   [ each line of the 'queries.txt' must be a single word ]</span></span></span>
+<span class="r-in"><span><span class="co"># ------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-word-vectors'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'queries.txt'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'print_vecs_file.txt'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ----------------------</span></span></span>
+<span class="r-in"><span><span class="co"># print-sentence-vectors   [ See also the comments in the main.cc file about the input-file ]</span></span></span>
+<span class="r-in"><span><span class="co"># ----------------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-sentence-vectors'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'text.txt'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'SENTENCE_VECs.txt'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ------------</span></span></span>
+<span class="r-in"><span><span class="co"># print-ngrams       [ print to console or to output-file ]</span></span></span>
+<span class="r-in"><span><span class="co"># ------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'skipgram'</span>, lr <span class="op">=</span> <span class="fl">0.1</span>, dim <span class="op">=</span> <span class="fl">200</span>,</span></span>
+<span class="r-in"><span>                   input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"doc.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="fl">2</span>, thread <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>                   minn <span class="op">=</span> <span class="fl">2</span>, maxn <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"ngram_out.txt"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         MilliSecs <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'print-ngrams'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'ngram_out.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   word <span class="op">=</span> <span class="st">'word'</span><span class="op">)</span>                           <span class="co"># print n-grams for specific word</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>, path_output <span class="op">=</span> <span class="st">""</span><span class="op">)</span>             <span class="co"># print output to console</span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"NGRAMS.txt"</span><span class="op">)</span><span class="op">)</span>   <span class="co"># output to file</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># -------------</span></span></span>
+<span class="r-in"><span><span class="co"># 'nn' function</span></span></span>
+<span class="r-in"><span><span class="co"># -------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'nn'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   k <span class="op">=</span> <span class="fl">20</span>,</span></span>
+<span class="r-in"><span>                   query_word <span class="op">=</span> <span class="st">'word'</span><span class="op">)</span>          <span class="co"># a 'query_word' is required</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"nn_output.txt"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># ---------</span></span></span>
+<span class="r-in"><span><span class="co"># analogies   [ in the output file each analogy-triplet-result is separated with a newline ]</span></span></span>
+<span class="r-in"><span><span class="co"># ---------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'analogies'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   k <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_input <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'analogy_queries.txt'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'analogies_output.txt'</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># -------------</span></span></span>
+<span class="r-in"><span><span class="co"># dump function  [ the 'option' param should be one of 'args', 'dict', 'input' or 'output' ]</span></span></span>
+<span class="r-in"><span><span class="co"># -------------</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">list_params</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>command <span class="op">=</span> <span class="st">'dump'</span>,</span></span>
+<span class="r-in"><span>                   model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">'model_cooking.bin'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>                   option <span class="op">=</span> <span class="st">'args'</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">res</span> <span class="op">=</span> <span class="fu">fasttext_interface</span><span class="op">(</span><span class="va">list_params</span>,</span></span>
+<span class="r-in"><span>                         path_output <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"DUMP.txt"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>

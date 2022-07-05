@@ -66,14 +66,14 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">language_identification</span><span class="op">(</span>
-  <span class="va">input_obj</span>,
-  <span class="va">pre_trained_language_model_path</span>,
-  k <span class="op">=</span> <span class="fl">1</span>,
-  th <span class="op">=</span> <span class="fl">0</span>,
-  threads <span class="op">=</span> <span class="fl">1</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">language_identification</span><span class="op">(</span></span>
+<span>  <span class="va">input_obj</span>,</span>
+<span>  <span class="va">pre_trained_language_model_path</span>,</span>
+<span>  k <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  th <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  threads <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -116,27 +116,27 @@ https://becominghuman.ai/a-handy-pre-trained-model-for-language-identification-c
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText" class="external-link">fastText</a></span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Incapaz de distinguir la luna y la cara de esta chica,</span>
-<span class="r-in">             Las estrellas se ponen nerviosas en el cielo"</span>,</span>
-<span class="r-in">             <span class="st">"Unable to tell apart the moon and this girl's face,</span>
-<span class="r-in">             Stars are flustered up in the sky."</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">file_pretrained</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"language_identification/lid.176.ftz"</span>, package <span class="op">=</span> <span class="st">"fastText"</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">dtbl_out</span> <span class="op">=</span> <span class="fu">language_identification</span><span class="op">(</span>input_obj <span class="op">=</span> <span class="va">vec_txt</span>,</span>
-<span class="r-in">                                   pre_trained_language_model_path <span class="op">=</span> <span class="va">file_pretrained</span>,</span>
-<span class="r-in">                                   k <span class="op">=</span> <span class="fl">3</span>,</span>
-<span class="r-in">                                   th <span class="op">=</span> <span class="fl">0.0</span>,</span>
-<span class="r-in">                                   verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mlampros/fastText" class="external-link">fastText</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">vec_txt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Incapaz de distinguir la luna y la cara de esta chica,</span></span></span>
+<span class="r-in"><span><span class="st">             Las estrellas se ponen nerviosas en el cielo"</span>,</span></span>
+<span class="r-in"><span>             <span class="st">"Unable to tell apart the moon and this girl's face,</span></span></span>
+<span class="r-in"><span><span class="st">             Stars are flustered up in the sky."</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">file_pretrained</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"language_identification/lid.176.ftz"</span>, package <span class="op">=</span> <span class="st">"fastText"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">dtbl_out</span> <span class="op">=</span> <span class="fu">language_identification</span><span class="op">(</span>input_obj <span class="op">=</span> <span class="va">vec_txt</span>,</span></span>
+<span class="r-in"><span>                                   pre_trained_language_model_path <span class="op">=</span> <span class="va">file_pretrained</span>,</span></span>
+<span class="r-in"><span>                                   k <span class="op">=</span> <span class="fl">3</span>,</span></span>
+<span class="r-in"><span>                                   th <span class="op">=</span> <span class="fl">0.0</span>,</span></span>
+<span class="r-in"><span>                                   verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The 'fasttext' algorithm starts ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Conversion of the predicted labels and probabilities for k = 3 and threads = 1 ... </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The predicted labels will be loaded from the temporary file ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> The temporary files will be removed ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Elapsed time: 0 hours and 0 minutes and 0 seconds. </span>
-<span class="r-in"><span class="va">dtbl_out</span></span>
+<span class="r-in"><span><span class="va">dtbl_out</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    iso_lang_1   prob_1 iso_lang_2     prob_2 iso_lang_3     prob_3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1:         es 0.910368         fr  0.0177581         pt  0.0164652</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2:         es 0.849259         ca  0.0497277         fr  0.0141624</span>
