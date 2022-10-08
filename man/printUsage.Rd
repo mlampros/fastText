@@ -4,7 +4,10 @@
 \alias{printUsage}
 \title{Print Usage Information for all parameters}
 \usage{
-printUsage()
+printUsage(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{if TRUE then information will be printed in the console}
 }
 \value{
 It does not return a value but only prints the available parameters of the 'printUsage' function in the R session

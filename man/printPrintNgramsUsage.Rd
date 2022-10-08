@@ -4,7 +4,10 @@
 \alias{printPrintNgramsUsage}
 \title{Print Usage Information when the command equals to 'print-ngrams'}
 \usage{
-printPrintNgramsUsage()
+printPrintNgramsUsage(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{if TRUE then information will be printed in the console}
 }
 \value{
 It does not return a value but only prints the available parameters of the 'printPrintNgramsUsage' function in the R session

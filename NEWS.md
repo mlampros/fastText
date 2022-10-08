@@ -1,4 +1,10 @@
 
+## fastText 1.0.3
+
+* I added a test case for the *'language_identification()'* function (see Github issue: https://github.com/mlampros/fastText/issues/3)
+* I added the '*verbose*' parameter to the C++ functions of the '*src/main.cc*' file that did not take any variables as input to avoid the CRAN WARNING *'function declaration isn't a prototype [-Wstrict-prototypes]'*
+
+
 ## fastText 1.0.2
 
 * I added the *URL* and *BugReports* fields in the *DESCRIPTION* file

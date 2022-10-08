@@ -407,3 +407,15 @@ testthat::test_that("the 'language_identification' function returns the correct 
   testthat::expect_true( inherits(res_out, 'data.table') & nrow(res_out) > 1 & length(unique(res_out$iso_lang_1)) >= 1)
 })
 
+
+testthat::test_that("the 'language_identification' function returns the correct output if the input object is 'data' (see Github issue https://github.com/mlampros/fastText/issues/3)", {
+
+  res_out = language_identification(input_obj = "data",
+                                    pre_trained_language_model_path = pre_train_ftz,
+                                    k = 1,
+                                    th = 0.0,
+                                    verbose = TRUE)
+
+  testthat::expect_true( inherits(res_out, 'data.table') & nrow(res_out) == 1 )
+})
+

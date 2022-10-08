@@ -4,7 +4,10 @@
 \alias{printNNUsage}
 \title{Print Usage Information when the command equals to 'nn'}
 \usage{
-printNNUsage()
+printNNUsage(verbose = TRUE)
+}
+\arguments{
+\item{verbose}{if TRUE then information will be printed in the console}
 }
 \value{
 It does not return a value but only prints the available parameters of the 'printNNUsage' function in the R session

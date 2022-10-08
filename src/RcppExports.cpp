@@ -11,101 +11,112 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // printUsage
-void printUsage();
-RcppExport SEXP _fastText_printUsage() {
+void printUsage(bool verbose);
+RcppExport SEXP _fastText_printUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printQuantizeUsage
-void printQuantizeUsage();
-RcppExport SEXP _fastText_printQuantizeUsage() {
+void printQuantizeUsage(bool verbose);
+RcppExport SEXP _fastText_printQuantizeUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printQuantizeUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printQuantizeUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printTestUsage
-void printTestUsage();
-RcppExport SEXP _fastText_printTestUsage() {
+void printTestUsage(bool verbose);
+RcppExport SEXP _fastText_printTestUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printTestUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printTestUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printPredictUsage
-void printPredictUsage();
-RcppExport SEXP _fastText_printPredictUsage() {
+void printPredictUsage(bool verbose);
+RcppExport SEXP _fastText_printPredictUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printPredictUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printPredictUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printTestLabelUsage
-void printTestLabelUsage();
-RcppExport SEXP _fastText_printTestLabelUsage() {
+void printTestLabelUsage(bool verbose);
+RcppExport SEXP _fastText_printTestLabelUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printTestLabelUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printTestLabelUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printPrintWordVectorsUsage
-void printPrintWordVectorsUsage();
-RcppExport SEXP _fastText_printPrintWordVectorsUsage() {
+void printPrintWordVectorsUsage(bool verbose);
+RcppExport SEXP _fastText_printPrintWordVectorsUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printPrintWordVectorsUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printPrintWordVectorsUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printPrintSentenceVectorsUsage
-void printPrintSentenceVectorsUsage();
-RcppExport SEXP _fastText_printPrintSentenceVectorsUsage() {
+void printPrintSentenceVectorsUsage(bool verbose);
+RcppExport SEXP _fastText_printPrintSentenceVectorsUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printPrintSentenceVectorsUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printPrintSentenceVectorsUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printPrintNgramsUsage
-void printPrintNgramsUsage();
-RcppExport SEXP _fastText_printPrintNgramsUsage() {
+void printPrintNgramsUsage(bool verbose);
+RcppExport SEXP _fastText_printPrintNgramsUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printPrintNgramsUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printPrintNgramsUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printNNUsage
-void printNNUsage();
-RcppExport SEXP _fastText_printNNUsage() {
+void printNNUsage(bool verbose);
+RcppExport SEXP _fastText_printNNUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printNNUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printNNUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printAnalogiesUsage
-void printAnalogiesUsage();
-RcppExport SEXP _fastText_printAnalogiesUsage() {
+void printAnalogiesUsage(bool verbose);
+RcppExport SEXP _fastText_printAnalogiesUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printAnalogiesUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printAnalogiesUsage(verbose);
     return R_NilValue;
 END_RCPP
 }
 // printDumpUsage
-void printDumpUsage();
-RcppExport SEXP _fastText_printDumpUsage() {
+void printDumpUsage(bool verbose);
+RcppExport SEXP _fastText_printDumpUsage(SEXP verboseSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    printDumpUsage();
+    Rcpp::traits::input_parameter< bool >::type verbose(verboseSEXP);
+    printDumpUsage(verbose);
     return R_NilValue;
 END_RCPP
 }

@@ -40,6 +40,8 @@ using namespace fasttext;
 
 //' Print Usage Information for all parameters
 //'
+//' @param verbose if TRUE then information will be printed in the console
+//'
 //' @return It does not return a value but only prints the available parameters of the 'printUsage' function in the R session
 //' @export
 //' @examples
@@ -49,29 +51,34 @@ using namespace fasttext;
 //' printUsage()
 //'
 // [[Rcpp::export]]
-void printUsage() {
-  Rcpp::Rcout
-      << "usage: fasttext <command> <args>\n\n"
-      << "The commands supported by fasttext are:\n\n"
-      << "  supervised              train a supervised classifier\n"
-      << "  quantize                quantize a model to reduce the memory usage\n"
-      << "  test                    evaluate a supervised classifier\n"
-      << "  test-label              print labels with precision and recall scores\n"
-      << "  predict                 predict most likely labels\n"
-      << "  predict-prob            predict most likely labels with probabilities\n"
-      << "  skipgram                train a skipgram model\n"
-      << "  cbow                    train a cbow model\n"
-      << "  print-word-vectors      print word vectors given a trained model\n"
-      << "  print-sentence-vectors  print sentence vectors given a trained model\n"
-      << "  print-ngrams            print ngrams given a trained model and word\n"
-      << "  nn                      query for nearest neighbors\n"
-      << "  analogies               query for analogies\n"
-      << "  dump                    dump arguments,dictionary,input/output vectors\n"
-      << std::endl;
+void printUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout
+    << "usage: fasttext <command> <args>\n\n"
+    << "The commands supported by fasttext are:\n\n"
+    << "  supervised              train a supervised classifier\n"
+    << "  quantize                quantize a model to reduce the memory usage\n"
+    << "  test                    evaluate a supervised classifier\n"
+    << "  test-label              print labels with precision and recall scores\n"
+    << "  predict                 predict most likely labels\n"
+    << "  predict-prob            predict most likely labels with probabilities\n"
+    << "  skipgram                train a skipgram model\n"
+    << "  cbow                    train a cbow model\n"
+    << "  print-word-vectors      print word vectors given a trained model\n"
+    << "  print-sentence-vectors  print sentence vectors given a trained model\n"
+    << "  print-ngrams            print ngrams given a trained model and word\n"
+    << "  nn                      query for nearest neighbors\n"
+    << "  analogies               query for analogies\n"
+    << "  dump                    dump arguments,dictionary,input/output vectors\n"
+    << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'quantize'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printQuantizeUsage' function in the R session
 //' @export
@@ -82,12 +89,17 @@ void printUsage() {
 //' printQuantizeUsage()
 //'
 // [[Rcpp::export]]
-void printQuantizeUsage() {
-  Rcpp::Rcout << "usage: fasttext quantize <args>" << std::endl;
+void printQuantizeUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext quantize <args>" << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'test'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printTestUsage' function in the R session
 //' @export
@@ -98,18 +110,23 @@ void printQuantizeUsage() {
 //' printTestUsage()
 //'
 // [[Rcpp::export]]
-void printTestUsage() {
-  Rcpp::Rcout
-      << "usage: fasttext test <model> <test-data> [<k>] [<th>]\n\n"
-      << "  <model>      model filename\n"
-      << "  <test-data>  test data filename (if -, read from stdin)\n"
-      << "  <k>          (optional; 1 by default) predict top k labels\n"
-      << "  <th>         (optional; 0.0 by default) probability threshold\n"
-      << std::endl;
+void printTestUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout
+        << "usage: fasttext test <model> <test-data> [<k>] [<th>]\n\n"
+        << "  <model>      model filename\n"
+        << "  <test-data>  test data filename (if -, read from stdin)\n"
+        << "  <k>          (optional; 1 by default) predict top k labels\n"
+        << "  <th>         (optional; 0.0 by default) probability threshold\n"
+        << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'predict' or 'predict-prob'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printPredictUsage' function in the R session
 //' @export
@@ -120,18 +137,23 @@ void printTestUsage() {
 //' printPredictUsage()
 //'
 // [[Rcpp::export]]
-void printPredictUsage() {
-  Rcpp::Rcout
-      << "usage: fasttext predict[-prob] <model> <test-data> [<k>] [<th>]\n\n"
-      << "  <model>      model filename\n"
-      << "  <test-data>  test data filename (if -, read from stdin)\n"
-      << "  <k>          (optional; 1 by default) predict top k labels\n"
-      << "  <th>         (optional; 0.0 by default) probability threshold\n"
-      << std::endl;
+void printPredictUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout
+        << "usage: fasttext predict[-prob] <model> <test-data> [<k>] [<th>]\n\n"
+        << "  <model>      model filename\n"
+        << "  <test-data>  test data filename (if -, read from stdin)\n"
+        << "  <k>          (optional; 1 by default) predict top k labels\n"
+        << "  <th>         (optional; 0.0 by default) probability threshold\n"
+        << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'test-label'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printTestLabelUsage' function in the R session
 //' @export
@@ -142,18 +164,23 @@ void printPredictUsage() {
 //' printTestLabelUsage()
 //'
 // [[Rcpp::export]]
-void printTestLabelUsage() {
-  Rcpp::Rcout
-      << "usage: fasttext test-label <model> <test-data> [<k>] [<th>]\n\n"
-      << "  <model>      model filename\n"
-      << "  <test-data>  test data filename\n"
-      << "  <k>          (optional; 1 by default) predict top k labels\n"
-      << "  <th>         (optional; 0.0 by default) probability threshold\n"
-      << std::endl;
+void printTestLabelUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout
+        << "usage: fasttext test-label <model> <test-data> [<k>] [<th>]\n\n"
+        << "  <model>      model filename\n"
+        << "  <test-data>  test data filename\n"
+        << "  <k>          (optional; 1 by default) predict top k labels\n"
+        << "  <th>         (optional; 0.0 by default) probability threshold\n"
+        << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'print-word-vectors'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printPrintWordVectorsUsage' function in the R session
 //' @export
@@ -164,14 +191,19 @@ void printTestLabelUsage() {
 //' printPrintWordVectorsUsage()
 //'
 // [[Rcpp::export]]
-void printPrintWordVectorsUsage() {
-  Rcpp::Rcout << "usage: fasttext print-word-vectors <model>\n\n"
-            << "  <model>      model filename\n"
-            << std::endl;
+void printPrintWordVectorsUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext print-word-vectors <model>\n\n"
+              << "  <model>      model filename\n"
+              << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'print-sentence-vectors'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printPrintSentenceVectorsUsage' function in the R session
 //' @export
@@ -182,14 +214,19 @@ void printPrintWordVectorsUsage() {
 //' printPrintSentenceVectorsUsage()
 //'
 // [[Rcpp::export]]
-void printPrintSentenceVectorsUsage() {
-  Rcpp::Rcout << "usage: fasttext print-sentence-vectors <model>\n\n"
-            << "  <model>      model filename\n"
-            << std::endl;
+void printPrintSentenceVectorsUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext print-sentence-vectors <model>\n\n"
+              << "  <model>      model filename\n"
+              << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'print-ngrams'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printPrintNgramsUsage' function in the R session
 //' @export
@@ -200,15 +237,20 @@ void printPrintSentenceVectorsUsage() {
 //' printPrintNgramsUsage()
 //'
 // [[Rcpp::export]]
-void printPrintNgramsUsage() {
-  Rcpp::Rcout << "usage: fasttext print-ngrams <model> <word>\n\n"
-            << "  <model>      model filename\n"
-            << "  <word>       word to print\n"
-            << std::endl;
+void printPrintNgramsUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext print-ngrams <model> <word>\n\n"
+              << "  <model>      model filename\n"
+              << "  <word>       word to print\n"
+              << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'nn'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printNNUsage' function in the R session
 //' @export
@@ -219,15 +261,20 @@ void printPrintNgramsUsage() {
 //' printNNUsage()
 //'
 // [[Rcpp::export]]
-void printNNUsage() {
-  Rcpp::Rcout << "usage: fasttext nn <model> <k>\n\n"
-            << "  <model>      model filename\n"
-            << "  <k>          (optional; 10 by default) predict top k labels\n"
-            << std::endl;
+void printNNUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext nn <model> <k>\n\n"
+              << "  <model>      model filename\n"
+              << "  <k>          (optional; 10 by default) predict top k labels\n"
+              << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'analogies'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printAnalogiesUsage' function in the R session
 //' @export
@@ -238,15 +285,20 @@ void printNNUsage() {
 //' printAnalogiesUsage()
 //'
 // [[Rcpp::export]]
-void printAnalogiesUsage() {
-  Rcpp::Rcout << "usage: fasttext analogies <model> <k>\n\n"
-            << "  <model>      model filename\n"
-            << "  <k>          (optional; 10 by default) predict top k labels\n"
-            << std::endl;
+void printAnalogiesUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext analogies <model> <k>\n\n"
+              << "  <model>      model filename\n"
+              << "  <k>          (optional; 10 by default) predict top k labels\n"
+              << std::endl;
+  }
 }
 
 
 //' Print Usage Information when the command equals to 'dump'
+//'
+//' @param verbose if TRUE then information will be printed in the console
 //'
 //' @return It does not return a value but only prints the available parameters of the 'printDumpUsage' function in the R session
 //' @export
@@ -257,10 +309,13 @@ void printAnalogiesUsage() {
 //' printDumpUsage()
 //'
 // [[Rcpp::export]]
-void printDumpUsage() {
-  Rcpp::Rcout << "usage: fasttext dump <model> <option>\n\n"
-            << "  <model>      model filename\n"
-            << "  <option>     option from args,dict,input,output" << std::endl;
+void printDumpUsage(bool verbose = true) {
+
+  if (verbose) {
+    Rcpp::Rcout << "usage: fasttext dump <model> <option>\n\n"
+              << "  <model>      model filename\n"
+              << "  <option>     option from args,dict,input,output" << std::endl;
+  }
 }
 
 

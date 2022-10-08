@@ -3,6 +3,8 @@
 
 #' Print Usage Information for all parameters
 #'
+#' @param verbose if TRUE then information will be printed in the console
+#'
 #' @return It does not return a value but only prints the available parameters of the 'printUsage' function in the R session
 #' @export
 #' @examples
@@ -11,11 +13,13 @@
 #'
 #' printUsage()
 #'
-printUsage <- function() {
-    invisible(.Call(`_fastText_printUsage`))
+printUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'quantize'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printQuantizeUsage' function in the R session
 #' @export
@@ -25,11 +29,13 @@ printUsage <- function() {
 #'
 #' printQuantizeUsage()
 #'
-printQuantizeUsage <- function() {
-    invisible(.Call(`_fastText_printQuantizeUsage`))
+printQuantizeUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printQuantizeUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'test'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printTestUsage' function in the R session
 #' @export
@@ -39,11 +45,13 @@ printQuantizeUsage <- function() {
 #'
 #' printTestUsage()
 #'
-printTestUsage <- function() {
-    invisible(.Call(`_fastText_printTestUsage`))
+printTestUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printTestUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'predict' or 'predict-prob'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printPredictUsage' function in the R session
 #' @export
@@ -53,11 +61,13 @@ printTestUsage <- function() {
 #'
 #' printPredictUsage()
 #'
-printPredictUsage <- function() {
-    invisible(.Call(`_fastText_printPredictUsage`))
+printPredictUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printPredictUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'test-label'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printTestLabelUsage' function in the R session
 #' @export
@@ -67,11 +77,13 @@ printPredictUsage <- function() {
 #'
 #' printTestLabelUsage()
 #'
-printTestLabelUsage <- function() {
-    invisible(.Call(`_fastText_printTestLabelUsage`))
+printTestLabelUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printTestLabelUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'print-word-vectors'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printPrintWordVectorsUsage' function in the R session
 #' @export
@@ -81,11 +93,13 @@ printTestLabelUsage <- function() {
 #'
 #' printPrintWordVectorsUsage()
 #'
-printPrintWordVectorsUsage <- function() {
-    invisible(.Call(`_fastText_printPrintWordVectorsUsage`))
+printPrintWordVectorsUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printPrintWordVectorsUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'print-sentence-vectors'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printPrintSentenceVectorsUsage' function in the R session
 #' @export
@@ -95,11 +109,13 @@ printPrintWordVectorsUsage <- function() {
 #'
 #' printPrintSentenceVectorsUsage()
 #'
-printPrintSentenceVectorsUsage <- function() {
-    invisible(.Call(`_fastText_printPrintSentenceVectorsUsage`))
+printPrintSentenceVectorsUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printPrintSentenceVectorsUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'print-ngrams'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printPrintNgramsUsage' function in the R session
 #' @export
@@ -109,11 +125,13 @@ printPrintSentenceVectorsUsage <- function() {
 #'
 #' printPrintNgramsUsage()
 #'
-printPrintNgramsUsage <- function() {
-    invisible(.Call(`_fastText_printPrintNgramsUsage`))
+printPrintNgramsUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printPrintNgramsUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'nn'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printNNUsage' function in the R session
 #' @export
@@ -123,11 +141,13 @@ printPrintNgramsUsage <- function() {
 #'
 #' printNNUsage()
 #'
-printNNUsage <- function() {
-    invisible(.Call(`_fastText_printNNUsage`))
+printNNUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printNNUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'analogies'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printAnalogiesUsage' function in the R session
 #' @export
@@ -137,11 +157,13 @@ printNNUsage <- function() {
 #'
 #' printAnalogiesUsage()
 #'
-printAnalogiesUsage <- function() {
-    invisible(.Call(`_fastText_printAnalogiesUsage`))
+printAnalogiesUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printAnalogiesUsage`, verbose))
 }
 
 #' Print Usage Information when the command equals to 'dump'
+#'
+#' @param verbose if TRUE then information will be printed in the console
 #'
 #' @return It does not return a value but only prints the available parameters of the 'printDumpUsage' function in the R session
 #' @export
@@ -151,8 +173,8 @@ printAnalogiesUsage <- function() {
 #'
 #' printDumpUsage()
 #'
-printDumpUsage <- function() {
-    invisible(.Call(`_fastText_printDumpUsage`))
+printDumpUsage <- function(verbose = TRUE) {
+    invisible(.Call(`_fastText_printDumpUsage`, verbose))
 }
 
 #' The Rcpp function which is used in the 'fasttext_interface' R function

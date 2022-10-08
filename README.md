@@ -83,7 +83,7 @@ If you use the **fastText** R package in your paper or research please cite both
     Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2021},
-  note = {R package version 1.0.2},
+  note = {R package version 1.0.3},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```
