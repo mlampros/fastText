@@ -78,13 +78,15 @@
 
       
 
-      </header><script src="language_identification_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Language Identification using the ‘fastText’ package (a Benchmark)</h1>
-                        <h4 data-toc-skip class="author">Lampros Mouselimis</h4>
+      <h1 data-toc-skip>Language Identification using the ‘fastText’
+package (a Benchmark)</h1>
+                        <h4 data-toc-skip class="author">Lampros
+Mouselimis</h4>
             
-            <h4 data-toc-skip class="date">2022-10-19</h4>
+            <h4 data-toc-skip class="date">2023-01-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/HEAD/vignettes/language_identification.Rmd" class="external-link"><code>vignettes/language_identification.Rmd</code></a></small>
       <div class="hidden name"><code>language_identification.Rmd</code></div>
@@ -93,24 +95,48 @@
 
     
     
-<p>In this blog post, I’ll explain how to perform <strong>Language Identification</strong> with the <a href="https://github.com/mlampros/fastText" class="external-link">fastText</a> R package and I’ll create a benchmark by including other <em>language identification</em> R packages, i.e. </p>
+<p>In this blog post, I’ll explain how to perform <strong>Language
+Identification</strong> with the <a href="https://github.com/mlampros/fastText" class="external-link">fastText</a> R package and
+I’ll create a benchmark by including other <em>language
+identification</em> R packages, i.e. </p>
 <ul>
 <li>
-<a href="https://github.com/ropensci/cld2" class="external-link">cld2</a>, R Wrapper for Google’s Compact Language Detector 2</li>
+<a href="https://github.com/ropensci/cld2" class="external-link">cld2</a>, R Wrapper for
+Google’s Compact Language Detector 2</li>
 <li>
-<a href="https://github.com/ropensci/cld3" class="external-link">cld3</a>, Bindings to Google’s Compact Language Detector 3</li>
+<a href="https://github.com/ropensci/cld3" class="external-link">cld3</a>, Bindings to
+Google’s Compact Language Detector 3</li>
 <li>
-<a href="https://CRAN.R-project.org/package=textcat" class="external-link">textcat</a>, N-Gram Based Text Categorization</li>
+<a href="https://CRAN.R-project.org/package=textcat" class="external-link">textcat</a>,
+N-Gram Based Text Categorization</li>
 <li>
-<a href="https://github.com/gaborcsardi/franc" class="external-link">franc</a>, Port of the JavaScript ‘franc’, Detect the Language of Text</li>
+<a href="https://github.com/gaborcsardi/franc" class="external-link">franc</a>, Port of
+the JavaScript ‘franc’, Detect the Language of Text</li>
 </ul>
-<p>I didn’t use any packages that make calls to API’s because the dataset I’ll utilize consists of more than 50.000 thousand observations.</p>
-<p>Based on my search on the web, currently, the <a href="https://arxiv.org/abs/1801.07779" class="external-link">WiLI benchmark dataset</a> is among the ones that contain multilingual texts (Wikipedia extracts of 235 languages) and the corresponding labels as well. It can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository.</p>
-<p>We currently live in the <em>Covid-19 Era</em> and there are many human rights violation incidents (more often than before), therefore I decided to include in this benchmark also the human rights declarations of the 3 most spoken languages (Chinese, Enlish, Spanish) because they are more relevant than ever. The human rights declarations of the mentioned languages can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository, and I think it deserves a read from time to time so that we don’t forget our rights as human beings. <br></p>
+<p>I didn’t use any packages that make calls to API’s because the
+dataset I’ll utilize consists of more than 50.000 thousand
+observations.</p>
+<p>Based on my search on the web, currently, the <a href="https://arxiv.org/abs/1801.07779" class="external-link">WiLI benchmark dataset</a> is
+among the ones that contain multilingual texts (Wikipedia extracts of
+235 languages) and the corresponding labels as well. It can be
+downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from
+my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
+repository.</p>
+<p>We currently live in the <em>Covid-19 Era</em> and there are many
+human rights violation incidents (more often than before), therefore I
+decided to include in this benchmark also the human rights declarations
+of the 3 most spoken languages (Chinese, Enlish, Spanish) because they
+are more relevant than ever. The human rights declarations of the
+mentioned languages can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official
+website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
+repository, and I think it deserves a read from time to time so that we
+don’t forget our rights as human beings. <br></p>
 <div class="section level3">
 <h3 id="benchmark-based-on-the-wili-dataset">Benchmark based on the WiLI dataset<a class="anchor" aria-label="anchor" href="#benchmark-based-on-the-wili-dataset"></a>
 </h3>
-<p>The <em>fastText</em> language identification pre-trained models support currently 176 languages. The following character vector shows the available <em>language isocodes</em>.</p>
+<p>The <em>fastText</em> language identification pre-trained models
+support currently 176 languages. The following character vector shows
+the available <em>language isocodes</em>.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fasttext_supported_languages</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'af'</span>, <span class="st">'als'</span>, <span class="st">'am'</span>, <span class="st">'an'</span>, <span class="st">'ar'</span>, <span class="st">'arz'</span>, <span class="st">'as'</span>, <span class="st">'ast'</span>, <span class="st">'av'</span>, </span>
 <span>                                 <span class="st">'az'</span>, <span class="st">'azb'</span>, <span class="st">'ba'</span>, <span class="st">'bar'</span>, <span class="st">'bcl'</span>, <span class="st">'be'</span>, <span class="st">'bg'</span>, <span class="st">'bh'</span>, <span class="st">'bn'</span>,</span>
@@ -133,7 +159,12 @@
 <span>                                 <span class="st">'vep'</span>, <span class="st">'vi'</span>, <span class="st">'vls'</span>, <span class="st">'vo'</span>, <span class="st">'wa'</span>, <span class="st">'war'</span>, <span class="st">'wuu'</span>, <span class="st">'xal'</span>, <span class="st">'xmf'</span>,</span>
 <span>                                 <span class="st">'yi'</span>, <span class="st">'yo'</span>, <span class="st">'yue'</span>, <span class="st">'zh'</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
-<p>For illustration purposes we’ll subset the <em>WiLI dataset</em> to the 2-letter isocodes of the supported fastText languages. For this purpose we’ll use the <a href="https://CRAN.R-project.org/package=ISOcodes" class="external-link">ISOcodes</a> R package and especially the <strong>ISO_639_2</strong> function which includes the required 2- and 3-letter isocodes and also the available full names of the languages,</p>
+<p>For illustration purposes we’ll subset the <em>WiLI dataset</em> to
+the 2-letter isocodes of the supported fastText languages. For this
+purpose we’ll use the <a href="https://CRAN.R-project.org/package=ISOcodes" class="external-link">ISOcodes</a> R
+package and especially the <strong>ISO_639_2</strong> function which
+includes the required 2- and 3-letter isocodes and also the available
+full names of the languages,</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">isocodes</span> <span class="op">=</span> <span class="fu">ISOcodes</span><span class="fu">::</span><span class="va">ISO_639_2</span></span>
 <span><span class="co"># head(isocodes)</span></span>
@@ -155,7 +186,8 @@
 <span><span class="va">isocodes_fasttext</span></span></code></pre></div>
 <p><img src="language_identification/isocodes_fasttext.png"></p>
 <p><br></p>
-<p>The next function will be used to compute and print the accuracy in all cases,</p>
+<p>The next function will be used to compute and print the accuracy in
+all cases,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">print_accuracy</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">size_input_data</span>,</span>
 <span>                          <span class="va">true_data</span>,</span>
@@ -174,18 +206,29 @@
 <span></span>
 <span><span class="co"># fasttext language identification supported languages as described in https://fasttext.cc/docs/en/language-identification.html</span></span></code></pre></div>
 <p><br></p>
-<p>As mentioned earlier the <em>WiLI benchmark dataset</em> can be downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository. Once downloaded and unzipped the folder includes the following files (for the remaining of this blog post I’ll assume that the <strong>dir_wili_2018</strong> variable points to the <em>WiLI</em> data directory ),</p>
+<p>As mentioned earlier the <em>WiLI benchmark dataset</em> can be
+downloaded either from <a href="https://zenodo.org/record/841984#.YH3BBupRUV1" class="external-link">Zenodo</a> or from
+my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
+repository. Once downloaded and unzipped the folder includes the
+following files (for the remaining of this blog post I’ll assume that
+the <strong>dir_wili_2018</strong> variable points to the <em>WiLI</em>
+data directory ),</p>
 <p><img src="language_identification/list_files_willi_2018.png"></p>
 <p><br></p>
-<p>For this benchmark we’ll use only the <strong>test</strong> data (‘x_test.txt’ and ‘y_test.txt’ files) and we’ll keep only the <em>WiLI-isocodes</em> that intersect with the <em>fastText isocodes</em>,</p>
+<p>For this benchmark we’ll use only the <strong>test</strong> data
+(‘x_test.txt’ and ‘y_test.txt’ files) and we’ll keep only the
+<em>WiLI-isocodes</em> that intersect with the <em>fastText
+isocodes</em>,</p>
 <p><img src="language_identification/cat_head_willi_2018.png"></p>
 <p><br></p>
 </div>
 <div class="section level3">
-<h3 id="fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb">fastText based on the smaller pre-trained model ‘lid.176.ftz’ (approx. 917 kB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb"></a>
+<h3 id="fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb">fastText based on the smaller pre-trained model ‘lid.176.ftz’
+(approx. 917 kB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-smaller-pre-trained-model-lid-176-ftz-approx--917-kb"></a>
 </h3>
 <p><br></p>
-<p>First, we’ll use the <a href="https://fasttext.cc/docs/en/language-identification.html" class="external-link">smaller pre-trained dataset</a>,</p>
+<p>First, we’ll use the <a href="https://fasttext.cc/docs/en/language-identification.html" class="external-link">smaller
+pre-trained dataset</a>,</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">file_ftz</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"language_identification/lid.176.ftz"</span>, package <span class="op">=</span> <span class="st">"fastText"</span><span class="op">)</span></span>
 <span></span>
@@ -211,14 +254,25 @@
 <span>               method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/print_acc_merg_labels.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the model was <strong>83.05%</strong> (on <strong>50211</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the model was
+<strong>83.05%</strong> (on <strong>50211</strong> out of
+<strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
 <div class="section level3">
-<h3 id="fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb">fastText based on the bigger pre-trained model ‘lid.176.bin’ (approx. 126 MB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb"></a>
+<h3 id="fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb">fastText based on the bigger pre-trained model ‘lid.176.bin’
+(approx. 126 MB)<a class="anchor" aria-label="anchor" href="#fasttext-based-on-the-bigger-pre-trained-model-lid-176-bin-approx--126-mb"></a>
 </h3>
 <p><br></p>
-<p>Let’s move to the bigger pre-trained model which is mentioned to be more accurate. This model can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github repository. The parameter setting of the <strong>fastText::language_identification()</strong> function is the same as before, and the only thing that changes is the <strong>pre_trained_language_model_path</strong> parameter which is set to <strong>lid.176.bin</strong>. Assuming this file is downloaded and extracted in the <strong>dir_wili_2018</strong> directory then,</p>
+<p>Let’s move to the bigger pre-trained model which is mentioned to be
+more accurate. This model can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official
+website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
+repository. The parameter setting of the
+<strong>fastText::language_identification()</strong> function is the
+same as before, and the only thing that changes is the
+<strong>pre_trained_language_model_path</strong> parameter which is set
+to <strong>lid.176.bin</strong>. Assuming this file is downloaded and
+extracted in the <strong>dir_wili_2018</strong> directory then,</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">file_bin</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'lid.176.bin'</span><span class="op">)</span></span>
 <span></span>
@@ -244,14 +298,18 @@
 <span>               method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/print_acc_merg_labels_bin.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> based on the bigger model was increased to <strong>86.55%</strong> (on <strong>50168</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> based on the bigger model was increased
+to <strong>86.55%</strong> (on <strong>50168</strong> out of
+<strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="ggplot-visualization-of-the-bigger--bin-model">ggplot visualization of the bigger .bin model<a class="anchor" aria-label="anchor" href="#ggplot-visualization-of-the-bigger--bin-model"></a>
 </h3>
 <p><br></p>
-<p>The following plot shows the confusion matrix of the bigger .bin model. The main diagonal is dominated by the dark green color indicating higher accuracy rates,</p>
+<p>The following plot shows the confusion matrix of the bigger .bin
+model. The main diagonal is dominated by the dark green color indicating
+higher accuracy rates,</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tbl</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">merg_labels</span><span class="op">$</span><span class="va">true_label</span>, <span class="va">merg_labels</span><span class="op">$</span><span class="va">Alpha_3_B</span><span class="op">)</span></span>
 <span></span>
@@ -279,7 +337,14 @@
 <h3 id="cld2-language-recognition-package">‘cld2’ language recognition package<a class="anchor" aria-label="anchor" href="#cld2-language-recognition-package"></a>
 </h3>
 <p><br></p>
-<p>The <strong>Google’s Compact Language Detector 2</strong> (CLD2) " … probabilistically detects over 80 languages in Unicode UTF-8 text, either plain text or HTML/XML. For mixed-language input, CLD2 returns the top three languages found and their approximate percentages of the total text bytes (e.g. 80% English and 20% French out of 1000 bytes) …“. Based on the R package documentation,”The function ‘detect_language()’ is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
+<p>The <strong>Google’s Compact Language Detector 2</strong> (CLD2) ” …
+probabilistically detects over 80 languages in Unicode UTF-8 text,
+either plain text or HTML/XML. For mixed-language input, CLD2 returns
+the top three languages found and their approximate percentages of the
+total text bytes (e.g. 80% English and 20% French out of 1000 bytes) …“.
+Based on the R package documentation,”The function ‘detect_language()’
+is vectorised and guesses the language of each string in text or returns
+NA if the language could not reliably be determined.”</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld2/" class="external-link">cld2</a></span><span class="op">)</span></span>
 <span></span>
@@ -298,14 +363,23 @@
 <span>               method <span class="op">=</span> <span class="st">'cld2'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/merg_labels_cld2.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the <strong>cld2</strong> package is <strong>83.13%</strong> (on <strong>34254</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the <strong>cld2</strong> package is
+<strong>83.13%</strong> (on <strong>34254</strong> out of
+<strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="cld3-language-recognition-package">‘cld3’ language recognition package<a class="anchor" aria-label="anchor" href="#cld3-language-recognition-package"></a>
 </h3>
 <p><br></p>
-<p>The " … Google’s Compact Language Detector 3 is a neural network model for language identification and the successor of CLD2 (available from) CRAN. This version is still experimental and uses a novell algorithm with different properties and outcomes. For more information see: <a href="https://github.com/google/cld3#readme" class="external-link uri">https://github.com/google/cld3#readme</a> …“. Based on the R package documentation,”The function detect_language() is vectorised and guesses the language of each string in text or returns NA if the language could not reliably be determined."</p>
+<p>The ” … Google’s Compact Language Detector 3 is a neural network
+model for language identification and the successor of CLD2 (available
+from) CRAN. This version is still experimental and uses a novell
+algorithm with different properties and outcomes. For more information
+see: <a href="https://github.com/google/cld3#readme" class="external-link uri">https://github.com/google/cld3#readme</a> …“. Based on the R
+package documentation,”The function detect_language() is vectorised and
+guesses the language of each string in text or returns NA if the
+language could not reliably be determined.”</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/cld3/" class="external-link">cld3</a></span><span class="op">)</span></span>
 <span></span>
@@ -324,21 +398,46 @@
 <span>               method <span class="op">=</span> <span class="st">'cld3'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/merg_labels_cld3.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the <strong>cld3</strong> package is <strong>74.74%</strong> (on <strong>43560</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the <strong>cld3</strong> package is
+<strong>74.74%</strong> (on <strong>43560</strong> out of
+<strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="language-recognition-using-the-textcat-r-package">Language recognition using the ‘textcat’ R package<a class="anchor" aria-label="anchor" href="#language-recognition-using-the-textcat-r-package"></a>
 </h3>
 <p><br></p>
-<p>The ‘textcat’ R package performs ‘text categorization based on n-grams’. The documentation of the package mentions: "… TextCat (<a href="https://www.let.rug.nl/vannoord/TextCat/" class="external-link uri">https://www.let.rug.nl/vannoord/TextCat/</a>) is a Perl implementation of the Cavnarand Trenkle ‘N-Gram-Based Text Categorization’ technique by Gertjan van Noord which was subsequently integrated into SpamAssassin. It provides byte n-gram profiles for 74 ‘languages’ (more precisely, language/encoding combinations). The C library reimplementation libtextcat (<a href="https://software.wise-guys.nl/libtextcat/" class="external-link uri">https://software.wise-guys.nl/libtextcat/</a>) adds one more non-empty profile.</p>
+<p>The ‘textcat’ R package performs ‘text categorization based on
+n-grams’. The documentation of the package mentions: “… TextCat (<a href="https://www.let.rug.nl/vannoord/TextCat/" class="external-link uri">https://www.let.rug.nl/vannoord/TextCat/</a>) is a Perl
+implementation of the Cavnarand Trenkle ‘N-Gram-Based Text
+Categorization’ technique by Gertjan van Noord which was subsequently
+integrated into SpamAssassin. It provides byte n-gram profiles for 74
+‘languages’ (more precisely, language/encoding combinations). The C
+library reimplementation libtextcat (<a href="https://software.wise-guys.nl/libtextcat/" class="external-link uri">https://software.wise-guys.nl/libtextcat/</a>) adds one more
+non-empty profile.</p>
 <ul>
 <li>‘TC_byte_profiles’ provides these byte profiles.</li>
-<li>‘TC_char_profiles’ provides a subset of 56 character profiles obtained by converting the byte sequences to UTF-8 strings where possible.</li>
+<li>‘TC_char_profiles’ provides a subset of 56 character profiles
+obtained by converting the byte sequences to UTF-8 strings where
+possible.</li>
 </ul>
-<p>The category ids are unchanged from the original, and give the full (English) name of the language, optionally combined the name of the encoding script. Note that ‘scots’ indicates Scots, the Germanic language variety historically spoken in Lowland Scotland and parts of Ulster, to be distinguished from Scottish Gaelic (named ‘scots_gaelic’ in the profiles), the Celtic language variety spoken in most of the western Highlands and in the Hebrides (see <a href="https://en.wikipedia.org/wiki/Scots_language" class="external-link uri">https://en.wikipedia.org/wiki/Scots_language</a>) …"</p>
+<p>The category ids are unchanged from the original, and give the full
+(English) name of the language, optionally combined the name of the
+encoding script. Note that ‘scots’ indicates Scots, the Germanic
+language variety historically spoken in Lowland Scotland and parts of
+Ulster, to be distinguished from Scottish Gaelic (named ‘scots_gaelic’
+in the profiles), the Celtic language variety spoken in most of the
+western Highlands and in the Hebrides (see <a href="https://en.wikipedia.org/wiki/Scots_language" class="external-link uri">https://en.wikipedia.org/wiki/Scots_language</a>) …”</p>
 <p><br></p>
-<p>Apart from the previous 2 mentioned TC-profiles the <strong>ECIMCI_profiles</strong> (26 profiles) also exists. In my benchmark I’ll use only the <em>‘TC_byte_profile’</em> (75 profiles) and <em>‘TC_char_profiles’</em> (56 profiles) as input to the <strong>textcat()</strong> function to compute the country names, which by default the <em>textcat()</em> function returns. I’ll wrap the function to <strong>parallel::mclapply()</strong> because I observed it returns the results faster using multiple threads (in my benchmark I used 8 threads).</p>
+<p>Apart from the previous 2 mentioned TC-profiles the
+<strong>ECIMCI_profiles</strong> (26 profiles) also exists. In my
+benchmark I’ll use only the <em>‘TC_byte_profile’</em> (75 profiles) and
+<em>‘TC_char_profiles’</em> (56 profiles) as input to the
+<strong>textcat()</strong> function to compute the country names, which
+by default the <em>textcat()</em> function returns. I’ll wrap the
+function to <strong>parallel::mclapply()</strong> because I observed it
+returns the results faster using multiple threads (in my benchmark I
+used 8 threads).</p>
 <p><br></p>
 <div class="section level4">
 <h4 id="using-the-tc_byte_profiles">using the ‘TC_byte_profiles’<a class="anchor" aria-label="anchor" href="#using-the-tc_byte_profiles"></a>
@@ -353,7 +452,9 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_byte_profiles</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/names_tc_byte_profiles.png"></p>
 <p><br></p>
-<p>What we want is that the initial <em>lowercase isocodes</em> intersect with the processed <em>TC_byte_profiles</em> so that the computation of the accuracy is correct,</p>
+<p>What we want is that the initial <em>lowercase isocodes</em>
+intersect with the processed <em>TC_byte_profiles</em> so that the
+computation of the accuracy is correct,</p>
 <p><img src="language_identification/nams_profiles.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
@@ -382,20 +483,26 @@
 <span>               method <span class="op">=</span> <span class="st">'textcat ( TC_byte_profiles )'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/merg_labels_textc.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the <strong>textcat</strong> package using the <strong>TC_byte_profiles</strong> is <strong>29.91%</strong> (on <strong>47324</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the <strong>textcat</strong> package
+using the <strong>TC_byte_profiles</strong> is <strong>29.91%</strong>
+(on <strong>47324</strong> out of <strong>50500</strong> text
+extracts)</p>
 <p><br></p>
 </div>
 <div class="section level4">
 <h4 id="using-the-tc_char_profiles">using the ‘TC_char_profiles’<a class="anchor" aria-label="anchor" href="#using-the-tc_char_profiles"></a>
 </h4>
 <p><br></p>
-<p>Again, as previously we can have a look to the available profiles,</p>
+<p>Again, as previously we can have a look to the available
+profiles,</p>
 <p><br></p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_char_profiles</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/names_tc_char_profiles.png"></p>
 <p><br></p>
-<p>What we want is that the initial <em>lowercase isocodes</em> intersect with the processed <em>TC_char_profiles</em> so that the computation of the accuracy is correct,</p>
+<p>What we want is that the initial <em>lowercase isocodes</em>
+intersect with the processed <em>TC_char_profiles</em> so that the
+computation of the accuracy is correct,</p>
 <p><img src="language_identification/nams_profiles_char.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
@@ -424,7 +531,10 @@
 <span>               method <span class="op">=</span> <span class="st">'textcat ( TC_char_profiles )'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/merg_labels_textc_char.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the <strong>textcat</strong> package using the <strong>TC_char_profiles</strong> is <strong>31.10%</strong> (on <strong>43265</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the <strong>textcat</strong> package
+using the <strong>TC_char_profiles</strong> is <strong>31.10%</strong>
+(on <strong>43265</strong> out of <strong>50500</strong> text
+extracts)</p>
 <p><br></p>
 </div>
 </div>
@@ -432,9 +542,23 @@
 <h3 id="language-recognition-using-the-franc-r-package">Language recognition using the ‘franc’ R package<a class="anchor" aria-label="anchor" href="#language-recognition-using-the-franc-r-package"></a>
 </h3>
 <p><br></p>
-<p>The <a href="https://github.com/gaborcsardi/franc" class="external-link">R package port of Franc</a> has no external dependencies and supports <em>310 languages</em>. All languages spoken by more than one million speakers. Franc is a port of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a> of the same name. Based on the documentation of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a>, <em>" … franc supports many languages, which means it’s easily confused on small samples. Make sure to pass it big documents to get reliable results …"</em></p>
+<p>The <a href="https://github.com/gaborcsardi/franc" class="external-link">R package port of
+Franc</a> has no external dependencies and supports <em>310
+languages</em>. All languages spoken by more than one million speakers.
+Franc is a port of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a> of the
+same name. Based on the documentation of the <a href="https://github.com/wooorm/franc" class="external-link">JavaScript project</a>, <em>” …
+franc supports many languages, which means it’s easily confused on small
+samples. Make sure to pass it big documents to get reliable results
+…“</em></p>
 <p><br></p>
-<p>The <strong>franc()</strong> function expects a text extract, therefore we will wrap the function with <strong>parallel::mclapply()</strong> as we’ve done with the <em>textcat</em> package to reduce the computation time. Moreover, we’ll set the <strong>min_speakers</strong> parameter to <strong>0</strong> to include <strong>all</strong> languages known by franc (increasing the <em>max_length</em> parameter to <em>4096</em> does not improve the accuracy for this specific data / text extracts),</p>
+<p>The <strong>franc()</strong> function expects a text extract,
+therefore we will wrap the function with
+<strong>parallel::mclapply()</strong> as we’ve done with the
+<em>textcat</em> package to reduce the computation time. Moreover, we’ll
+set the <strong>min_speakers</strong> parameter to <strong>0</strong> to
+include <strong>all</strong> languages known by franc (increasing the
+<em>max_length</em> parameter to <em>4096</em> does not improve the
+accuracy for this specific data / text extracts),</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/gaborcsardi/franc#readme" class="external-link">franc</a></span><span class="op">)</span></span>
 <span></span>
@@ -452,7 +576,9 @@
 <span>               method <span class="op">=</span> <span class="st">'franc'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/franc_res.png"></p>
 <p><br></p>
-<p>The <strong>accuracy</strong> of the <strong>franc</strong> package is <strong>62.04%</strong> (on <strong>50500</strong> out of <strong>50500</strong> text extracts)</p>
+<p>The <strong>accuracy</strong> of the <strong>franc</strong> package
+is <strong>62.04%</strong> (on <strong>50500</strong> out of
+<strong>50500</strong> text extracts)</p>
 <p><br></p>
 </div>
 <div class="section level3">
@@ -462,7 +588,8 @@
 <p>Sorted by <strong>Accuracy</strong> (highest better),</p>
 <p><img src="language_identification/accuracy.png"></p>
 <p><br></p>
-<p>Sorted by <strong>predicted percentage of text extracts</strong> (highest better),</p>
+<p>Sorted by <strong>predicted percentage of text extracts</strong>
+(highest better),</p>
 <p><img src="language_identification/percentage.png"></p>
 <p><br></p>
 <p>Sorted by <strong>missing values</strong> (lowest better),</p>
@@ -476,8 +603,20 @@
 <h3 id="benchmark-based-on-the-human-rights-declaration-files">Benchmark based on the Human Rights Declaration files<a class="anchor" aria-label="anchor" href="#benchmark-based-on-the-human-rights-declaration-files"></a>
 </h3>
 <p><br></p>
-<p>We can test the mentioned functions also using the <strong>Declaration of Human Rights</strong> text files, which are smaller in size and can give hints on potential misclassifications. As I mentioned at the beginning of this blog post the data can be downloaded from two different internet sources. I’ll use only 3 files from the <em>official website</em> based on the <strong>total number of speakers worldwide</strong> (the first 3 are: <strong>Chinese</strong>, <strong>English</strong>, <strong>Spanish</strong>) and you can see the full list of the most spoken languages worldwide in the correponding <a href="https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers" class="external-link">wikipedia article</a>.</p>
-<p>Assuming the <strong>.zip</strong> file is downloaded and extracted in the <strong>dir_wili_2018</strong> directory and the folder name that includes the files is named as <strong>declaration_human_rights</strong> then,</p>
+<p>We can test the mentioned functions also using the
+<strong>Declaration of Human Rights</strong> text files, which are
+smaller in size and can give hints on potential misclassifications. As I
+mentioned at the beginning of this blog post the data can be downloaded
+from two different internet sources. I’ll use only 3 files from the
+<em>official website</em> based on the <strong>total number of speakers
+worldwide</strong> (the first 3 are: <strong>Chinese</strong>,
+<strong>English</strong>, <strong>Spanish</strong>) and you can see the
+full list of the most spoken languages worldwide in the correponding <a href="https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers" class="external-link">wikipedia
+article</a>.</p>
+<p>Assuming the <strong>.zip</strong> file is downloaded and extracted
+in the <strong>dir_wili_2018</strong> directory and the folder name that
+includes the files is named as <strong>declaration_human_rights</strong>
+then,</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dir_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">dir_wili_2018</span>, <span class="st">'declaration_human_rights'</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
@@ -506,7 +645,12 @@
 <span><span class="va">decl_dat</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/decl_dat.png"></p>
 <p><br></p>
-<p>The output <em>data.table</em> includes besides the <em>language</em> also the language <em>isocodes</em> (consisting of 2 and 3 letters) and the <em>text extracts</em>. We can start to identify the language of these extracts using the <strong>fastText</strong> R package and utilizing the <em>small</em> pre-trained <em>‘lid.176.ftz’</em> model,</p>
+<p>The output <em>data.table</em> includes besides the <em>language</em>
+also the language <em>isocodes</em> (consisting of 2 and 3 letters) and
+the <em>text extracts</em>. We can start to identify the language of
+these extracts using the <strong>fastText</strong> R package and
+utilizing the <em>small</em> pre-trained <em>‘lid.176.ftz’</em>
+model,</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dtbl_res_in</span> <span class="op">=</span> <span class="fu">fastText</span><span class="fu">::</span><span class="fu"><a href="../reference/language_identification.html">language_identification</a></span><span class="op">(</span>input_obj <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>,</span>
 <span>                                                pre_trained_language_model_path <span class="op">=</span> <span class="va">file_ftz</span>,</span>
@@ -516,14 +660,19 @@
 <span>                                                verbose <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/dtbl_res_in_decl.png"></p>
 <p><br></p>
-<p>To validate the results we will use the <strong>isocode_2_language</strong> column of the previous computed <strong>decl_dat</strong> data.table,</p>
+<p>To validate the results we will use the
+<strong>isocode_2_language</strong> column of the previous computed
+<strong>decl_dat</strong> data.table,</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span><span class="op">)</span>,</span>
 <span>               true_data <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">isocode_2_language</span>,</span>
 <span>               preds_data <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,</span>
 <span>               method <span class="op">=</span> <span class="st">'fastText (.ftz pre-trained model)'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/dtbl_res_in_decl_acc.png"></p>
-<p>There are no misclassifications for the 24 input text extracts using the <em>fastText</em> algorithm. We can move to the <strong>cld2</strong> R package and the corresponding language identification function,</p>
+<p>There are no misclassifications for the 24 input text extracts using
+the <em>fastText</em> algorithm. We can move to the
+<strong>cld2</strong> R package and the corresponding language
+identification function,</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cld2_vec</span> <span class="op">=</span> <span class="fu">cld2</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>, </span>
 <span>                                 plain_text <span class="op">=</span> <span class="cn">TRUE</span>, </span>
@@ -537,7 +686,8 @@
 <span>               preds_data <span class="op">=</span> <span class="va">cld2_vec</span>, </span>
 <span>               method <span class="op">=</span> <span class="st">'cld2'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/cld2_vec_acc.png"></p>
-<p>There are no misclassifications for the <strong>cld2</strong> algorithm too. We’ll test also <strong>cld3</strong>,</p>
+<p>There are no misclassifications for the <strong>cld2</strong>
+algorithm too. We’ll test also <strong>cld3</strong>,</p>
 <p><br></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cld3_vec</span> <span class="op">=</span> <span class="fu">cld3</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span><span class="op">)</span></span>
@@ -550,7 +700,11 @@
 <span>               preds_data <span class="op">=</span> <span class="va">cld3_vec</span>,</span>
 <span>               method <span class="op">=</span> <span class="st">'cld3'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/cld3_vec_acc.png"></p>
-<p>There are no misclassifications for the <strong>cld3</strong> algorithm, so we move to the <strong>textcat</strong> R package. The <strong>‘TC_byte_profiles’</strong> include the <strong>‘chinese-gb2312’</strong> language characters therefore we’ll use these profiles in the <strong>textcat</strong> function,</p>
+<p>There are no misclassifications for the <strong>cld3</strong>
+algorithm, so we move to the <strong>textcat</strong> R package. The
+<strong>‘TC_byte_profiles’</strong> include the
+<strong>‘chinese-gb2312’</strong> language characters therefore we’ll
+use these profiles in the <strong>textcat</strong> function,</p>
 <p><br></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">textc</span> <span class="op">=</span> <span class="fu">textcat</span><span class="op">(</span>x <span class="op">=</span> <span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>, p <span class="op">=</span> <span class="fu">textcat</span><span class="fu">::</span><span class="va">TC_byte_profiles</span>, method <span class="op">=</span> <span class="st">"CT"</span><span class="op">)</span> </span>
@@ -569,7 +723,10 @@
 <span>               preds_data <span class="op">=</span> <span class="va">textc</span>, </span>
 <span>               method <span class="op">=</span> <span class="st">'textcat'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/textc_decl_acc.png"></p>
-<p>The <strong>textcat</strong> package misclassifies the <em>chinese text extracts</em> as <em>‘japanese-shift_jis’</em>, therefore the accuracy <em>drops to approx. 70%</em>. Finally, we’ll test the <strong>franc</strong> package,</p>
+<p>The <strong>textcat</strong> package misclassifies the <em>chinese
+text extracts</em> as <em>‘japanese-shift_jis’</em>, therefore the
+accuracy <em>drops to approx. 70%</em>. Finally, we’ll test the
+<strong>franc</strong> package,</p>
 <p><br></p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">franc_vec</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">$</span><span class="va">text</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
@@ -585,7 +742,12 @@
 <span>               preds_data <span class="op">=</span> <span class="va">franc_vec</span>,</span>
 <span>               method <span class="op">=</span> <span class="st">'franc'</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/franc_vec_decl_acc.png"></p>
-<p>The <strong>franc</strong> function identified the <em>chinese</em> text excerpts as <em>mandarin</em> chinese, therefore I personally would not consider these as misclassifications (as <em>mandarin</em> is a dialect of the chinese language). We can have an overview of the results of the different methods by illustrating the outputs in a single data.table,</p>
+<p>The <strong>franc</strong> function identified the <em>chinese</em>
+text excerpts as <em>mandarin</em> chinese, therefore I personally would
+not consider these as misclassifications (as <em>mandarin</em> is a
+dialect of the chinese language). We can have an overview of the results
+of the different methods by illustrating the outputs in a single
+data.table,</p>
 <p><br></p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dtbl_out</span> <span class="op">=</span> <span class="va">decl_dat</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span></span>
@@ -605,16 +767,31 @@
 <p><br></p>
 </div>
 <div class="section level3">
-<h3 id="comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output">Comparison between ‘fastText’, ‘cl2’, ‘cl3’ and ‘franc’ for Multilingual output<a class="anchor" aria-label="anchor" href="#comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output"></a>
+<h3 id="comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output">Comparison between ‘fastText’, ‘cl2’, ‘cl3’ and ‘franc’ for
+Multilingual output<a class="anchor" aria-label="anchor" href="#comparison-between-fasttext-cl2-cl3-and-franc-for-multilingual-output"></a>
 </h3>
 <p><br></p>
-<p>Finally, we can observe the output of <strong>fastText</strong>, <strong>cl2</strong>, <strong>cl3</strong> and <strong>franc</strong> for Multilingual output (I’ll exclude the <strong>textcat::textcat()</strong> function, because it expects a single language per character string in the input vector).</p>
+<p>Finally, we can observe the output of <strong>fastText</strong>,
+<strong>cl2</strong>, <strong>cl3</strong> and <strong>franc</strong>
+for Multilingual output (I’ll exclude the
+<strong>textcat::textcat()</strong> function, because it expects a
+single language per character string in the input vector).</p>
 <ul>
-<li>We will first tokenize all three <strong>Declaration of Human Rights</strong> text files, then</li>
-<li>we will sample a specific number of words of the tokenized output and</li>
-<li>build a sentence that will be classified using the mentioned algorithms.</li>
+<li>We will first tokenize all three <strong>Declaration of Human
+Rights</strong> text files, then</li>
+<li>we will sample a specific number of words of the tokenized output
+and</li>
+<li>build a sentence that will be classified using the mentioned
+algorithms.</li>
 </ul>
-<p>In order to verify the results and see how each algorithm performs we will pick <strong>100 words</strong> of each declaration file. Due to the fact that the <strong>chinese</strong> language has <strong>ambiguous word boundaries</strong> we will use the <strong>stringi::stri_split_boundaries()</strong> function of the <strong>stringi</strong> R package to extract the words of the chinese text file. The following function shows the pre-processing steps to come to the multilingual sentence,</p>
+<p>In order to verify the results and see how each algorithm performs we
+will pick <strong>100 words</strong> of each declaration file. Due to
+the fact that the <strong>chinese</strong> language has
+<strong>ambiguous word boundaries</strong> we will use the
+<strong>stringi::stri_split_boundaries()</strong> function of the
+<strong>stringi</strong> R package to extract the words of the chinese
+text file. The following function shows the pre-processing steps to come
+to the multilingual sentence,</p>
 <p><br></p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lst_files</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">dir_files</span>, full.names <span class="op">=</span> <span class="cn">F</span>, pattern <span class="op">=</span> <span class="st">'.pdf'</span><span class="op">)</span></span>
@@ -670,8 +847,14 @@
 <span><span class="va">multilingual_sentence</span></span></code></pre></div>
 <p><img src="language_identification/multilingual_sentence.png"></p>
 <p><br></p>
-<p>We deliberately mixed the words by first sampling the vector and then concatenating the tokens to a sentence. The purpose of the multilingual identification is to find out if each algorithm detects the <em>correct languages</em> assuming the <em>number of languages</em> in the text are <em>known beforehand</em>.</p>
-<p>Imagine, you have 3 people having a conversation in a room where interchangeably a different language is spoken and this conversation is recorded by a fourth person.</p>
+<p>We deliberately mixed the words by first sampling the vector and then
+concatenating the tokens to a sentence. The purpose of the multilingual
+identification is to find out if each algorithm detects the <em>correct
+languages</em> assuming the <em>number of languages</em> in the text are
+<em>known beforehand</em>.</p>
+<p>Imagine, you have 3 people having a conversation in a room where
+interchangeably a different language is spoken and this conversation is
+recorded by a fourth person.</p>
 <p><br></p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">num_languages</span> <span class="op">=</span> <span class="fl">3</span></span></code></pre></div>
@@ -723,12 +906,24 @@
 <span><span class="fu">franc</span><span class="fu">::</span><span class="fu">franc_all</span><span class="op">(</span>text <span class="op">=</span> <span class="va">multilingual_sentence</span>, max_length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nchar.html" class="external-link">nchar</a></span><span class="op">(</span><span class="va">multilingual_sentence</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">num_languages</span>, <span class="op">]</span></span></code></pre></div>
 <p><img src="language_identification/dtbl_multiling_franc.png"></p>
 <p><br></p>
-<p>From the results one can come to the following <strong>conclusions</strong>:</p>
+<p>From the results one can come to the following
+<strong>conclusions</strong>:</p>
 <ul>
-<li>the <strong>cld2</strong> <em>detect_language_mixed()</em> function detects the correct languages without even specifying how many languages are in the text</li>
-<li>the <strong>cld3</strong> <em>detect_language_mixed()</em> function detects the correct languages (as <em>cld2</em>) but with the <em>limitation</em> that we have to specify the number of languages beforehand</li>
-<li>the <strong>fastText</strong> function, detects 2 out of the 3 languages and the false detected one (<em>japanese</em>) seems to receive a higher probability than <em>chinese</em> (<em>english</em> is not detected at all)</li>
-<li>the <strong>franc</strong> <em>franc_all()</em> function detects correctly 2 out of the 3 languages (<em>english</em> and <em>spanish</em>) but not chinese (the third language based on score is <em>Galician</em>)</li>
+<li>the <strong>cld2</strong> <em>detect_language_mixed()</em> function
+detects the correct languages without even specifying how many languages
+are in the text</li>
+<li>the <strong>cld3</strong> <em>detect_language_mixed()</em> function
+detects the correct languages (as <em>cld2</em>) but with the
+<em>limitation</em> that we have to specify the number of languages
+beforehand</li>
+<li>the <strong>fastText</strong> function, detects 2 out of the 3
+languages and the false detected one (<em>japanese</em>) seems to
+receive a higher probability than <em>chinese</em> (<em>english</em> is
+not detected at all)</li>
+<li>the <strong>franc</strong> <em>franc_all()</em> function detects
+correctly 2 out of the 3 languages (<em>english</em> and
+<em>spanish</em>) but not chinese (the third language based on score is
+<em>Galician</em>)</li>
 </ul>
 <p><br></p>
 </div>
@@ -750,7 +945,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
