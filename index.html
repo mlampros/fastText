@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fastText</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.4</span>
       </span>
     </div>
 
@@ -86,23 +86,36 @@
 <h2 id="fasttext">fastText<a class="anchor" aria-label="anchor" href="#fasttext"></a>
 </h2>
 <p><br></p>
-<p>The <strong>fastText</strong> R package is an interface to the <a href="https://github.com/facebookresearch/fastText" class="external-link">fastText</a> library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the <a href="http://mlampros.github.io/2019/04/11/fastText_updated_version/" class="external-link">first</a> and <a href="http://mlampros.github.io/2021/05/14/fasttext_language_identification/" class="external-link">second</a> blog posts and in the package <a href="https://mlampros.github.io/fastText/reference/index.html" class="external-link">documentation</a>.</p>
+<p>The <strong>fastText</strong> R package is an interface to the <a href="https://github.com/facebookresearch/fastText" class="external-link">fastText</a> library for efficient learning of word representations and sentence classification. More details on the functionality of fastText can be found in the</p>
+<ul>
+<li>
+<a href="http://mlampros.github.io/2019/04/11/fastText_updated_version/" class="external-link">fastText_updated_version</a> (blog post)</li>
+<li>
+<a href="http://mlampros.github.io/2021/05/14/fasttext_language_identification/" class="external-link">fasttext_language_identification</a> (blog post)</li>
+<li>
+<a href="https://mlampros.github.io/fastText/reference/index.html" class="external-link">package documentation</a>.</li>
+</ul>
+<p><br></p>
+<p>The <a href="https://fasttext.cc/" class="external-link">official website of the fasttext algorithm</a> includes more details regarding the supervised &amp; unsupervised functions. The following image shows the difference between <a href="https://fasttext.cc/docs/en/unsupervised-tutorial.html#advanced-readers-skipgram-versus-cbow" class="external-link"><strong>cbow</strong> and <strong>skipgram</strong></a> (<em>models to compute word representations</em>)</p>
+<p><br></p>
+<p><img src="./reference/figures/skipgram_vs_cbow.png"></p>
+<p><br></p>
+<p>Moreover, the following figure - extracted from <a href="https://hal.science/hal-03148517/document" class="external-link">a survey (scientific paper) related to word embeddings</a> and recent advancements in Large Language Models - shows the differences between <em>static</em> and <em>contextualized</em> word embeddings</p>
+<p><br></p>
+<p><img src="./reference/figures/static_contextualised_word_embeddings.png"></p>
 <p><br></p>
 <p>You can either install the package from CRAN using,</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fastText"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fastText"</span><span class="op">)</span></span>
 <span> </span></code></pre></div>
 <p><br></p>
 <p>or from Github using the <em>install_github</em> function of the <em>remotes</em> package,</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'mlampros/fastText'</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">'mlampros/fastText'</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <p><strong>or</strong> directly download the fastText-zip file using the <strong>Clone or download</strong> button in the <a href="https://github.com/mlampros/fastText" class="external-link">repository page</a>, extract it locally (rename it to <em>fastText</em> if necessary and check that files such as DESCRIPTION, NAMESPACE etc. are present when you open the fastText folder) and then run,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="co">#-------------</span></span>
+<code class="sourceCode R"><span><span class="co">#-------------</span></span>
 <span><span class="co"># on a Unix OS</span></span>
 <span><span class="co">#-------------</span></span>
 <span></span>
@@ -124,7 +137,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/base/system.html" class="external-link">system</a></span><span class="op">(</span><span class="st">"R CMD INSTALL fastText_1.0.1.tar.gz"</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <p>Use the following link to report bugs/issues (for the R package port), <br><br></p>
-<p><a href="https://github.com/mlampros/fastText/issues" class="external-link">https://github.com/mlampros/fastText/issues</a></p>
+<p><a href="https://github.com/mlampros/fastText/issues" class="external-link uri">https://github.com/mlampros/fastText/issues</a></p>
 <p><br></p>
 <div class="section level3">
 <h3 id="citation">
