@@ -1,4 +1,9 @@
 
+## fastText 1.0.4
+
+* I added a figure to the README.md file showing the differences between *static* and *contextualised* word embeddings
+
+
 ## fastText 1.0.3
 
 * I added a test case for the *'language_identification()'* function (see Github issue: https://github.com/mlampros/fastText/issues/3)
