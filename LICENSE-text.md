@@ -1,0 +1,4 @@
+# License
+
+    YEAR: 2016-present
+    COPYRIGHT HOLDER: Facebook, Inc.
