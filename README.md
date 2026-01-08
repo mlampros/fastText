@@ -1,10 +1,8 @@
 
-[![tic](https://github.com/mlampros/fastText/workflows/tic/badge.svg?branch=master)](https://github.com/mlampros/fastText/actions)
-[![codecov.io](https://codecov.io/github/mlampros/fastText/coverage.svg?branch=master)](https://codecov.io/github/mlampros/fastText?branch=master)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/fastText)](http://cran.r-project.org/package=fastText)
+[![R-CMD-check](https://github.com/mlampros/fastText/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mlampros/fastText/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/fastText)](http://cran.r-project.org/package=fastText)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastText?color=blue)](http://www.r-pkg.org/pkg/fastText)
-<a href="https://www.buymeacoffee.com/VY0x8snyh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
-[![Dependencies](https://tinyverse.netlify.com/badge/fastText)](https://cran.r-project.org/package=fastText)
+[![status](https://tinyverse.netlify.app/badge/fastText)](https://CRAN.R-project.org/package=fastText)
 
 ## fastText
 
@@ -15,12 +13,12 @@ The **fastText** R package is an interface to the
 efficient learning of word representations and sentence classification.
 More details on the functionality of fastText can be found in the
 
--   [fastText\_updated\_version](http://mlampros.github.io/2019/04/11/fastText_updated_version/)
-    (blog post)
--   [fasttext\_language\_identification](http://mlampros.github.io/2021/05/14/fasttext_language_identification/)
-    (blog post)
--   [package
-    documentation](https://mlampros.github.io/fastText/reference/index.html).
+- [fastText_updated_version](http://mlampros.github.io/2019/04/11/fastText_updated_version/)
+  (blog post)
+- [fasttext_language_identification](http://mlampros.github.io/2021/05/14/fasttext_language_identification/)
+  (blog post)
+- [package
+  documentation](https://mlampros.github.io/fastText/reference/index.html).
 
 <br>
 
@@ -51,16 +49,18 @@ advancements in Large Language Models - shows the differences between
 You can either install the package from CRAN using,
 
 ``` r
+
 install.packages("fastText")
  
 ```
 
 <br>
 
-or from Github using the *install\_github* function of the *remotes*
+or from Github using the *install_github* function of the *remotes*
 package,
 
 ``` r
+
 remotes::install_github('mlampros/fastText')
 
 ```
@@ -75,6 +75,7 @@ NAMESPACE etc. are present when you open the fastText folder) and then
 run,
 
 ``` r
+
 #-------------
 # on a Unix OS
 #-------------
@@ -119,8 +120,8 @@ cite both **fastText** and the **original articles / software**
   title = {{fastText}: Efficient Learning of Word Representations and
     Sentence Classification using R},
   author = {Lampros Mouselimis},
-  year = {2021},
-  note = {R package version 1.0.3},
+  year = {2026},
+  note = {R package version 1.0.5},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```

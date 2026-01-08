@@ -1,4 +1,11 @@
 
+## fastText 1.0.5
+
+* I fixed a DESCRIPTION field omission related to a paper 'doi' weblink
+* I removed the "CXX_STD = CXX11" from the "Makevars" files, and the "[[Rcpp::plugins(cpp11)]]" from the .cpp files due to the following Warning from CRAN, "SystemRequirements specified C++11: support has been removed" (see also: https://www.tidyverse.org/blog/2023/03/cran-checks-compiled-code/#note-regarding-systemrequirements-c11)
+* I removed the `SystemRequirements` from the DESCRIPTION file.
+
+
 ## fastText 1.0.4
 
 * I added a figure to the README.md file showing the differences between *static* and *contextualised* word embeddings

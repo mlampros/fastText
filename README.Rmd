@@ -3,12 +3,10 @@
 output: github_document
 ---
 
-[![tic](https://github.com/mlampros/fastText/workflows/tic/badge.svg?branch=master)](https://github.com/mlampros/fastText/actions)
-[![codecov.io](https://codecov.io/github/mlampros/fastText/coverage.svg?branch=master)](https://codecov.io/github/mlampros/fastText?branch=master)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/fastText)](http://cran.r-project.org/package=fastText)
+[![R-CMD-check](https://github.com/mlampros/fastText/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mlampros/fastText/actions/workflows/R-CMD-check.yaml)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/fastText)](http://cran.r-project.org/package=fastText)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fastText?color=blue)](http://www.r-pkg.org/pkg/fastText)
-<a href="https://www.buymeacoffee.com/VY0x8snyh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" height="21px" ></a>
-[![Dependencies](https://tinyverse.netlify.com/badge/fastText)](https://cran.r-project.org/package=fastText)
+[![status](https://tinyverse.netlify.app/badge/fastText)](https://CRAN.R-project.org/package=fastText)
 
 
 ## fastText
@@ -106,8 +104,8 @@ If you use the **fastText** R package in your paper or research please cite both
   title = {{fastText}: Efficient Learning of Word Representations and
     Sentence Classification using R},
   author = {Lampros Mouselimis},
-  year = {2021},
-  note = {R package version 1.0.3},
+  year = {2026},
+  note = {R package version 1.0.5},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```

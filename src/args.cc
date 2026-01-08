@@ -1,6 +1,5 @@
 # include <Rcpp.h>
 // [[Rcpp::depends("Rcpp")]]
-// [[Rcpp::plugins(cpp11)]]
 
 /**
  * Copyright (c) 2016-present, Facebook, Inc.
@@ -181,7 +180,7 @@ void Args::parseArgs(const std::vector<std::string>& args) {
         Rcpp::stop("EXIT_FAILURE -- args.cc file -- Args::parseArgs function");
       }
     } catch ( const std::out_of_range& ) {                                // use by reference to avoid the following warning [ https://lists.launchpad.net/kicad-developers/msg36082.html ]
-      // catch (std::out_of_range) {                                       // initially it gave on Debian OS only : "warning: catching polymorphic type ‘class std::out_of_range’ by value [-Wcatch-value=]"
+      // catch (std::out_of_range) {                                       // initially it gave on Debian OS only : "warning: catching polymorphic type ???class std::out_of_range??? by value [-Wcatch-value=]"
       Rcpp::Rcout << args[ai] << " is missing an argument" << std::endl;
       printHelp();
       Rcpp::stop("EXIT_FAILURE -- args.cc file -- Args::parseArgs function");

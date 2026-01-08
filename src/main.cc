@@ -1,6 +1,5 @@
 # include <Rcpp.h>
 // [[Rcpp::depends("Rcpp")]]
-// [[Rcpp::plugins(cpp11)]]
 
 
 /**
