@@ -1,9 +1,8 @@
 
 ## fastText 1.0.5
 
-* I fixed a DESCRIPTION field omission related to a paper 'doi' weblink
+* I fixed a DESCRIPTION field omission related to a paper 'doi' weblink and removed the `SystemRequirements` section
 * I removed the "CXX_STD = CXX11" from the "Makevars" files, and the "[[Rcpp::plugins(cpp11)]]" from the .cpp files due to the following Warning from CRAN, "SystemRequirements specified C++11: support has been removed" (see also: https://www.tidyverse.org/blog/2023/03/cran-checks-compiled-code/#note-regarding-systemrequirements-c11)
-* I removed the `SystemRequirements` from the DESCRIPTION file.
 
 
 ## fastText 1.0.4

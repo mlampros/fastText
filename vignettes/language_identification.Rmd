@@ -29,7 +29,7 @@ I didn't use any packages that make calls to API's because the dataset I'll util
 
 Based on my search on the web, currently, the [WiLI benchmark dataset](https://arxiv.org/abs/1801.07779) is among the ones that contain multilingual texts (Wikipedia extracts of 235 languages) and the corresponding labels as well. It can be downloaded either from [Zenodo](https://zenodo.org/record/841984#.YH3BBupRUV1) or from my [Datasets](https://github.com/mlampros/DataSets) Github repository.
 
-We currently live in the *Covid-19 Era* and there are many human rights violation incidents (more often than before), therefore I decided to include in this benchmark also the human rights declarations of the 3 most spoken languages (Chinese, Enlish, Spanish) because they are more relevant than ever. The human rights declarations of the mentioned languages can be downloaded either from the [official website](https://www.un.org/en/about-us/universal-declaration-of-human-rights) or from my [Datasets](https://github.com/mlampros/DataSets) Github repository, and I think it deserves a read from time to time so that we don't forget our rights as human beings.
+We currently live in the *Covid-19 Era* and there are many human rights violation incidents (more often than before), therefore I decided to include in this benchmark also the human rights declarations of the 3 most spoken languages (Chinese, Enlish, Spanish) because they are more relevant than ever. The human rights declarations of the mentioned languages can be downloaded either from the official website `https://www.un.org/en/about-us/universal-declaration-of-human-rights` or from my [Datasets](https://github.com/mlampros/DataSets) Github repository, and I think it deserves a read from time to time so that we don't forget our rights as human beings.
 <br>
 
 
@@ -206,7 +206,7 @@ The **accuracy** of the model was **83.05%** (on **50211** out of **50500** text
 
 <br>
 
-Let's move to the bigger pre-trained model which is mentioned to be more accurate. This model can be downloaded either from the [official website](https://www.un.org/en/about-us/universal-declaration-of-human-rights) or from my [Datasets](https://github.com/mlampros/DataSets) Github repository. The parameter setting of the **fastText::language_identification()** function is the same as before, and the only thing that changes is the **pre_trained_language_model_path** parameter which is set to **lid.176.bin**. Assuming this file is downloaded and extracted in the **dir_wili_2018** directory then,
+Let's move to the bigger pre-trained model which is mentioned to be more accurate. This model can be downloaded either from the official website `https://www.un.org/en/about-us/universal-declaration-of-human-rights` or from my [Datasets](https://github.com/mlampros/DataSets) Github repository. The parameter setting of the **fastText::language_identification()** function is the same as before, and the only thing that changes is the **pre_trained_language_model_path** parameter which is set to **lid.176.bin**. Assuming this file is downloaded and extracted in the **dir_wili_2018** directory then,
 
 
 ```{r, echo = T}
@@ -366,7 +366,7 @@ The **accuracy** of the **cld3** package is **74.74%** (on **43560** out of **50
 
 <br>
 
-The 'textcat' R package performs 'text categorization based on n-grams'. The documentation of the package mentions: "... TextCat (https://www.let.rug.nl/vannoord/TextCat/) is a Perl implementation of the Cavnarand  Trenkle  'N-Gram-Based  Text  Categorization' technique by Gertjan van Noord which was subsequently integrated into SpamAssassin.  It provides byte n-gram profiles for 74 'languages' (more precisely, language/encoding combinations). The C library reimplementation libtextcat (https://software.wise-guys.nl/libtextcat/) adds one more non-empty profile. 
+The 'textcat' R package performs 'text categorization based on n-grams'. The documentation of the package mentions: "... TextCat (https://www.let.rug.nl/vannoord/TextCat/) is a Perl implementation of the Cavnarand  Trenkle  'N-Gram-Based  Text  Categorization' technique by Gertjan van Noord which was subsequently integrated into SpamAssassin.  It provides byte n-gram profiles for 74 'languages' (more precisely, language/encoding combinations). The C library reimplementation libtextcat adds one more non-empty profile. 
 
 * 'TC_byte_profiles' provides these byte profiles. 
 * 'TC_char_profiles' provides a subset of 56 character profiles obtained by converting the byte sequences to UTF-8 strings where possible.
