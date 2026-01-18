@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Lampros
 Mouselimis</h4>
             
-            <h4 data-toc-skip class="date">2026-01-08</h4>
+            <h4 data-toc-skip class="date">2026-01-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/master/vignettes/language_identification.Rmd" class="external-link"><code>vignettes/language_identification.Rmd</code></a></small>
       <div class="d-none name"><code>language_identification.Rmd</code></div>
@@ -101,10 +101,11 @@ human rights violation incidents (more often than before), therefore I
 decided to include in this benchmark also the human rights declarations
 of the 3 most spoken languages (Chinese, Enlish, Spanish) because they
 are more relevant than ever. The human rights declarations of the
-mentioned languages can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official
-website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
-repository, and I think it deserves a read from time to time so that we
-don’t forget our rights as human beings. <br></p>
+mentioned languages can be downloaded either from the official website
+<code>https://www.un.org/en/about-us/universal-declaration-of-human-rights</code>
+or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a>
+Github repository, and I think it deserves a read from time to time so
+that we don’t forget our rights as human beings. <br></p>
 <div class="section level3">
 <h3 id="benchmark-based-on-the-wili-dataset">Benchmark based on the WiLI dataset<a class="anchor" aria-label="anchor" href="#benchmark-based-on-the-wili-dataset"></a>
 </h3>
@@ -239,9 +240,11 @@ pre-trained dataset</a>,</p>
 </h3>
 <p><br></p>
 <p>Let’s move to the bigger pre-trained model which is mentioned to be
-more accurate. This model can be downloaded either from the <a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights" class="external-link">official
-website</a> or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a> Github
-repository. The parameter setting of the
+more accurate. This model can be downloaded either from the official
+website
+<code>https://www.un.org/en/about-us/universal-declaration-of-human-rights</code>
+or from my <a href="https://github.com/mlampros/DataSets" class="external-link">Datasets</a>
+Github repository. The parameter setting of the
 <strong>fastText::language_identification()</strong> function is the
 same as before, and the only thing that changes is the
 <strong>pre_trained_language_model_path</strong> parameter which is set
@@ -387,8 +390,7 @@ implementation of the Cavnarand Trenkle ‘N-Gram-Based Text
 Categorization’ technique by Gertjan van Noord which was subsequently
 integrated into SpamAssassin. It provides byte n-gram profiles for 74
 ‘languages’ (more precisely, language/encoding combinations). The C
-library reimplementation libtextcat (<a href="https://software.wise-guys.nl/libtextcat/" class="external-link uri">https://software.wise-guys.nl/libtextcat/</a>) adds one more
-non-empty profile.</p>
+library reimplementation libtextcat adds one more non-empty profile.</p>
 <ul>
 <li>‘TC_byte_profiles’ provides these byte profiles.</li>
 <li>‘TC_char_profiles’ provides a subset of 56 character profiles

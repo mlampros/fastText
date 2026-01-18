@@ -30,8 +30,8 @@ violation incidents (more often than before), therefore I decided to
 include in this benchmark also the human rights declarations of the 3
 most spoken languages (Chinese, Enlish, Spanish) because they are more
 relevant than ever. The human rights declarations of the mentioned
-languages can be downloaded either from the [official
-website](https://www.un.org/en/about-us/universal-declaration-of-human-rights)
+languages can be downloaded either from the official website
+`https://www.un.org/en/about-us/universal-declaration-of-human-rights`
 or from my [Datasets](https://github.com/mlampros/DataSets) Github
 repository, and I think it deserves a read from time to time so that we
 don’t forget our rights as human beings.  
@@ -191,8 +191,8 @@ The **accuracy** of the model was **83.05%** (on **50211** out of
   
 
 Let’s move to the bigger pre-trained model which is mentioned to be more
-accurate. This model can be downloaded either from the [official
-website](https://www.un.org/en/about-us/universal-declaration-of-human-rights)
+accurate. This model can be downloaded either from the official website
+`https://www.un.org/en/about-us/universal-declaration-of-human-rights`
 or from my [Datasets](https://github.com/mlampros/DataSets) Github
 repository. The parameter setting of the
 **fastText::language_identification()** function is the same as before,
@@ -362,8 +362,7 @@ the Cavnarand Trenkle ‘N-Gram-Based Text Categorization’ technique by
 Gertjan van Noord which was subsequently integrated into SpamAssassin.
 It provides byte n-gram profiles for 74 ‘languages’ (more precisely,
 language/encoding combinations). The C library reimplementation
-libtextcat (<https://software.wise-guys.nl/libtextcat/>) adds one more
-non-empty profile.
+libtextcat adds one more non-empty profile.
 
 - ‘TC_byte_profiles’ provides these byte profiles.
 - ‘TC_char_profiles’ provides a subset of 56 character profiles obtained
