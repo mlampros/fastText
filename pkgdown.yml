@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   language_identification: language_identification.html
   the_fastText_R_package: the_fastText_R_package.html
-last_built: 2026-01-18T13:57Z
+last_built: 2026-01-18T14:03Z
 urls:
   reference: https://mlampros.github.io/fastText/reference
   article: https://mlampros.github.io/fastText/articles
