@@ -84,7 +84,7 @@ setwd('/your_folder/fastText/')
 Rcpp::compileAttributes(verbose = TRUE)
 setwd('/your_folder/')
 system("R CMD build fastText")
-system("R CMD INSTALL fastText_1.0.1.tar.gz")
+system("R CMD INSTALL fastText_1.0.7.tar.gz")
 
 
 #------------------
@@ -95,7 +95,7 @@ setwd('C:/your_folder/fastText/')
 Rcpp::compileAttributes(verbose = TRUE)
 setwd('C:/your_folder/')
 system("R CMD build fastText")
-system("R CMD INSTALL fastText_1.0.1.tar.gz")
+system("R CMD INSTALL fastText_1.0.7.tar.gz")
 ```
 
 <br>
@@ -121,7 +121,7 @@ cite both **fastText** and the **original articles / software**
     Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2026},
-  note = {R package version 1.0.5},
+  note = {R package version 1.0.7},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```

@@ -767,7 +767,8 @@ void FastText::startThreads(std::string pth, int MilliSecs) {
   loss_ = -1;
   std::vector<std::thread> threads;
   for (int32_t i = 0; i < args_->thread; i++) {
-    threads.push_back(std::thread([=]() { trainThread(i); }));
+    // threads.push_back(std::thread([=]() { trainThread(i); }));                   // this gives warning: implicit capture of 'this' via '[=]' is deprecated in C++20 [-Wdeprecated]
+    threads.push_back(std::thread([this, i]() { trainThread(i); }));
   }
   const int64_t ntokens = dict_->ntokens();
 

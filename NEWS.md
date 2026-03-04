@@ -1,4 +1,14 @@
 
+## fastText 1.0.7
+
+* I fixed the CRAN `warning: explicit by-copy capture of this with by-copy capture default only available with -std=c++20 or -std=gnu++20 [-Wc++20-extensions]` in the `/src/fasttext.cc` file
+
+
+## fastText 1.0.6
+
+* I fixed the CRAN *warning: implicit capture of 'this' via '[=]' is deprecated in C++20 [-Wdeprecated]*
+
+
 ## fastText 1.0.5
 
 * I fixed a DESCRIPTION field omission related to a paper 'doi' weblink and removed the `SystemRequirements` section
