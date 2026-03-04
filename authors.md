@@ -14,13 +14,13 @@ Source:
 
 Mouselimis L (2026). *fastText: Efficient Learning of Word
 Representations and Sentence Classification using R*. R package version
-1.0.5, <https://CRAN.R-project.org/package=fastText>.
+1.0.7, <https://CRAN.R-project.org/package=fastText>.
 
     @Manual{,
       title = {{fastText}: Efficient Learning of Word Representations and Sentence Classification using R},
       author = {Lampros Mouselimis},
       year = {2026},
-      note = {R package version 1.0.5},
+      note = {R package version 1.0.7},
       url = {https://CRAN.R-project.org/package=fastText},
     }
 

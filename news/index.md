@@ -1,5 +1,20 @@
 # Changelog
 
+## fastText 1.0.7
+
+CRAN release: 2026-02-20
+
+- I fixed the CRAN
+  `warning: explicit by-copy capture of this with by-copy capture default only available with -std=c++20 or -std=gnu++20 [-Wc++20-extensions]`
+  in the `/src/fasttext.cc` file
+
+## fastText 1.0.6
+
+CRAN release: 2026-02-10
+
+- I fixed the CRAN *warning: implicit capture of ‘this’ via ‘\[=\]’ is
+  deprecated in C++20 \[-Wdeprecated\]*
+
 ## fastText 1.0.5
 
 CRAN release: 2026-01-09

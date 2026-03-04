@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">fastText</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Lampros
 Mouselimis</h4>
             
-            <h4 data-toc-skip class="date">2026-01-18</h4>
+            <h4 data-toc-skip class="date">2026-03-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mlampros/fastText/blob/master/vignettes/language_identification.Rmd" class="external-link"><code>vignettes/language_identification.Rmd</code></a></small>
       <div class="d-none name"><code>language_identification.Rmd</code></div>
@@ -151,7 +151,7 @@ full names of the languages,</p>
 <span><span class="va">idx_keep_fasttext</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">fasttext_supported_languages</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span><span class="va">idx_keep_fasttext</span>, <span class="op">]</span></span>
-<span><span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/data.table.html" class="external-link">data.table</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">)</span></span>
+<span><span class="va">isocodes_fasttext</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/data.table.html" class="external-link">data.table</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">)</span></span>
 <span><span class="co"># isocodes_fasttext</span></span>
 <span></span>
 <span><span class="va">lower_nams</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/chartr.html" class="external-link">tolower</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Name</span><span class="op">)</span></span>
@@ -328,7 +328,7 @@ NA if the language could not reliably be determined.”</p>
 <span><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">cld2_vec</span> <span class="op">=</span> <span class="fu">cld2</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span>, plain_text <span class="op">=</span> <span class="cn">TRUE</span>, lang_code <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">cld2_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld2_vec</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cld2_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld2_vec</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">cld2_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span></span>
 <span></span>
 <span><span class="va">merg_labels_cld2</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">cld2_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span></span>
@@ -363,7 +363,7 @@ language could not reliably be determined.”</p>
 <span><span class="va">t_start</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/proc.time.html" class="external-link">proc.time</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">cld3_vec</span> <span class="op">=</span> <span class="fu">cld3</span><span class="fu">::</span><span class="fu">detect_language</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">cld3_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld3_vec</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">cld3_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Alpha_2 <span class="op">=</span> <span class="va">cld3_vec</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">cld3_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span></span>
 <span></span>
 <span><span class="va">merg_labels_cld3</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="va">cld3_dtbl</span>, <span class="va">isocodes_fasttext_subs</span>, by <span class="op">=</span> <span class="st">'Alpha_2'</span><span class="op">)</span></span>
@@ -446,7 +446,7 @@ computation of the accuracy is correct,</p>
 <p><img src="language_identification/unique_textc.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">textc_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span></span>
 <span></span>
 <span><span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span></span>
@@ -494,7 +494,7 @@ computation of the accuracy is correct,</p>
 <p><img src="language_identification/unique_textc_char.png"></p>
 <p><br></p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">textc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>Name_tolower <span class="op">=</span> <span class="va">textc</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">textc_dtbl</span><span class="op">$</span><span class="va">true_label</span> <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span></span>
 <span></span>
 <span><span class="va">fasttext_isoc_name</span> <span class="op">=</span> <span class="va">isocodes_fasttext</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span><span class="op">]</span></span>
@@ -543,7 +543,7 @@ accuracy for this specific data / text extracts),</p>
 <span>  <span class="fu">franc</span><span class="op">(</span>text <span class="op">=</span> <span class="va">wili_test_x</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">x</span><span class="op">]</span>, min_speakers <span class="op">=</span> <span class="fl">0</span>, min_length <span class="op">=</span> <span class="fl">10</span>, max_length <span class="op">=</span> <span class="fl">2048</span><span class="op">)</span></span>
 <span><span class="op">}</span>, mc.cores <span class="op">=</span> <span class="va">threads</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">franc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>franc <span class="op">=</span> <span class="va">franc_res</span>, true_label <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">franc_dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>franc <span class="op">=</span> <span class="va">franc_res</span>, true_label <span class="op">=</span> <span class="va">wili_test_y</span><span class="op">$</span><span class="va">V1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co"># as.vector(colSums(is.na(franc_dtbl)))</span></span>
 <span></span>
 <span><span class="fu">print_accuracy</span><span class="op">(</span>size_input_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">wili_test_y</span><span class="op">)</span>, </span>
@@ -611,14 +611,14 @@ then,</p>
 <span>  <span class="va">isocode_2_language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">isocodes_fasttext</span><span class="op">$</span><span class="va">Alpha_2</span><span class="op">[</span><span class="va">idx_lang</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="va">language</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="va">lang</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span></span>
 <span>  </span>
-<span>  <span class="va">dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>isocode_3_language <span class="op">=</span> <span class="va">isocode_3_language</span>,</span>
+<span>  <span class="va">dtbl</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>isocode_3_language <span class="op">=</span> <span class="va">isocode_3_language</span>,</span>
 <span>                                isocode_2_language <span class="op">=</span> <span class="va">isocode_2_language</span>,</span>
 <span>                                language <span class="op">=</span> <span class="va">language</span>,</span>
 <span>                                text <span class="op">=</span> <span class="va">vec_txt</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="va">dtbl</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">decl_dat</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">decl_dat</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">decl_dat</span><span class="op">)</span></span></code></pre></div>
 <p><img src="language_identification/decl_dat.png"></p>
 <p><br></p>
 <p>The output <em>data.table</em> includes besides the <em>language</em>
@@ -730,7 +730,7 @@ data.table,</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">dtbl_out</span><span class="op">)</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'true_y_iso_3'</span>, <span class="st">'true_y_iso_2'</span>, <span class="st">'true_y_language'</span><span class="op">)</span></span>
 <span><span class="co"># dtbl_out</span></span>
 <span></span>
-<span><span class="va">dtbl_preds</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fastText <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,</span>
+<span><span class="va">dtbl_preds</span> <span class="op">=</span> <span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/setDT.html" class="external-link">setDT</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>fastText <span class="op">=</span> <span class="va">dtbl_res_in</span><span class="op">$</span><span class="va">iso_lang_1</span>,</span>
 <span>                                    cld2 <span class="op">=</span> <span class="va">cld2_vec</span>,</span>
 <span>                                    cld3 <span class="op">=</span> <span class="va">cld3_vec</span>,</span>
 <span>                                    textcat <span class="op">=</span> <span class="va">textc</span>,</span>
