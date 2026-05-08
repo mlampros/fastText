@@ -1,4 +1,9 @@
 
+## fastText 1.0.8
+
+* I fixed a bug in the *'language_identification()'* function where input text that could be interpreted as a directory path (e.g. `"../.."` or `"data"` when a `data/` folder exists) caused an error. The fix replaces `file.exists()` with `utils::file_test(op = "-f", ...)` to correctly distinguish regular files from directories (see Github issues: https://github.com/mlampros/fastText/issues/6 and https://github.com/mlampros/fastText/issues/3)
+
+
 ## fastText 1.0.7
 
 * I fixed the CRAN `warning: explicit by-copy capture of this with by-copy capture default only available with -std=c++20 or -std=gnu++20 [-Wc++20-extensions]` in the `/src/fasttext.cc` file

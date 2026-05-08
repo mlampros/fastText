@@ -36,18 +36,22 @@ Language Identification using fastText
 
 library(fastText)
 
-vec_txt = c("Incapaz de distinguir la luna y la cara de esta chica,
+vec_txt <- c(
+  "Incapaz de distinguir la luna y la cara de esta chica,
              Las estrellas se ponen nerviosas en el cielo",
-             "Unable to tell apart the moon and this girl's face,
-             Stars are flustered up in the sky.")
+  "Unable to tell apart the moon and this girl's face,
+             Stars are flustered up in the sky."
+)
 
-file_pretrained = system.file("language_identification/lid.176.ftz", package = "fastText")
+file_pretrained <- system.file("language_identification/lid.176.ftz", package = "fastText")
 
-dtbl_out = language_identification(input_obj = vec_txt,
-                                   pre_trained_language_model_path = file_pretrained,
-                                   k = 3,
-                                   th = 0.0,
-                                   verbose = TRUE)
+dtbl_out <- language_identification(
+  input_obj = vec_txt,
+  pre_trained_language_model_path = file_pretrained,
+  k = 3,
+  th = 0.0,
+  verbose = TRUE
+)
 dtbl_out
 }
 \references{

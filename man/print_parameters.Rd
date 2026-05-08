@@ -16,12 +16,11 @@ It does not return a value but only prints the available parameters in the R ses
 Print the parameters for a specific command
 }
 \examples{
-
 \dontrun{
 
 library(fastText)
 
-print_parameters(command = 'supervised')
+print_parameters(command = "supervised")
 }
 }
 \references{

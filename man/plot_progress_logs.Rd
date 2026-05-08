@@ -18,7 +18,6 @@ an object of class data.frame that includes the progress logs with columns 'prog
 Plot the progress of loss, learning-rate and word-counts
 }
 \examples{
-
 \dontrun{
 
 library(fastText)
@@ -30,9 +29,10 @@ library(fastText)
 # 'progress_data.txt' file to the desired folder.
 #-----------------------------------------------------------------
 
-res = plot_progress_logs(path = file.path(tempdir(), "progress_data.txt"),
-                         plot = TRUE)
-
+res <- plot_progress_logs(
+  path = file.path(tempdir(), "progress_data.txt"),
+  plot = TRUE
+)
 }
 }
 \references{
