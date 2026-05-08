@@ -22,6 +22,7 @@ the 'printDumpUsage' function in the R session
 ## Examples
 
 ``` r
+
 library(fastText)
 
 printDumpUsage()

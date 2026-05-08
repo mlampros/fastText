@@ -34,6 +34,6 @@ if (FALSE) { # \dontrun{
 
 library(fastText)
 
-print_parameters(command = 'supervised')
+print_parameters(command = "supervised")
 } # }
 ```

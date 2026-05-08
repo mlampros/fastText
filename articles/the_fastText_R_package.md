@@ -7,22 +7,22 @@ learning of word representations and sentence classification. The
 following functions are included,  
   
 
-|              fastText              |                                                                                |
-|:----------------------------------:|:------------------------------------------------------------------------------:|
-|       **fasttext_interface**       |                       Interface for the fasttext library                       |
-|       **plot_progress_logs**       |            Plot the progress of loss, learning-rate and word-counts            |
-|      **printAnalogiesUsage**       |         Print Usage Information when the command equals to ‘analogies’         |
-|         **printDumpUsage**         |           Print Usage Information when the command equals to ‘dump’            |
-|          **printNNUsage**          |            Print Usage Information when the command equals to ‘nn’             |
-|       **printPredictUsage**        | Print Usage Information when the command equals to ‘predict’ or ‘predict-prob’ |
-|     **printPrintNgramsUsage**      |       Print Usage Information when the command equals to ‘print-ngrams’        |
-| **printPrintSentenceVectorsUsage** |  Print Usage Information when the command equals to ‘print-sentence-vectors’   |
-|   **printPrintWordVectorsUsage**   |    Print Usage Information when the command equals to ‘print-word-vectors’     |
-|       **printQuantizeUsage**       |         Print Usage Information when the command equals to ‘quantize’          |
-|      **printTestLabelUsage**       |        Print Usage Information when the command equals to ‘test-label’         |
-|         **printTestUsage**         |           Print Usage Information when the command equals to ‘test’            |
-|           **printUsage**           |                   Print Usage Information for all parameters                   |
-|        **print_parameters**        |                  Print the parameters for a specific command                   |
+| fastText |  |
+|:--:|:--:|
+| **fasttext_interface** | Interface for the fasttext library |
+| **plot_progress_logs** | Plot the progress of loss, learning-rate and word-counts |
+| **printAnalogiesUsage** | Print Usage Information when the command equals to ‘analogies’ |
+| **printDumpUsage** | Print Usage Information when the command equals to ‘dump’ |
+| **printNNUsage** | Print Usage Information when the command equals to ‘nn’ |
+| **printPredictUsage** | Print Usage Information when the command equals to ‘predict’ or ‘predict-prob’ |
+| **printPrintNgramsUsage** | Print Usage Information when the command equals to ‘print-ngrams’ |
+| **printPrintSentenceVectorsUsage** | Print Usage Information when the command equals to ‘print-sentence-vectors’ |
+| **printPrintWordVectorsUsage** | Print Usage Information when the command equals to ‘print-word-vectors’ |
+| **printQuantizeUsage** | Print Usage Information when the command equals to ‘quantize’ |
+| **printTestLabelUsage** | Print Usage Information when the command equals to ‘test-label’ |
+| **printTestUsage** | Print Usage Information when the command equals to ‘test’ |
+| **printUsage** | Print Usage Information for all parameters |
+| **print_parameters** | Print the parameters for a specific command |
 
   
 
@@ -43,6 +43,7 @@ specific ‘command’. The ‘command’ can be for instance *supervised*,
   
 
 ``` r
+
 library(fastText)
 
 print_parameters(command = "supervised")
@@ -103,6 +104,7 @@ instance,
   
 
 ``` r
+
 printPredictUsage()
 
 
@@ -134,6 +136,7 @@ following code chunks.
   
 
 ``` r
+
 setwd('fastText_data')                  # make the extracted data the default directory
 
 #------
@@ -172,6 +175,7 @@ purposes. The user is advised to specify his / her own folder.**
   
 
 ``` r
+
 #-----------
 # supervised
 #-----------
@@ -207,6 +211,7 @@ The user has here also the option to plot the progress of *loss*,
   
 
 ``` r
+
 res = plot_progress_logs(path = file.path(tempdir(), 'sup_logs.txt'), 
                          plot = TRUE)
 
@@ -235,6 +240,7 @@ output model,
 
 ``` r
 
+
 #-------------------
 # 'predict' function
 #-------------------
@@ -260,6 +266,7 @@ probabilities of the labels as well,
   
 
 ``` r
+
 
 #------------------------
 # 'predict-prob' function
@@ -289,6 +296,7 @@ prints the metrics in the R session,
   
 
 ``` r
+
 #----------------
 # 'test' function
 #----------------
@@ -314,6 +322,7 @@ whereas the ‘test-label’ command allows the user to save,
   
 
 ``` r
+
 
 #----------------------
 # 'test-label' function
@@ -341,6 +350,7 @@ following code snippet,
   
 
 ``` r
+
 st_dat = read.delim(file.path("cooking.stackexchange", "cooking.stackexchange.txt"), 
                     stringsAsFactors = FALSE)
 
@@ -378,6 +388,7 @@ usage with the following command,
   
 
 ``` r
+
 #---------------------
 # 'quantize' function
 #---------------------
@@ -408,6 +419,7 @@ vectors to a file using the following command ( one vector per line ),
 
 ``` r
 
+
 #----------------------------
 # print-word-vectors function
 #----------------------------
@@ -428,6 +440,7 @@ following command,
   
 
 ``` r
+
 
 #--------------------------------
 # print-sentence-vectors function
@@ -452,6 +465,7 @@ following form,
   
 
 ``` r
+
 How much does potato starch affect a cheese sauce recipe</s>
 Dangerous pathogens capable of growing in acidic environments</s>
 How do I cover up the white spots on my cast iron stove</s>
@@ -478,6 +492,7 @@ parameters)
   
 
 ``` r
+
 #----------------------------------------
 # 'skipgram' function with n-gram enabled
 #----------------------------------------
@@ -532,6 +547,7 @@ based on the input model,
   
 
 ``` r
+
 #--------------
 # 'nn' function
 #--------------
@@ -563,6 +579,7 @@ file (separated by an empty line),
   
 
 ``` r
+
 #---------------------
 # 'analogies' function
 #---------------------
@@ -602,6 +619,7 @@ Finally, the *‘dump’* function takes as *‘option’* one of the *‘args�
   
 
 ``` r
+
 #--------------
 # dump function
 #--------------

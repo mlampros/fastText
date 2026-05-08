@@ -1,5 +1,17 @@
 # Changelog
 
+## fastText 1.0.8
+
+- I fixed a bug in the *‘language_identification()’* function where
+  input text that could be interpreted as a directory path
+  (e.g. `"../.."` or `"data"` when a `data/` folder exists) caused an
+  error. The fix replaces
+  [`file.exists()`](https://rdrr.io/r/base/files.html) with
+  `utils::file_test(op = "-f", ...)` to correctly distinguish regular
+  files from directories (see Github issues:
+  <https://github.com/mlampros/fastText/issues/6> and
+  <https://github.com/mlampros/fastText/issues/3>)
+
 ## fastText 1.0.7
 
 CRAN release: 2026-02-20

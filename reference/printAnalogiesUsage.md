@@ -22,6 +22,7 @@ the 'printAnalogiesUsage' function in the R session
 ## Examples
 
 ``` r
+
 library(fastText)
 
 printAnalogiesUsage()

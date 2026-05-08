@@ -44,6 +44,7 @@ You can either install the package from CRAN using,
 
 ``` r
 
+
 install.packages("fastText")
  
 ```
@@ -54,6 +55,7 @@ or from Github using the *install_github* function of the *remotes*
 package,
 
 ``` r
+
 
 remotes::install_github('mlampros/fastText')
 ```
@@ -68,6 +70,7 @@ NAMESPACE etc. are present when you open the fastText folder) and then
 run,
 
 ``` r
+
 
 #-------------
 # on a Unix OS

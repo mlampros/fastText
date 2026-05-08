@@ -1,10 +1,10 @@
-pandoc: 3.1.11
+pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   language_identification: language_identification.html
   the_fastText_R_package: the_fastText_R_package.html
-last_built: 2026-03-04T09:48Z
+last_built: 2026-05-08T07:31Z
 urls:
   reference: https://mlampros.github.io/fastText/reference
   article: https://mlampros.github.io/fastText/articles

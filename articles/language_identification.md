@@ -43,6 +43,7 @@ currently 176 languages. The following character vector shows the
 available *language isocodes*.
 
 ``` r
+
 fasttext_supported_languages = c('af', 'als', 'am', 'an', 'ar', 'arz', 'as', 'ast', 'av', 
                                  'az', 'azb', 'ba', 'bar', 'bcl', 'be', 'bg', 'bh', 'bn',
                                  'bo', 'bpy', 'br', 'bs', 'bxr', 'ca', 'cbk', 'ce', 'ceb',
@@ -75,6 +76,7 @@ required 2- and 3-letter isocodes and also the available full names of
 the languages,
 
 ``` r
+
 isocodes = ISOcodes::ISO_639_2
 # head(isocodes)
 
@@ -103,6 +105,7 @@ The next function will be used to compute and print the accuracy in all
 cases,
 
 ``` r
+
 print_accuracy = function(size_input_data,
                           true_data,
                           preds_data,
@@ -150,6 +153,7 @@ First, we’ll use the [smaller pre-trained
 dataset](https://fasttext.cc/docs/en/language-identification.html),
 
 ``` r
+
 file_ftz = system.file("language_identification/lid.176.ftz", package = "fastText")
 
 dtbl_res_in = fastText::language_identification(input_obj = wili_test_x$V1,
@@ -163,6 +167,7 @@ dtbl_res_in = fastText::language_identification(input_obj = wili_test_x$V1,
 ![](language_identification/dtbl_res_in.png)
 
 ``` r
+
 dtbl_res_in$true_label = wili_test_y$V1
 # dtbl_res_in
 
@@ -202,6 +207,7 @@ and the only thing that changes is the
 **dir_wili_2018** directory then,
 
 ``` r
+
 file_bin = file.path(dir_wili_2018, 'lid.176.bin')
 
 dtbl_res_in = fastText::language_identification(input_obj = wili_test_x$V1,
@@ -215,6 +221,7 @@ dtbl_res_in = fastText::language_identification(input_obj = wili_test_x$V1,
 ![](language_identification/dtbl_res_in_bin.png)
 
 ``` r
+
 dtbl_res_in$true_label = wili_test_y$V1
 # dtbl_res_in
 
@@ -247,6 +254,7 @@ The main diagonal is dominated by the dark green color indicating higher
 accuracy rates,
 
 ``` r
+
 tbl = table(merg_labels$true_label, merg_labels$Alpha_3_B)
 
 df = as.data.frame.table(tbl)
@@ -285,6 +293,7 @@ is vectorised and guesses the language of each string in text or returns
 NA if the language could not reliably be determined.”
 
 ``` r
+
 require(cld2)
 
 t_start = proc.time()
@@ -325,6 +334,7 @@ the language of each string in text or returns NA if the language could
 not reliably be determined.”
 
 ``` r
+
 require(cld3)
 
 t_start = proc.time()
@@ -399,6 +409,7 @@ Before proceeding lets have a look to the available profiles,
   
 
 ``` r
+
 threads = parallel::detectCores()
 require(textcat)
 
@@ -418,6 +429,7 @@ correct,
   
 
 ``` r
+
 t_start = proc.time()
 textc = as.vector(unlist(parallel::mclapply(1:length(wili_test_x$V1), function(x) {
   textcat(x = wili_test_x$V1[x], p = textcat::TC_byte_profiles, method = "CT")
@@ -434,6 +446,7 @@ unique(textc)
   
 
 ``` r
+
 textc_dtbl = data.table::setDT(list(Name_tolower = textc))
 textc_dtbl$true_label = wili_test_y$V1
 
@@ -466,6 +479,7 @@ Again, as previously we can have a look to the available profiles,
   
 
 ``` r
+
 names(textcat::TC_char_profiles)
 ```
 
@@ -482,6 +496,7 @@ correct,
   
 
 ``` r
+
 t_start = proc.time()
 textc = as.vector(unlist(parallel::mclapply(1:length(wili_test_x$V1), function(x) {
   textcat(x = wili_test_x$V1[x], p = textcat::TC_char_profiles, method = "CT")
@@ -498,6 +513,7 @@ unique(textc)
   
 
 ``` r
+
 textc_dtbl = data.table::setDT(list(Name_tolower = textc))
 textc_dtbl$true_label = wili_test_y$V1
 
@@ -544,6 +560,7 @@ known by franc (increasing the *max_length* parameter to *4096* does not
 improve the accuracy for this specific data / text extracts),
 
 ``` r
+
 require(franc)
 
 t_start = proc.time()
@@ -616,10 +633,12 @@ Assuming the **.zip** file is downloaded and extracted in the
 is named as **declaration_human_rights** then,
 
 ``` r
+
 dir_files = file.path(dir_wili_2018, 'declaration_human_rights')
 ```
 
 ``` r
+
 lst_files = list.files(dir_files, full.names = T, pattern = '.pdf')
 
 decl_dat = lapply(1:length(lst_files), function(x) {
@@ -656,6 +675,7 @@ the **fastText** R package and utilizing the *small* pre-trained
 *‘lid.176.ftz’* model,
 
 ``` r
+
 dtbl_res_in = fastText::language_identification(input_obj = decl_dat$text,
                                                 pre_trained_language_model_path = file_ftz,
                                                 k = 1,
@@ -672,6 +692,7 @@ To validate the results we will use the **isocode_2_language** column of
 the previous computed **decl_dat** data.table,
 
 ``` r
+
 print_accuracy(size_input_data = length(dtbl_res_in$iso_lang_1),
                true_data = decl_dat$isocode_2_language,
                preds_data = dtbl_res_in$iso_lang_1,
@@ -685,6 +706,7 @@ There are no misclassifications for the 24 input text extracts using the
 corresponding language identification function,
 
 ``` r
+
 cld2_vec = cld2::detect_language(text = decl_dat$text, 
                                  plain_text = TRUE, 
                                  lang_code = TRUE)
@@ -696,6 +718,7 @@ cld2_vec
   
 
 ``` r
+
 print_accuracy(size_input_data = nrow(decl_dat), 
                true_data = decl_dat$isocode_2_language, 
                preds_data = cld2_vec, 
@@ -710,6 +733,7 @@ test also **cld3**,
   
 
 ``` r
+
 cld3_vec = cld3::detect_language(text = decl_dat$text)
 cld3_vec
 ```
@@ -719,6 +743,7 @@ cld3_vec
   
 
 ``` r
+
 print_accuracy(size_input_data = nrow(decl_dat),
                true_data = decl_dat$isocode_2_language,
                preds_data = cld3_vec,
@@ -735,6 +760,7 @@ profiles in the **textcat** function,
   
 
 ``` r
+
 textc = textcat(x = decl_dat$text, p = textcat::TC_byte_profiles, method = "CT") 
 textc
 ```
@@ -744,6 +770,7 @@ textc
   
 
 ``` r
+
 textc = as.vector(unlist(lapply(strsplit(textc, '-'), function(x) x[1])))
 textc = trimws(textc, which = 'both')
 textc
@@ -754,6 +781,7 @@ textc
   
 
 ``` r
+
 print_accuracy(size_input_data = nrow(decl_dat), 
                true_data = decl_dat$language, 
                preds_data = textc, 
@@ -769,6 +797,7 @@ Finally, we’ll test the **franc** package,
   
 
 ``` r
+
 franc_vec = as.vector(sapply(decl_dat$text, function(x) {
   franc(text = x, min_length = 10, max_length = 2048)
 }))
@@ -781,6 +810,7 @@ franc_vec
   
 
 ``` r
+
 print_accuracy(size_input_data = nrow(decl_dat),
                true_data = decl_dat$isocode_3_language,
                preds_data = franc_vec,
@@ -798,6 +828,7 @@ illustrating the outputs in a single data.table,
   
 
 ``` r
+
 dtbl_out = decl_dat[, 1:3]
 colnames(dtbl_out) = c('true_y_iso_3', 'true_y_iso_2', 'true_y_language')
 # dtbl_out
@@ -843,6 +874,7 @@ sentence,
   
 
 ``` r
+
 lst_files = list.files(dir_files, full.names = F, pattern = '.pdf')
 
 min_letters_en_es = 3         # min. number of characters for the 'en' and 'es' languages
@@ -913,6 +945,7 @@ recorded by a fourth person.
   
 
 ``` r
+
 num_languages = 3
 ```
 
@@ -923,6 +956,7 @@ num_languages = 3
   
 
 ``` r
+
 dtbl_multiling = fastText::language_identification(input_obj = multilingual_sentence,
                                                    pre_trained_language_model_path = file_ftz,
                                                    k = num_languages,
@@ -941,6 +975,7 @@ dtbl_multiling
   
 
 ``` r
+
 cld2::detect_language_mixed(text = multilingual_sentence, plain_text = TRUE)$classification
 ```
 
@@ -953,6 +988,7 @@ cld2::detect_language_mixed(text = multilingual_sentence, plain_text = TRUE)$cla
   
 
 ``` r
+
 cld3::detect_language_mixed(text = multilingual_sentence, size = num_languages)
 ```
 
@@ -965,6 +1001,7 @@ cld3::detect_language_mixed(text = multilingual_sentence, size = num_languages)
   
 
 ``` r
+
 # we could use the 'whitelist' parameter but the purpose is to identify languages from unknown text
 
 franc::franc_all(text = multilingual_sentence, max_length = nchar(multilingual_sentence) + 1)[1:num_languages, ]

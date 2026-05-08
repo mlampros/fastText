@@ -43,8 +43,9 @@ library(fastText)
 # 'progress_data.txt' file to the desired folder.
 #-----------------------------------------------------------------
 
-res = plot_progress_logs(path = file.path(tempdir(), "progress_data.txt"),
-                         plot = TRUE)
-
+res <- plot_progress_logs(
+  path = file.path(tempdir(), "progress_data.txt"),
+  plot = TRUE
+)
 } # }
 ```

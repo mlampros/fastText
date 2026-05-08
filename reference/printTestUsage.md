@@ -22,6 +22,7 @@ the 'printTestUsage' function in the R session
 ## Examples
 
 ``` r
+
 library(fastText)
 
 printTestUsage()

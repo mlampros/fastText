@@ -22,6 +22,7 @@ the 'printPrintWordVectorsUsage' function in the R session
 ## Examples
 
 ``` r
+
 library(fastText)
 
 printPrintWordVectorsUsage()
