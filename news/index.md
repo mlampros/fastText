@@ -2,6 +2,8 @@
 
 ## fastText 1.0.8
 
+CRAN release: 2026-05-12
+
 - I fixed a bug in the *‘language_identification()’* function where
   input text that could be interpreted as a directory path
   (e.g. `"../.."` or `"data"` when a `data/` folder exists) caused an
