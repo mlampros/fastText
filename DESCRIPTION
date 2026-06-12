@@ -2,7 +2,7 @@ Package: fastText
 Type: Package
 Title: Efficient Learning of Word Representations and Sentence Classification
 Version: 1.0.8
-Date: 2026-05-08
+Date: 2026-05-12
 Authors@R: c( person("Lampros", "Mouselimis", email = "mouselimislampros@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "https://orcid.org/0000-0002-8024-1546")), person("Facebook", "Inc", role = "cph") )
 URL: https://github.com/mlampros/fastText, https://mlampros.github.io/fastText/
 BugReports: https://github.com/mlampros/fastText/issues

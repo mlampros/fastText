@@ -121,7 +121,7 @@ cite both **fastText** and the **original articles / software**
     Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2026},
-  note = {R package version 1.0.7},
+  note = {R package version 1.0.8},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```

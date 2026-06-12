@@ -105,7 +105,7 @@ If you use the **fastText** R package in your paper or research please cite both
     Sentence Classification using R},
   author = {Lampros Mouselimis},
   year = {2026},
-  note = {R package version 1.0.7},
+  note = {R package version 1.0.8},
   url = {https://CRAN.R-project.org/package=fastText},
 }
 ```
